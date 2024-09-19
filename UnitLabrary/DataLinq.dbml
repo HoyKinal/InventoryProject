@@ -1,0 +1,1118 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="UnitbaseDb" Class="DataLinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\MSSQLSERVER22;Initial Catalog=UnitbaseDb;Persist Security Info=True;User ID=sa;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="UnitLabrary.Properties.Settings" SettingsPropertyName="UnitbaseDbConnectionString1" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.UnitMainDelete" Method="UnitMainDelete">
+    <Parameter Name="UnitCode" Parameter="unitCode" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateUnitMainName" Method="UpdateUnitMainName">
+    <Parameter Name="UnitCode" Parameter="unitCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="NewUnitName" Parameter="newUnitName" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UnitMainInsert" Method="UnitMainInsert">
+    <Parameter Name="UnitCode" Parameter="unitCode" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UnitName" Parameter="unitName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UnitSatus" Parameter="unitSatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="UnitlsSync" Parameter="unitlsSync" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="UpdateBy" Parameter="updateBy" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UpdateDate" Parameter="updateDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UnitMainSelectEdit" Method="UnitMainSelectEdit">
+    <Parameter Name="UnitCode" Parameter="unitCode" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="UnitMainSelectEditResult">
+      <Column Name="UnitCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitSatus" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UnitlsSync" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UnitMainUpdate" Method="UnitMainUpdate">
+    <Parameter Name="UnitCode" Parameter="unitCode" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UnitName" Parameter="unitName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UnitSatus" Parameter="unitSatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="UnitlsSync" Parameter="unitlsSync" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="UpdateBy" Parameter="updateBy" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UpdateDate" Parameter="updateDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UnitMeasurementDelete" Method="UnitMeasurementDelete">
+    <Parameter Name="UnitFrom" Parameter="unitFrom" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="UnitTo" Parameter="unitTo" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UnitMeasurementInsert" Method="UnitMeasurementInsert">
+    <Parameter Name="UnitFrom" Parameter="unitFrom" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="UnitFromDesc" Parameter="unitFromDesc" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UnitTo" Parameter="unitTo" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="UnitToDesc" Parameter="unitToDesc" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UnitOperator" Parameter="unitOperator" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="UnitFactor" Parameter="unitFactor" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="UpdateBy" Parameter="updateBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="UpdateDate" Parameter="updateDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UnitMeasurementSelect" Method="UnitMeasurementSelect">
+    <Parameter Name="search" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="UnitMeasurementSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UnitFrom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitFromName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitTo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitToName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitFromDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitOperator" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitFactor" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Ana1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana5" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana6" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana7" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana8" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana9" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana10" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UnitMeasurementSelectEdit" Method="UnitMeasurementSelectEdit">
+    <Parameter Name="UnitFrom" Parameter="unitFrom" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="UnitTo" Parameter="unitTo" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="UnitMeasurementSelectEditResult">
+      <Column Name="UnitFrom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitFromDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitTo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitToDesc" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitOperator" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitFactor" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Ana1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana5" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana6" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana7" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana8" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana9" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana10" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UnitMeasurementUpdate" Method="UnitMeasurementUpdate">
+    <Parameter Name="UnitFrom" Parameter="unitFrom" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UnitFromDesc" Parameter="unitFromDesc" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UnitTo" Parameter="unitTo" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UnitToDesc" Parameter="unitToDesc" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="UnitOperator" Parameter="unitOperator" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="UnitFactor" Parameter="unitFactor" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="UpdateBy" Parameter="updateBy" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UpdateDate" Parameter="updateDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CategoryTDelete" Method="CategoryTDelete">
+    <Parameter Name="CategoryCode" Parameter="categoryCode" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CategoryTUpdate" Method="CategoryTUpdate">
+    <Parameter Name="CategoryCode" Parameter="categoryCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CategoryName" Parameter="categoryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="CategoryStatus" Parameter="categoryStatus" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ModifyBy" Parameter="modifyBy" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ModifyDate" Parameter="modifyDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Ana1" Parameter="ana1" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Ana2" Parameter="ana2" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Ana3" Parameter="ana3" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Ana4" Parameter="ana4" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Ana5" Parameter="ana5" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="Ana6" Parameter="ana6" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="Ana7" Parameter="ana7" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="Ana8" Parameter="ana8" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Ana9" Parameter="ana9" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Ana10" Parameter="ana10" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CategoryTInsert" Method="CategoryTInsert">
+    <Parameter Name="CategoryCode" Parameter="categoryCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CategoryName" Parameter="categoryName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="CategoryStatus" Parameter="categoryStatus" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ModifyBy" Parameter="modifyBy" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ModifyDate" Parameter="modifyDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Ana1" Parameter="ana1" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Ana2" Parameter="ana2" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Ana3" Parameter="ana3" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Ana4" Parameter="ana4" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Ana5" Parameter="ana5" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="Ana6" Parameter="ana6" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="Ana7" Parameter="ana7" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="Ana8" Parameter="ana8" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Ana9" Parameter="ana9" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Ana10" Parameter="ana10" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CategoryTSelect" Method="CategoryTSelect">
+    <Parameter Name="search" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="CategoryTSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CategoryCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryStatus" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana2" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Ana3" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Ana4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana5" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana6" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana7" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana8" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana9" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana10" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CategoryTSelectEdit" Method="CategoryTSelectEdit">
+    <Parameter Name="CategoryCode" Parameter="categoryCode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="CategoryTSelectEditResult">
+      <Column Name="CategoryCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryStatus" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana2" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Ana3" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Ana4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana5" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana6" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana7" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana8" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana9" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana10" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CategoryGroupDelete" Method="CategoryGroupDelete">
+    <Parameter Name="CategoryGroupId" Parameter="categoryGroupId" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CategoryGroupUpdate" Method="CategoryGroupUpdate">
+    <Parameter Name="CategoryGroupId" Parameter="categoryGroupId" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CategoryGroupName" Parameter="categoryGroupName" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CategoryGroupInsert" Method="CategoryGroupInsert">
+    <Parameter Name="CategoryGroupId" Parameter="categoryGroupId" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CategoryGroupName" Parameter="categoryGroupName" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CategoryGroupSelect" Method="CategoryGroupSelect">
+    <Parameter Name="search" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="CategoryGroupSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CategoryGroupId" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryGroupName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CategoryGroupSelectEdit" Method="CategoryGroupSelectEdit">
+    <Parameter Name="CategoryGroupId" Parameter="categoryGroupId" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="CategoryGroupSelectEditResult">
+      <Column Name="CategoryGroupId" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryGroupName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemCategoryGroupUpdate" Method="ItemCategoryGroupUpdate">
+    <Parameter Name="CategoryCode" Parameter="categoryCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CategoryGroupId" Parameter="categoryGroupId" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="IsDelete" Parameter="isDelete" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemFileInsert" Method="ItemFileInsert">
+    <Parameter Name="ItemFileCode" Parameter="itemFileCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ItemFileSize" Parameter="itemFileSize" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ItemFileName" Parameter="itemFileName" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="ItemFileMIME" Parameter="itemFileMIME" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemFileSelect" Method="ItemFileSelect">
+    <Parameter Name="search" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemFileSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ItemFileCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemFileSize" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ItemFileName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemFileMIME" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemListDelete" Method="ItemListDelete">
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemFileDelete" Method="ItemFileDelete">
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemListUpdate" Method="ItemListUpdate">
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ItemType" Parameter="itemType" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="CategoryCode" Parameter="categoryCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="BarCode" Parameter="barCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="PurDescription" Parameter="purDescription" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Cost" Parameter="cost" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="CoGSAccount" Parameter="coGSAccount" Type="System.String" DbType="NVarChar(7)" />
+    <Parameter Name="SaleDescription" Parameter="saleDescription" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="UnitSale" Parameter="unitSale" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="SalePrice" Parameter="salePrice" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="IncomeAccount" Parameter="incomeAccount" Type="System.String" DbType="NVarChar(7)" />
+    <Parameter Name="AssetAccount" Parameter="assetAccount" Type="System.String" DbType="NVarChar(7)" />
+    <Parameter Name="UnitStock" Parameter="unitStock" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ReorderPoint" Parameter="reorderPoint" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="StockType" Parameter="stockType" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="ItemStatus" Parameter="itemStatus" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="CreatedBy" Parameter="createdBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="DateCreated" Parameter="dateCreated" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ModifiedBy" Parameter="modifiedBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="DateModified" Parameter="dateModified" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemFileUpdate" Method="ItemFileUpdate">
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ItemFileCode" Parameter="itemFileCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ItemFileSize" Parameter="itemFileSize" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ItemFileName" Parameter="itemFileName" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="ItemFileMIME" Parameter="itemFileMIME" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemAssemblyInsert" Method="ItemAssemblyInsert">
+    <Parameter Name="AssemblyCode" Parameter="assemblyCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Unit" Parameter="unit" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Quantity" Parameter="quantity" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemAssemblySelectEdit" Method="ItemAssemblySelectEdit">
+    <Parameter Name="assemblycode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="itemcode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemAssemblySelectEditResult">
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(37,10)" CanBeNull="true" />
+      <Column Name="CategoryCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemListInsert" Method="ItemListInsert">
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ItemType" Parameter="itemType" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="CategoryCode" Parameter="categoryCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="BarCode" Parameter="barCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="PurDescription" Parameter="purDescription" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Cost" Parameter="cost" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="CoGSAccount" Parameter="coGSAccount" Type="System.String" DbType="NVarChar(7)" />
+    <Parameter Name="SaleDescription" Parameter="saleDescription" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="UnitSale" Parameter="unitSale" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="SalePrice" Parameter="salePrice" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="IncomeAccount" Parameter="incomeAccount" Type="System.String" DbType="NVarChar(7)" />
+    <Parameter Name="AssetAccount" Parameter="assetAccount" Type="System.String" DbType="NVarChar(7)" />
+    <Parameter Name="UnitStock" Parameter="unitStock" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ReorderPoint" Parameter="reorderPoint" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="StockType" Parameter="stockType" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="ItemStatus" Parameter="itemStatus" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="CreatedBy" Parameter="createdBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="DateCreated" Parameter="dateCreated" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ModifiedBy" Parameter="modifiedBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="DateModified" Parameter="dateModified" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Ana5" Parameter="ana5" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="IsProperty" Parameter="isProperty" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemListSelect" Method="ItemListSelect">
+    <Parameter Name="search" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CategoryCode" Parameter="categoryCode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemListSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemType" Type="System.String" DbType="VarChar(19) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="BarCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PurDescription" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="SaleDescription" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitSale" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="SalePrice" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="UnitStock" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ReorderPoint" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="StockType" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemStatus" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Ana1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana5" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana6" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana7" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana8" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana9" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana10" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ImageName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemAssemblySelectPart" Method="ItemAssemblySelectPart">
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CategoryCode" Parameter="categoryCode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemAssemblySelectPartResult">
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemName" Type="System.String" DbType="NVarChar(233) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemAssemblySelect" Method="ItemAssemblySelect">
+    <Parameter Name="AssemblyCode" Parameter="assemblyCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemAssemblySelectResult">
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PurchaseDesc" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemType" Type="System.String" DbType="VarChar(14) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(37,10)" CanBeNull="true" />
+      <Column Name="AssemblyCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCode1" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryCode" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemAssemblyDelete" Method="ItemAssemblyDelete">
+    <Parameter Name="assemblycode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="itemcode" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemAssemblyUpdate" Method="ItemAssemblyUpdate">
+    <Parameter Name="AssemblyCode" Parameter="assemblyCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="OldItemCode" Parameter="oldItemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="NewItemCode" Parameter="newItemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Unit" Parameter="unit" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Quantity" Parameter="quantity" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemAssemblySelectInfo" Method="ItemAssemblySelectInfo">
+    <Parameter Name="AssemblyCode" Parameter="assemblyCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemAssemblySelectInfoResult">
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemType" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitSaleDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SalePrice" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="AverageCost" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+      <Column Name="UnitSaleName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitStockName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IncomeAccount" Type="System.String" DbType="NVarChar(7)" CanBeNull="true" />
+      <Column Name="CoGSAccount" Type="System.String" DbType="NVarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetAccount" Type="System.String" DbType="NVarChar(7)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemListSelectEdit" Method="ItemListSelectEdit">
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemListSelectEditResult">
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemType" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitSaleName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitStockName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BarCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PurDescription" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="CoGSAccount" Type="System.String" DbType="NVarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="SaleDescription" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitSale" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="SalePrice" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="IncomeAccount" Type="System.String" DbType="NVarChar(7)" CanBeNull="true" />
+      <Column Name="AssetAccount" Type="System.String" DbType="NVarChar(7)" CanBeNull="true" />
+      <Column Name="UnitStock" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ReorderPoint" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="StockType" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemStatus" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Ana1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana5" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana6" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana7" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana8" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana9" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana10" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemPropertyUpdate" Method="ItemPropertyUpdate">
+    <Parameter Name="PropertyId" Parameter="propertyId" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="PropertyName" Parameter="propertyName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="PropertyOrder" Parameter="propertyOrder" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="PropertyStatus" Parameter="propertyStatus" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ModifyBy" Parameter="modifyBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ModifyDate" Parameter="modifyDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="IsSync" Parameter="isSync" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemPropertyDelete" Method="ItemPropertyDelete">
+    <Parameter Name="PropertyId" Parameter="propertyId" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemPropertySelect" Method="ItemPropertySelect">
+    <Parameter Name="search" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemPropertySelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PropertyId" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PropertyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PropertyOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LocationCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PropertyStatus" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifyBy" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsSync" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemPropertyInsert" Method="ItemPropertyInsert">
+    <Parameter Name="PropertyId" Parameter="propertyId" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="PropertyName" Parameter="propertyName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="PropertyOrder" Parameter="propertyOrder" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="PropertyStatus" Parameter="propertyStatus" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="DateModify" Parameter="dateModify" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemPropertySelectEdit" Method="ItemPropertySelectEdit">
+    <Parameter Name="PropertyId" Parameter="propertyId" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemPropertySelectEditResult">
+      <Column Name="PropertyId" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PropertyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PropertyOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LocationCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PropertyStatus" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifyBy" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsSync" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UnitMainSelect" Method="UnitMainSelect">
+    <Parameter Name="search" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="UnitMainSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UnitCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitSatus" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitlsSync" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemCategoryGroupSelect" Method="ItemCategoryGroupSelect">
+    <Parameter Name="CategoryGroupId" Parameter="categoryGroupId" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemCategoryGroupSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CategoryCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryStatus" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemCommissionTypeDelete" Method="ItemCommissionTypeDelete">
+    <Parameter Name="CommissionTypeCode" Parameter="commissionTypeCode" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemCommissionTypeInsert" Method="ItemCommissionTypeInsert">
+    <Parameter Name="CommissionTypeCode" Parameter="commissionTypeCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CommissionTypeName" Parameter="commissionTypeName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="CommissionTypeStatus" Parameter="commissionTypeStatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="PayableAccount" Parameter="payableAccount" Type="System.String" DbType="NVarChar(7)" />
+    <Parameter Name="ExpenseAccount" Parameter="expenseAccount" Type="System.String" DbType="NVarChar(7)" />
+    <Parameter Name="IsSync" Parameter="isSync" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ModifiedDate" Parameter="modifiedDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemCommissionTypeSelect" Method="ItemCommissionTypeSelect">
+    <Parameter Name="search" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemCommissionTypeSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CommissionTypeCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CommissionTypeName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CommissionTypeStatus" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="PayableAccount" Type="System.String" DbType="NVarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="ExpenseAccount" Type="System.String" DbType="NVarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="IsSync" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemCommissionTypeSelectEdit" Method="ItemCommissionTypeSelectEdit">
+    <Parameter Name="CommissionTypeCode" Parameter="commissionTypeCode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemCommissionTypeSelectEditResult">
+      <Column Name="CommissionTypeCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CommissionTypeName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CommissionTypeStatus" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PayableAccount" Type="System.String" DbType="NVarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="ExpenseAccount" Type="System.String" DbType="NVarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="IsSync" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemFileSelectEdit" Method="ItemFileSelectEdit">
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemFileSelectEditResult">
+      <Column Name="ItemFileCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemFileSize" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ItemFileName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemFileMIME" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemCommissionDelete" Method="ItemCommissionDelete">
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CommissionTypeCode" Parameter="commissionTypeCode" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemCommissionInsert" Method="ItemCommissionInsert">
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CommissionTypeCode" Parameter="commissionTypeCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ItemCommission" Parameter="itemCommission" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="ItemCommissionPecent" Parameter="itemCommissionPecent" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsSync" Parameter="isSync" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemCommissionUpdate" Method="ItemCommissionUpdate">
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CommissionTypeCode" Parameter="commissionTypeCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ItemCommission" Parameter="itemCommission" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="ItemCommissionPecent" Parameter="itemCommissionPecent" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsSync" Parameter="isSync" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ModifiedBy" Parameter="modifiedBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ModifiedDate" Parameter="modifiedDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ItemCommissionSelect" Method="ItemCommissionSelect">
+    <Parameter Name="search" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CommissionTypeCode" Parameter="commissionTypeCode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemCommissionSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="SaleDescription" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitSale" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SalePrice" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="ItemCommission" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemCommissionPecent" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CommissionTypeCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemCommissionSelectEdit" Method="ItemCommissionSelectEdit">
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CommissionTypeCode" Parameter="commissionTypeCode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="ItemCommissionSelectEditResult">
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CommissionTypeCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemCommission" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemCommissionPecent" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsSync" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SalePrice" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="UnitSaleName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitSale" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ItemCommissionTypeUpdate" Method="ItemCommissionTypeUpdate">
+    <Parameter Name="CommissionTypeCode" Parameter="commissionTypeCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CommissionTypeName" Parameter="commissionTypeName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="CommissionTypeStatus" Parameter="commissionTypeStatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="PayableAccount" Parameter="payableAccount" Type="System.String" DbType="NVarChar(7)" />
+    <Parameter Name="ExpenseAccount" Parameter="expenseAccount" Type="System.String" DbType="NVarChar(7)" />
+    <Parameter Name="IsSync" Parameter="isSync" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ModifiedBy" Parameter="modifiedBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ModifiedDate" Parameter="modifiedDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.MemberTypeDelete" Method="MemberTypeDelete">
+    <Parameter Name="MemberTypeCode" Parameter="memberTypeCode" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.MemberTypeUpdate" Method="MemberTypeUpdate">
+    <Parameter Name="MemberTypeCode" Parameter="memberTypeCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="MemberTypeName" Parameter="memberTypeName" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="MemberTypePrice" Parameter="memberTypePrice" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="MemberTypeStatus" Parameter="memberTypeStatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="MemberTypeIsSync" Parameter="memberTypeIsSync" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="MemberTypeDiscount" Parameter="memberTypeDiscount" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="ModifiedBy" Parameter="modifiedBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ModifiedDate" Parameter="modifiedDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.MemberTypeSelect" Method="MemberTypeSelect">
+    <Parameter Name="search" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="MemberTypeSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MemberTypeCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MemberTypeName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="MemberTypePrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="MemberTypeStatus" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MemberTypeIsSync" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MemberTypeDiscount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MemberTypeInsert" Method="MemberTypeInsert">
+    <Parameter Name="MemberTypeCode" Parameter="memberTypeCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="MemberTypeName" Parameter="memberTypeName" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="MemberTypePrice" Parameter="memberTypePrice" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="MemberTypeStatus" Parameter="memberTypeStatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="MemberTypeIsSync" Parameter="memberTypeIsSync" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="MemberTypeDiscount" Parameter="memberTypeDiscount" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="ModifiedBy" Parameter="modifiedBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ModifiedDate" Parameter="modifiedDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.MemberTypeSelectEdit" Method="MemberTypeSelectEdit">
+    <Parameter Name="MemberTypeCode" Parameter="memberTypeCode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="MemberTypeSelectEditResult">
+      <Column Name="MemberTypeCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MemberTypeName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="MemberTypePrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="MemberTypeStatus" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MemberTypeIsSync" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MemberTypeDiscount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CustomersDelete" Method="CustomersDelete">
+    <Parameter Name="CustomerCode" Parameter="customerCode" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CustomersUpdate" Method="CustomersUpdate">
+    <Parameter Name="CustomerCode" Parameter="customerCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CustomerNumber" Parameter="customerNumber" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CustomerName" Parameter="customerName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CustomerDesc" Parameter="customerDesc" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CustomerAddress" Parameter="customerAddress" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="CustomerPhone" Parameter="customerPhone" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CustomerFax" Parameter="customerFax" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CustomerEmail" Parameter="customerEmail" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="CustomerWeb" Parameter="customerWeb" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="CustomerContact" Parameter="customerContact" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CustomerStatus" Parameter="customerStatus" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="CustomerType" Parameter="customerType" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="UpdateBy" Parameter="updateBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="UpdateDate" Parameter="updateDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Ana4" Parameter="ana4" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CustomersInsert" Method="CustomersInsert">
+    <Parameter Name="CustomerCode" Parameter="customerCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CustomerNumber" Parameter="customerNumber" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CustomerName" Parameter="customerName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CustomerDesc" Parameter="customerDesc" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CustomerAddress" Parameter="customerAddress" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="CustomerPhone" Parameter="customerPhone" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CustomerFax" Parameter="customerFax" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CustomerEmail" Parameter="customerEmail" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="CustomerWeb" Parameter="customerWeb" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="CustomerContact" Parameter="customerContact" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CustomerStatus" Parameter="customerStatus" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="CustomerType" Parameter="customerType" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CustomersSelect" Method="CustomersSelect">
+    <Parameter Name="search" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="CustomersSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CustomerCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerNumber" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerAddress" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerPhone" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerFax" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerEmail" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerWeb" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerContact" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerStatus" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerType" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana4" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Ana5" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana6" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana7" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana8" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana9" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana10" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CustomersSelectEdit" Method="CustomersSelectEdit">
+    <Parameter Name="CustomerCode" Parameter="customerCode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="CustomersSelectEditResult">
+      <Column Name="CustomerCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerNumber" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerAddress" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerPhone" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerFax" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerEmail" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerWeb" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerContact" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerStatus" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerType" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana4" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Ana5" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana6" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana7" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana8" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana9" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana10" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SuppliersDelete" Method="SuppliersDelete">
+    <Parameter Name="SupplierCode" Parameter="supplierCode" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SuppliersUpdate" Method="SuppliersUpdate">
+    <Parameter Name="SupplierCode" Parameter="supplierCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="SupplierName" Parameter="supplierName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SupplierDesc" Parameter="supplierDesc" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SupplierAddress" Parameter="supplierAddress" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="SupplierPhone" Parameter="supplierPhone" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SupplierFax" Parameter="supplierFax" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SupplierEmail" Parameter="supplierEmail" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="SupplierWeb" Parameter="supplierWeb" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="SupplierContact" Parameter="supplierContact" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SupplierStatus" Parameter="supplierStatus" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="SupplierType" Parameter="supplierType" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="UpdateBy" Parameter="updateBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="UpdateDate" Parameter="updateDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SuppliersInsert" Method="SuppliersInsert">
+    <Parameter Name="SupplierCode" Parameter="supplierCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="SupplierName" Parameter="supplierName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SupplierDesc" Parameter="supplierDesc" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SupplierAddress" Parameter="supplierAddress" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="SupplierPhone" Parameter="supplierPhone" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SupplierFax" Parameter="supplierFax" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SupplierEmail" Parameter="supplierEmail" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="SupplierWeb" Parameter="supplierWeb" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="SupplierContact" Parameter="supplierContact" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SupplierStatus" Parameter="supplierStatus" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="CreateBy" Parameter="createBy" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="CreateDate" Parameter="createDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SuppliersSelect" Method="SuppliersSelect">
+    <Parameter Name="search" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="SuppliersSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SupplierCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierAddress" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierPhone" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierFax" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierEmail" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierWeb" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierContact" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierStatus" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierType" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana2" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Ana3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana5" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana6" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana7" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana8" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana9" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana10" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SuppliersSelectEdit" Method="SuppliersSelectEdit">
+    <Parameter Name="SupplierCode" Parameter="supplierCode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="SuppliersSelectEditResult">
+      <Column Name="SupplierCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierAddress" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierPhone" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierFax" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierEmail" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierWeb" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierContact" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierStatus" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierType" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana2" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Ana3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ana5" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana6" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana7" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Ana8" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana9" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ana10" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.BillHeaderSelect" Method="BillHeaderSelect">
+    <Parameter Name="search" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="BillHeaderSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BillNumber" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DateBill" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="VenderCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="RefereceNo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Memo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="VatPercent" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="DiscountPercent" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.BillItemDelete" Method="BillItemDelete">
+    <Parameter Name="BillItemCode" Parameter="billItemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.BillItemInsert" Method="BillItemInsert">
+    <Parameter Name="BillItemCode" Parameter="billItemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="PurDescription" Parameter="purDescription" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="OrderQty" Parameter="orderQty" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="UnitBill" Parameter="unitBill" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Cost" Parameter="cost" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="DiscountPercent" Parameter="discountPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="Discount" Parameter="discount" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="TotalDiscount" Parameter="totalDiscount" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="Total" Parameter="total" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="CategoryCode" Parameter="categoryCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.BillItemSelectEdit" Method="BillItemSelectEdit">
+    <Parameter Name="BillItemCode" Parameter="billItemCode" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="BillItemSelectEditResult">
+      <Column Name="BillItemCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="BillNumber" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PurDescription" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderQty" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitBill" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="DiscountPercent" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="TotalDiscount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="CategoryCode" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="LocationCode" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.BillItemUpdate" Method="BillItemUpdate">
+    <Parameter Name="BillItemCode" Parameter="billItemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="PurDescription" Parameter="purDescription" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="OrderQty" Parameter="orderQty" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="UnitBill" Parameter="unitBill" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Cost" Parameter="cost" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="DiscountPercent" Parameter="discountPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="Discount" Parameter="discount" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="TotalDiscount" Parameter="totalDiscount" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="Total" Parameter="total" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="CategoryCode" Parameter="categoryCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.BillItemSelect" Method="BillItemSelect">
+    <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="BillItemSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BillItemCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="BillNumber" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PurDescription" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderQty" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitBill" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="DiscountPercent" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="TotalDiscount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="CategoryCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationCode" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.BillHeaderSelectEdit" Method="BillHeaderSelectEdit">
+    <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="BillHeaderSelectEditResult">
+      <Column Name="BillNumber" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DateBill" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="VenderCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="RefereceNo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Memo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="VatPercent" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="VATAmount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="DiscountPercent" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="TotalDiscount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.BillHeaderDelete" Method="BillHeaderDelete">
+    <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.BillHeaderUpdate" Method="BillHeaderUpdate">
+    <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="DateBill" Parameter="dateBill" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="VenderCode" Parameter="venderCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="RefereceNo" Parameter="refereceNo" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Memo" Parameter="memo" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="VatPercent" Parameter="vatPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="DiscountPercent" Parameter="discountPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="Discount" Parameter="discount" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="Cost" Parameter="cost" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.BillHeaderInsert" Method="BillHeaderInsert">
+    <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="DateBill" Parameter="dateBill" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="VenderCode" Parameter="venderCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="RefereceNo" Parameter="refereceNo" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Memo" Parameter="memo" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="VatPercent" Parameter="vatPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="DiscountPercent" Parameter="discountPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="DiscountAmount" Parameter="discountAmount" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="GrandTotal" Parameter="grandTotal" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
