@@ -124,7 +124,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Transaction\Kinal.cs" />
+    <Compile Include="Transaction\Purchases\CompanyExpense\BillHeaderModel.cs" />
     <Compile Include="Transaction\Purchases\CompanyExpense\BillItem.cs" />
+    <Compile Include="Transaction\Purchases\CompanyExpense\BillItemModel.cs" />
     <Compile Include="Transaction\Purchases\CompanyExpense\BillTransactionPurchase.cs" />
     <Compile Include="Transaction\Purchases\CompanyExpense\BillHeader.cs" />
     <Compile Include="Transaction\Supplier\Supplier.cs" />

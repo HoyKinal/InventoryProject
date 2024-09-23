@@ -1070,6 +1070,10 @@
       <Column Name="LocationCode" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.BillHeaderDelete" Method="BillHeaderDelete">
+    <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.BillHeaderSelectEdit" Method="BillHeaderSelectEdit">
     <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
     <ElementType Name="BillHeaderSelectEditResult">
@@ -1081,27 +1085,10 @@
       <Column Name="VatPercent" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
       <Column Name="VATAmount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
       <Column Name="DiscountPercent" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
-      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="DiscountAmount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
       <Column Name="TotalDiscount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
       <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.BillHeaderDelete" Method="BillHeaderDelete">
-    <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.BillHeaderUpdate" Method="BillHeaderUpdate">
-    <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="DateBill" Parameter="dateBill" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="VenderCode" Parameter="venderCode" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="RefereceNo" Parameter="refereceNo" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="LocationCode" Parameter="locationCode" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="Memo" Parameter="memo" Type="System.String" DbType="NVarChar(200)" />
-    <Parameter Name="VatPercent" Parameter="vatPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
-    <Parameter Name="DiscountPercent" Parameter="discountPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
-    <Parameter Name="Discount" Parameter="discount" Type="System.Decimal" DbType="Decimal(18,5)" />
-    <Parameter Name="Cost" Parameter="cost" Type="System.Decimal" DbType="Decimal(18,5)" />
-    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.BillHeaderInsert" Method="BillHeaderInsert">
     <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
@@ -1112,7 +1099,17 @@
     <Parameter Name="VatPercent" Parameter="vatPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
     <Parameter Name="DiscountPercent" Parameter="discountPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
     <Parameter Name="DiscountAmount" Parameter="discountAmount" Type="System.Decimal" DbType="Decimal(18,5)" />
-    <Parameter Name="GrandTotal" Parameter="grandTotal" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.BillHeaderUpdate" Method="BillHeaderUpdate">
+    <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="DateBill" Parameter="dateBill" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="VenderCode" Parameter="venderCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="RefereceNo" Parameter="refereceNo" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Memo" Parameter="memo" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="VatPercent" Parameter="vatPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="DiscountPercent" Parameter="discountPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="DiscountAmount" Parameter="discountAmount" Type="System.Decimal" DbType="Decimal(18,5)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

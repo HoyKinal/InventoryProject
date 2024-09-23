@@ -1,3 +1,5 @@
+D:\Kinal Files\WebFormUnit\WebFormUnit\obj\Debug\WebFormUnit.csproj.AssemblyReference.cache
+D:\Kinal Files\WebFormUnit\WebFormUnit\obj\Debug\WebFormUnit.csproj.CoreCompileInputs.cache
 D:\Kinal Files\WebFormUnit\WebFormUnit\bin\WebFormUnit.dll.config
 D:\Kinal Files\WebFormUnit\WebFormUnit\bin\WebFormUnit.dll
 D:\Kinal Files\WebFormUnit\WebFormUnit\bin\WebFormUnit.pdb
@@ -89,8 +91,6 @@ D:\Kinal Files\WebFormUnit\WebFormUnit\bin\Newtonsoft.Json.xml
 D:\Kinal Files\WebFormUnit\WebFormUnit\bin\Antlr3.Runtime.pdb
 D:\Kinal Files\WebFormUnit\WebFormUnit\bin\Microsoft.AspNet.FriendlyUrls.xml
 D:\Kinal Files\WebFormUnit\WebFormUnit\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Kinal Files\WebFormUnit\WebFormUnit\obj\Debug\WebFormUnit.csproj.AssemblyReference.cache
-D:\Kinal Files\WebFormUnit\WebFormUnit\obj\Debug\WebFormUnit.csproj.CoreCompileInputs.cache
 D:\Kinal Files\WebFormUnit\WebFormUnit\obj\Debug\WebFormUnit.csproj.CopyComplete
 D:\Kinal Files\WebFormUnit\WebFormUnit\obj\Debug\WebFormUnit.dll
 D:\Kinal Files\WebFormUnit\WebFormUnit\obj\Debug\WebFormUnit.pdb

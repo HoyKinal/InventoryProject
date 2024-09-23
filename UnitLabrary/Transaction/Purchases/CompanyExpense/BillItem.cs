@@ -8,22 +8,6 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpense
 {
     public class BillItem
     {
-        public string BillItemCode { get; set; }  
-        public string BillNumber { get; set; }    
-        public string PurDescription { get; set; } 
-        public decimal OrderQty { get; set; }    
-        public string UnitBill { get; set; }      
-        public decimal Cost { get; set; }
-        public string LocationCode { get; set; }
-
-        // Nullable fields (Checked in DB schema)
-        public decimal? DiscountPercent { get; set; } 
-        public decimal? Discount { get; set; }        
-        public decimal? TotalDiscount { get; set; }   
-        public decimal? Total { get; set; }
-        public string CategoryCode { get; set; }
-        public string ItemCode { get; set; }
-
         //Default Constructor
         private DataLinqDataContext context;
         public BillItem()
@@ -31,12 +15,12 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpense
             context = new DataLinqDataContext();
         }
 
-        public bool BillItemInserts(BillItem b)
+        public bool BillItemInserts(BillItemModel b)
         {
             try
             {
                 context.BillItemInsert(b.BillItemCode, b.BillNumber, b.PurDescription, b.OrderQty,
-                        b.UnitBill, b.Cost, b.DiscountPercent, b.Discount, b.TotalDiscount, 
+                        b.UnitBill, b.Cost, b.DiscountPercent, b.DiscountAmount, b.TotalDiscount, 
                         b.Total,b.CategoryCode, b.ItemCode, b.LocationCode);
                 return true;
             }
@@ -62,12 +46,12 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpense
                 return null;
             }
         }
-        public bool BillItemUpdates(BillItem b)
+        public bool BillItemUpdates(BillItemModel b)
         {
             try
             {
                 context.BillItemUpdate(b.BillItemCode, b.BillNumber, b.PurDescription, b.OrderQty,
-                        b.UnitBill, b.Cost, b.DiscountPercent, b.Discount, 
+                        b.UnitBill, b.Cost, b.DiscountPercent, b.DiscountAmount, 
                         b.TotalDiscount, b.Total,b.CategoryCode, b.ItemCode, b.LocationCode);
                 return true;
             }
@@ -77,11 +61,11 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpense
                 return false;
             }
         }
-        public bool BillItemDeletes(BillItem b)
+        public bool BillItemDeletes(string billItemCode)
         {
             try
             {
-                context.BillItemDelete(b.BillItemCode);
+                context.BillItemDelete(billItemCode);
                 return true;
             }
             catch (Exception)

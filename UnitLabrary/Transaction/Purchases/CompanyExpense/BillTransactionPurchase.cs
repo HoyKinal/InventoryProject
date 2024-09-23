@@ -20,7 +20,7 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpense
             conn.Open();
         }
 
-        public bool PurchaseItemInsert(BillHeader c, BillItem i)
+        public bool PurchaseItemInsert(BillHeaderModel h, BillItemModel i)
         {
             conn = (SqlConnection)context.Connection;
            
@@ -32,12 +32,15 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpense
 
                     //Insert BillHeader
                     BillHeader bill = new BillHeader();
-                    bill.BillHeaderInserts(c);
+                    bill.BillHeaderInserts(h);
 
                     //Insert BillItem
                     BillItem billItem = new BillItem();
 
                     billItem.BillItemInserts(i);
+
+                   
+                    bill.BillHeaderUpdate(h);
 
                     transaction.Commit();
 

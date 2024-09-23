@@ -12,11 +12,15 @@
     <asp:HiddenField ID="hdfReference" runat="server" />
     <asp:HiddenField ID="hdfMemo" runat="server" />
     <asp:HiddenField ID="hdfVatPercent" runat="server" />
+    <asp:HiddenField ID="hdfVatAmount" runat="server" />
     <asp:HiddenField ID="hdfDiscountPercent" runat="server" />
     <asp:HiddenField ID="hdfDiscountAmount" runat="server" />
+    <asp:HiddenField ID="hdfTotalDiscountPercent" runat="server" />
     <asp:HiddenField ID="hdfTotalDiscount" runat="server" />
     <asp:HiddenField ID="hdfTotal" runat="server" />
     <asp:HiddenField ID="hdfGrandTotal" runat="server" />
+
+    <asp:HiddenField ID="hdfDisplayTotalAmount" runat="server"/>
 
     <div class="container-fluid">
         <div class="bg-light pt-2 rounded shadow-sm mb-4">
@@ -40,7 +44,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label fw-bold">Item Name</label>
-                                <asp:DropDownList ID="ddlItemName" runat="server" CssClass="form-select" AutoPostBack="true"></asp:DropDownList>
+                                <asp:DropDownList ID="ddlItemCode" runat="server" CssClass="form-select" AutoPostBack="true"></asp:DropDownList>
                             </div>
                             <div class="row">
                                 <div class="col-6 mb-3">

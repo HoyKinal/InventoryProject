@@ -69,6 +69,15 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         protected global::System.Web.UI.WebControls.HiddenField hdfVatPercent;
 
         /// <summary>
+        /// hdfVatAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfVatAmount;
+
+        /// <summary>
         /// hdfDiscountPercent control.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,15 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdfDiscountAmount;
+
+        /// <summary>
+        /// hdfTotalDiscountPercent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfTotalDiscountPercent;
 
         /// <summary>
         /// hdfTotalDiscount control.
@@ -114,6 +132,15 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         protected global::System.Web.UI.WebControls.HiddenField hdfGrandTotal;
 
         /// <summary>
+        /// hdfDisplayTotalAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfDisplayTotalAmount;
+
+        /// <summary>
         /// UpdatePanel control.
         /// </summary>
         /// <remarks>
@@ -141,13 +168,13 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
 
         /// <summary>
-        /// ddlItemName control.
+        /// ddlItemCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlItemName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlItemCode;
 
         /// <summary>
         /// txtCost control.

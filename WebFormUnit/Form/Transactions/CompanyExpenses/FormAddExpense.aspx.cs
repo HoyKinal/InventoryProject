@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using UnitLabrary.Category;
 using UnitLabrary.Item;
+using UnitLabrary.Transaction;
 using UnitLabrary.Transaction.Purchases.CompanyExpense;
 using UnitLabrary.Transaction.Purchases.CompanyExpenses;
 
@@ -15,12 +16,14 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            hdfDisplayTotalAmount.Value = totalAmount.ToString();
+            lbTotalAmountDisplay.Text = hdfDisplayTotalAmount.Value;
+
             if (!IsPostBack)
             {
                 LoadInventory();
                 LoadFieldsFormCompanyExpense();
                 GridBind(hdfNumberNo.Value);
-                lbTotalAmountDisplay.Text = totalAmount.ToString("C");
                 lbExpenseNoDisplay.Text = hdfNumberNo.Value;
                 LoadBillItem();
             }
@@ -91,14 +94,14 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
                 Cost = item.Cost
             }).ToList();
 
-            ddlItemName.DataSource = load;
-            ddlItemName.DataTextField = "Name"; 
-            ddlItemName.DataValueField = "ItemCode"; 
-            ddlItemName.DataBind();
+            ddlItemCode.DataSource = load;
+            ddlItemCode.DataTextField = "Name"; 
+            ddlItemCode.DataValueField = "ItemCode"; 
+            ddlItemCode.DataBind();
 
-            if (ddlItemName.Items.Count > 0)
+            if (ddlItemCode.Items.Count > 0)
             {
-                string itemCode = ddlItemName.SelectedValue;
+                string itemCode = ddlItemCode.SelectedValue;
 
                 var selectedItem = load.FirstOrDefault(item => item.ItemCode == itemCode);
 
@@ -155,13 +158,15 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         }
         private void GridBind(string BillNumberCode)
         {
+            totalAmount = 0;
+
             BillItem billItem = new BillItem();
             var load = billItem.BillItemSelects(BillNumberCode.Trim());
             if (load != null)
             {
                 gvAddExpense.DataSource = load; 
                 gvAddExpense.DataBind();
-                lbTotalAmountDisplay.Text = totalAmount.ToString("C");
+                lbTotalAmountDisplay.Text = totalAmount.ToString();
                 lbExpenseNoDisplay.Text = hdfNumberNo.Value;
             }
         }
@@ -172,47 +177,68 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
             txtDiscountAmount.Text = string.Empty;
             txtTotal.Text = string.Empty;
         }
+
+        private decimal totalAmount = 0;
+        protected void gvAddExpense_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string totalText = e.Row.Cells[9].Text;
+                decimal totalValue;
+                if (Decimal.TryParse(totalText, System.Globalization.NumberStyles.Currency, null, out totalValue))
+                {
+                    totalAmount += totalValue;
+                }
+            }
+            else if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                e.Row.Cells[6].Text = "Total: " + totalAmount.ToString("C");
+            }
+        }
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            // Using the object initializer
-            BillHeader c = new BillHeader
+            //GridBind(hdfNumberNo.Value);
+
+            BillHeaderModel c = new BillHeaderModel()
             {
                 BillNumber = hdfNumberNo.Value,
-                DateBill = DateTime.Now,
+                DateBill = DateTime.UtcNow.AddHours(7),
                 VenderCode = hdfSupplierCode.Value,
                 RefereceNo = hdfReference.Value,
                 Memo = hdfMemo.Value,
-                VatPercent = decimal.Parse(hdfVatPercent.Value),
-                DiscountPercent = decimal.Parse(hdfDiscountPercent.Value),
-                DiscountAmount = decimal.Parse(hdfDiscountAmount.Value),
-                TotalDiscount = !string.IsNullOrEmpty(hdfTotalDiscount.Value) ?decimal.Parse(hdfTotalDiscount.Value):0.00m,
-                Total = !string.IsNullOrEmpty(hdfTotal.Value)? decimal.Parse(hdfTotal.Value):0.00m
+                VatPercent = hdfVatPercent.Value.KinalDecimal(),
+                VatAmount = hdfVatAmount.Value.KinalDecimal(),
+                DiscountPercent = hdfDiscountPercent.Value.KinalDecimal(),
+                DiscountAmount = hdfDiscountAmount.Value.KinalDecimal(),
+                TotalDiscoutPercent = hdfTotalDiscountPercent.Value.KinalDecimal(),
+                TotalDiscount = hdfTotalDiscount.Value.KinalDecimal(),
+                SubTotal = hdfTotal.Value.KinalDecimal(),
+                //GrandTotal = decimal.Parse(lbTotalAmountDisplay.Text)
             };
 
-            BillItem billItem = new BillItem
+            BillItemModel billItem = new BillItemModel
             { 
                 BillItemCode = DateTime.Now.Ticks.ToString(),
                 BillNumber = hdfNumberNo.Value,
-                PurDescription = new ItemList().ItemListSelectEdits(ddlItemName.SelectedValue).PurDescription.ToString(),
-                OrderQty = decimal.Parse(txtQuantity.Text),
+                PurDescription = new ItemList().ItemListSelectEdits(ddlItemCode.SelectedValue).PurDescription.ToString(),
+                OrderQty = txtQuantity.Text.KinalDecimal(),
                 UnitBill = txtUnitStock.Text,
-                Cost = !string.IsNullOrEmpty(txtCost.Text) ? decimal.Parse(txtCost.Text) : 0.00m,
-                LocationCode = new ItemList().ItemListSelectEdits(ddlItemName.SelectedValue).LocationCode.ToString(),
-                DiscountPercent = !string.IsNullOrEmpty(txtDiscountPercent.Text) ? decimal.Parse(txtDiscountPercent.Text) : 0.00m,
-                Discount = !string.IsNullOrEmpty(txtDiscountAmount.Text) ? decimal.Parse(txtDiscountAmount.Text) : 0.00m,
+                Cost = txtCost.Text.KinalDecimal(),
+                LocationCode = new ItemList().ItemListSelectEdits(ddlItemCode.SelectedValue).LocationCode.ToString(),
+                DiscountPercent = txtDiscountPercent.Text.KinalDecimal(),
+                DiscountAmount = txtDiscountAmount.Text.KinalDecimal(),
                 TotalDiscount = 0m,
-                Total = 0m,
                 CategoryCode = ddlCategory.SelectedValue,
-                ItemCode = ddlItemName.SelectedValue
+                ItemCode = ddlItemCode.SelectedValue
             };
             
-            string BillCode = string.Empty;
+            BillItem i = new BillItem();
 
             if (Session["billItemCode"] != null)
             {
-                BillCode = Session["billItemCode"].ToString();
+                string BillCode = Session["billItemCode"].ToString();
                 billItem.BillItemCode = BillCode;
-                bool isUpdate = billItem.BillItemUpdates(billItem);
+                bool isUpdate = i.BillItemUpdates(billItem);
                 if (isUpdate)
                 {
                     ShowAlert("Update purchase is successfully.", "success");
@@ -229,7 +255,7 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
             {
                 string BillItemCode = ViewState["BillItemCode"] == null ? "" : ViewState["BillItemCode"].ToString();
 
-                var check = billItem.BillItemSelectEdits(BillItemCode);
+                var check = i.BillItemSelectEdits(BillItemCode);
 
                 if (check == null)
                 {
@@ -252,7 +278,7 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
                 else
                 {
                     billItem.BillItemCode = BillItemCode;
-                    bool isUpdate = billItem.BillItemUpdates(billItem);
+                    bool isUpdate = i.BillItemUpdates(billItem);
                     if (isUpdate)
                     {
                         ShowAlert("Update purchase is successfully.", "success");
@@ -268,23 +294,7 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
             }
         }
 
-        private decimal totalAmount = 0;
-        protected void gvAddExpense_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                string totalText = e.Row.Cells[9].Text;
-                decimal totalValue;
-                if (Decimal.TryParse(totalText, System.Globalization.NumberStyles.Currency, null, out totalValue))
-                {
-                    totalAmount += totalValue; 
-                }
-            }
-            else if (e.Row.RowType == DataControlRowType.Footer) 
-            {
-                e.Row.Cells[6].Text = "Total: " + totalAmount.ToString("C"); 
-            }
-        }
+        
 
         private void LoadBillItem()
         {
@@ -305,7 +315,7 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
 
                     LoadItem(load.CategoryCode);
 
-                    ddlItemName.SelectedValue = load.ItemCode;
+                    ddlItemCode.SelectedValue = load.ItemCode;
 
                     txtQuantity.Text = load.OrderQty.ToString("F0");
                     txtTotal.Text = (load.Cost * load.OrderQty).ToString("F2");
@@ -328,10 +338,10 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
                     string billItemCode = gvAddExpense.DataKeys[index].Value.ToString();
 
                     ViewState["BillItemCode"] = billItemCode;
+                    BillItem billItem = new BillItem();
 
                     if (e.CommandName == "EditItem")
                     {
-                        BillItem billItem = new BillItem();
 
                         var load = billItem.BillItemSelectEdits(billItemCode);
 
@@ -341,7 +351,7 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
 
                             LoadItem(load.CategoryCode); 
 
-                            ddlItemName.SelectedValue = load.ItemCode;
+                            ddlItemCode.SelectedValue = load.ItemCode;
 
                             txtQuantity.Text = load.OrderQty.ToString("F0");
                             txtTotal.Text = (load.Cost * load.OrderQty).ToString("F2");
@@ -353,15 +363,11 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
                     }
                     else if (e.CommandName == "DeleteItem")
                     {
-                        BillItem billItem = new BillItem();
 
                         var load = billItem.BillItemSelectEdits(billItemCode);
-
-                        billItem.BillItemCode = billItemCode;
-
                         if (load != null)
                         {
-                            bool isDelete = billItem.BillItemDeletes(billItem);
+                            bool isDelete = billItem.BillItemDeletes(billItemCode);
 
                             if (isDelete)
                             {

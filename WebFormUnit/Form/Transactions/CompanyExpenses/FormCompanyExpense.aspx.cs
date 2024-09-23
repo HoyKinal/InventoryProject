@@ -30,8 +30,8 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
                 }
                 LoadBillHeader();
 
-                lbDisplayGrandTotal.Text = totalAmount.ToString("C");
-                lbIncreaseItem.Text = totalAmount.ToString("C");
+                //lbDisplayGrandTotal.Text = totalAmount.ToString("C");
+                // lbIncreaseItem.Text = totalAmount.ToString("C");
 
                 GridBind(hdfBillNumber.Value);
             }
@@ -39,9 +39,11 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
 
         private void LoadBillHeader()
         {
-            BillHeader billHeader = new BillHeader() { BillNumber = hdfBillNumber.Value};
-            
-            var load = billHeader.BillHeaderSelectEdits(billHeader);
+            BillHeaderModel billHeaderModal = new BillHeaderModel() { BillNumber = hdfBillNumber.Value};
+
+            BillHeader billHeader = new BillHeader();
+
+            var load = billHeader.BillHeaderSelectEdits(billHeaderModal);
 
             if (load != null)
             {
@@ -50,13 +52,14 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
                 txtDate.Text = load.DateBill.ToString("dd/MM/yyyy");
                 txtReference.Text = load.RefereceNo.ToString();
                 txtMemo.Text = load.Memo;
-                txtVATPercent.Text = load.VatPercent.ToString();
-                txtVatAmount.Text = load.VATAmount.ToString();
-                txtDiscountPercent.Text = load.DiscountPercent.ToString();
-                txtDiscountAmount.Text = load.Discount.ToString();
-                txtTotalDiscountPercent.Text = load.TotalDiscount.ToString();
-                txtTotalDiscount.Text = load.TotalDiscount.ToString();  
-
+                txtVATPercent.Text = load.VatPercent.Value.ToString("F2");
+                txtVatAmount.Text = load.VATAmount.Value.ToString("F2");
+                txtDiscountPercent.Text = load.DiscountPercent.Value.ToString("F2");
+                txtDiscountAmount.Text = load.DiscountAmount.Value.ToString("F2");
+                txtTotalDiscountPercent.Text = load.TotalDiscount.Value.ToString("F2");
+                txtTotalDiscount.Text = load.TotalDiscount.Value.ToString("F2");
+                lbDisplayGrandTotal.Text = load.Total.Value.ToString("F2");
+                lbIncreaseItem.Text = load.Total.Value.ToString("F2");
             }
         }
         private void LoadSupplier()
@@ -102,6 +105,7 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
             Session["Reference"] = txtReference.Text; 
             Session["Memo"] = txtMemo.Text;
             Session["VatPercent"] = txtVATPercent.Text;
+            Session["VatAmount"] = txtVatAmount.Text;
             Session["DiscountPercent"] = txtDiscountPercent.Text;
             Session["DiscountAmount"] = txtDiscountAmount.Text;
             
@@ -117,8 +121,8 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
             {
                 gvAddExpense.DataSource = load;
                 gvAddExpense.DataBind();
-                lbDisplayGrandTotal.Text = totalAmount.ToString("C");
-                lbIncreaseItem.Text = totalAmount.ToString("C");
+                //lbDisplayGrandTotal.Text = totalAmount.ToString("C");
+                //lbIncreaseItem.Text = totalAmount.ToString("C");
             }
         }
         private decimal totalAmount = 0;
@@ -169,11 +173,9 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
 
                     var load = billItem.BillItemSelectEdits(billItemCode);
 
-                    billItem.BillItemCode = billItemCode;
-
                     if (load != null)
                     {
-                        bool isDelete = billItem.BillItemDeletes(billItem);
+                        bool isDelete = billItem.BillItemDeletes(billItemCode);
 
                         if (isDelete)
                         {
