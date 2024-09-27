@@ -10,6 +10,7 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpense
     {
         public string BillNumber { get; set; }
         public DateTime DateBill { get; set; }
+        public DateTime? DueDateBill { get; set; } = null;  
         public string VenderCode { get; set; }
         public string RefereceNo { get; set; }
         public string LocationCode { get; set; }
@@ -21,6 +22,8 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpense
         public decimal TotalDiscoutPercent { get; set; }
         public decimal TotalDiscount { get; set; }
         public decimal SubTotal { get; set; }
-        public decimal GrandTotal { get; set; }
+        public decimal GrandTotalHeader { get; set; }
+        public decimal DiscountItem { get;}
+        public bool? Indedted { get; set; }
     }
 }

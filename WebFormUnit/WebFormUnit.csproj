@@ -176,6 +176,11 @@
     <Content Include="Form\ItemsForm\FormItems.aspx" />
     <Content Include="Form\Transactions\CompanyExpenses\FormAddExpense.aspx" />
     <Content Include="Form\Transactions\CompanyExpenses\FormCompanyExpense.aspx" />
+    <Content Include="Form\Transactions\CompanyExpenses\FormOpenExpense.aspx" />
+    <Content Include="Form\Transactions\EnterBill\FormCompanyAddBill.aspx" />
+    <Content Include="Form\Transactions\EnterBill\FormCompanyBillList.aspx" />
+    <Content Include="Form\Transactions\EnterBill\FormCompanyEnterBill.aspx" />
+    <Content Include="Form\Transactions\EnterBill\FormCompanyPayBill.aspx" />
     <Content Include="Form\Transactions\Suppliers\FormSupplier.aspx" />
     <Content Include="Form\UnitForm\FormUnitMain.aspx" />
     <Content Include="Form\UnitMeasurementForm\FormUnitMeasurement.aspx" />
@@ -355,6 +360,41 @@
     </Compile>
     <Compile Include="Form\Transactions\CompanyExpenses\FormCompanyExpense.aspx.designer.cs">
       <DependentUpon>FormCompanyExpense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transactions\CompanyExpenses\FormOpenExpense.aspx.cs">
+      <DependentUpon>FormOpenExpense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Transactions\CompanyExpenses\FormOpenExpense.aspx.designer.cs">
+      <DependentUpon>FormOpenExpense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transactions\EnterBill\FormCompanyAddBill.aspx.cs">
+      <DependentUpon>FormCompanyAddBill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Transactions\EnterBill\FormCompanyAddBill.aspx.designer.cs">
+      <DependentUpon>FormCompanyAddBill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transactions\EnterBill\FormCompanyBillList.aspx.cs">
+      <DependentUpon>FormCompanyBillList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Transactions\EnterBill\FormCompanyBillList.aspx.designer.cs">
+      <DependentUpon>FormCompanyBillList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transactions\EnterBill\FormCompanyEnterBill.aspx.cs">
+      <DependentUpon>FormCompanyEnterBill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Transactions\EnterBill\FormCompanyEnterBill.aspx.designer.cs">
+      <DependentUpon>FormCompanyEnterBill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transactions\EnterBill\FormCompanyPayBill.aspx.cs">
+      <DependentUpon>FormCompanyPayBill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Transactions\EnterBill\FormCompanyPayBill.aspx.designer.cs">
+      <DependentUpon>FormCompanyPayBill.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form\Transactions\Suppliers\FormSupplier.aspx.cs">
       <DependentUpon>FormSupplier.aspx</DependentUpon>

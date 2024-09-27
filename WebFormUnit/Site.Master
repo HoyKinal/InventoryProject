@@ -94,10 +94,14 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" runat="Server" href="~/Form/Transactions/CompanyExpenses/FormCompanyExpense">Company Expense</a></li>                                
+                                <li><a class="dropdown-item" runat="Server" href="~/Form/Transactions/CompanyExpenses/FormCompanyExpense">Company Expense</a></li>  
+                                <li><a class="dropdown-item" runat="server" href="/Form/Transactions/CompanyExpenses/FormOpenExpense">Expense List</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
+                                <li><a class="dropdown-item" runat="server" href="Form/Transactions/EnterBill/FormCompanyEnterBill">Enter Bill</a></li>
+                                <li><a class="dropdown-item" runat="server" href="Form/Transactions/EnterBill/FormCompanyBillList">Bill List</a></li>
+                                <li><a class="dropdown-item" runat="server" href="Form/Transactions/EnterBill/FormCompanyPayBill">Pay Bill</a></li>                                <li><a class="dropdown-item" runat="server" href="Form/Transactions/EnterBill/FormCompanyEnterBill">Paid Bill</a></li>
                             </ul>
                         </li>
                     </ul>

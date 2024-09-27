@@ -61,11 +61,11 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpense
                 return false;
             }
         }
-        public bool BillItemDeletes(string billItemCode)
+        public bool BillItemDeletes(string billNumberBillItemCode,bool option)
         {
             try
             {
-                context.BillItemDelete(billItemCode);
+                context.BillItemDelete(billNumberBillItemCode, option);
                 return true;
             }
             catch (Exception)

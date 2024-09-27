@@ -104,6 +104,7 @@
     <Compile Include="Customers\Customer\Customer.cs" />
     <Compile Include="Customers\Customer\CustomerRepo.cs" />
     <Compile Include="Customers\Customer\ICustomerRepo.cs" />
+    <Compile Include="CustomFunction\CustomDateTime.cs" />
     <Compile Include="DataLinq.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -154,6 +155,8 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Transaction\Purchases\EnterBill\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebFormUnit.Form.Transactions.CompanyExpenses
+namespace WebFormUnit.Form.Transactions.EnterBill
 {
 
 
-    public partial class FormCompanyExpense
+    public partial class FormCompanyEnterBill
     {
 
         /// <summary>
@@ -69,6 +69,15 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         protected global::System.Web.UI.WebControls.LinkButton btnSaveItem;
 
         /// <summary>
+        /// btnPayment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnPayment;
+
+        /// <summary>
         /// UpdatePanel2 control.
         /// </summary>
         /// <remarks>
@@ -78,13 +87,13 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
 
         /// <summary>
-        /// txtExpenseNo control.
+        /// txtBillNumberNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExpenseNo;
+        protected global::System.Web.UI.WebControls.TextBox txtBillNumberNo;
 
         /// <summary>
         /// ddlSupplier control.
@@ -96,13 +105,13 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         protected global::System.Web.UI.WebControls.DropDownList ddlSupplier;
 
         /// <summary>
-        /// txtDate control.
+        /// txtStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDate;
+        protected global::System.Web.UI.WebControls.TextBox txtStartDate;
 
         /// <summary>
         /// rqfDate control.
@@ -112,6 +121,24 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfDate;
+
+        /// <summary>
+        /// txtExpireDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtExpireDate;
+
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
         /// txtReference control.
@@ -159,13 +186,13 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         protected global::System.Web.UI.WebControls.Button btnAddItem;
 
         /// <summary>
-        /// gvAddExpense control.
+        /// gvEnterBill control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAddExpense;
+        protected global::System.Web.UI.WebControls.GridView gvEnterBill;
 
         /// <summary>
         /// txtVATPercent control.

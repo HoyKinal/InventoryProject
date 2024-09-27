@@ -24,12 +24,14 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpenses
                 context.BillHeaderInsert(
                        c.BillNumber,
                        c.DateBill,
+                       c.DueDateBill,
                        c.VenderCode,
                        c.RefereceNo,
                        c.Memo,
                        c.VatPercent,
                        c.DiscountPercent,
-                       c.DiscountAmount
+                       c.DiscountAmount,
+                       c.Indedted
                     );
 
                 return true;
@@ -40,13 +42,13 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpenses
                 return false;
             }
         }
-        public IEnumerable<BillHeaderSelectResult> BillHeaderSelects(string search)
+        public IEnumerable<BillHeaderSelectResult> BillHeaderSelects(string search,string fromDate, string toDate,bool indedted)
         {
-            return context.BillHeaderSelect(search).ToList();
+            return context.BillHeaderSelect(search, fromDate,toDate, indedted).ToList();
         }
         public BillHeaderSelectEditResult BillHeaderSelectEdits(BillHeaderModel c)
         {
-            return context.BillHeaderSelectEdit(c.BillNumber).SingleOrDefault();
+            return context.BillHeaderSelectEdit(c.BillNumber).FirstOrDefault();
         }
         public bool BillHeaderUpdate(BillHeaderModel c)
         {
@@ -55,12 +57,13 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpenses
                 context.BillHeaderUpdate(
                     c.BillNumber,
                     c.DateBill,
+                    c.DueDateBill,
                     c.VenderCode,
                     c.RefereceNo,
                     c.Memo,
                     c.VatPercent,
                     c.DiscountPercent,
-                    c.DiscountAmount
+                    c.DiscountAmount     
                      );
                 return true;
             }

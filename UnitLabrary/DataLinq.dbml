@@ -983,24 +983,6 @@
       <Column Name="Ana10" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.BillHeaderSelect" Method="BillHeaderSelect">
-    <Parameter Name="search" Type="System.String" DbType="NVarChar(30)" />
-    <ElementType Name="BillHeaderSelectResult">
-      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="BillNumber" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="DateBill" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="VenderCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="RefereceNo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="Memo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="VatPercent" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
-      <Column Name="DiscountPercent" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
-      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.BillItemDelete" Method="BillItemDelete">
-    <Parameter Name="BillItemCode" Parameter="billItemCode" Type="System.String" DbType="NVarChar(30)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.BillItemInsert" Method="BillItemInsert">
     <Parameter Name="BillItemCode" Parameter="billItemCode" Type="System.String" DbType="NVarChar(30)" />
     <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
@@ -1074,11 +1056,30 @@
     <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.BillItemDelete" Method="BillItemDelete">
+    <Parameter Name="BillNumberBillItemCode" Parameter="billNumberBillItemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Option" Parameter="option" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.BillHeaderInsert" Method="BillHeaderInsert">
+    <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="DateBill" Parameter="dateBill" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="DueDateBill" Parameter="dueDateBill" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="VenderCode" Parameter="venderCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="RefereceNo" Parameter="refereceNo" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Memo" Parameter="memo" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="VatPercent" Parameter="vatPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="DiscountPercent" Parameter="discountPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="DiscountAmount" Parameter="discountAmount" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="Indebted" Parameter="indebted" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.BillHeaderSelectEdit" Method="BillHeaderSelectEdit">
     <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
     <ElementType Name="BillHeaderSelectEditResult">
       <Column Name="BillNumber" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="DateBill" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DueDateBill" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="VenderCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="RefereceNo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="Memo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
@@ -1087,23 +1088,38 @@
       <Column Name="DiscountPercent" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
       <Column Name="DiscountAmount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
       <Column Name="TotalDiscount" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
-      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Indebted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TotalHeadWithVat" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="TotalDiscountItem" Type="System.Decimal" DbType="Decimal(38,5)" CanBeNull="true" />
+      <Column Name="TotalItem" Type="System.Decimal" DbType="Decimal(38,5)" CanBeNull="true" />
+      <Column Name="DiscountItem" Type="System.Decimal" DbType="Decimal(38,5)" CanBeNull="true" />
+      <Column Name="GrandTotalHeader" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.BillHeaderInsert" Method="BillHeaderInsert">
-    <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="DateBill" Parameter="dateBill" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="VenderCode" Parameter="venderCode" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="RefereceNo" Parameter="refereceNo" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="Memo" Parameter="memo" Type="System.String" DbType="NVarChar(200)" />
-    <Parameter Name="VatPercent" Parameter="vatPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
-    <Parameter Name="DiscountPercent" Parameter="discountPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
-    <Parameter Name="DiscountAmount" Parameter="discountAmount" Type="System.Decimal" DbType="Decimal(18,5)" />
-    <Return Type="System.Int32" />
+  <Function Name="dbo.BillHeaderSelect" Method="BillHeaderSelect">
+    <Parameter Name="search" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="fromDate" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="toDate" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="Indebted" Parameter="indebted" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="BillHeaderSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BillNumber" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DateBill" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="VenderCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="RefereceNo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Memo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(38,10)" CanBeNull="true" />
+      <Column Name="TotalDiscountItem" Type="System.Decimal" DbType="Decimal(38,5)" CanBeNull="true" />
+      <Column Name="GrandTotal" Type="System.Decimal" DbType="Decimal(38,5)" CanBeNull="true" />
+      <Column Name="TotalDiscountHeader" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="TotalVate" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="GrandTotalWithVAT" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+    </ElementType>
   </Function>
   <Function Name="dbo.BillHeaderUpdate" Method="BillHeaderUpdate">
     <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
     <Parameter Name="DateBill" Parameter="dateBill" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="DueDateBill" Parameter="dueDateBill" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="VenderCode" Parameter="venderCode" Type="System.String" DbType="NVarChar(30)" />
     <Parameter Name="RefereceNo" Parameter="refereceNo" Type="System.String" DbType="NVarChar(30)" />
     <Parameter Name="Memo" Parameter="memo" Type="System.String" DbType="NVarChar(200)" />

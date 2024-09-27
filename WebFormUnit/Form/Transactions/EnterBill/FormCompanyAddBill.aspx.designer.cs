@@ -7,102 +7,192 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebFormUnit.Form.Transactions.CompanyExpenses
+namespace WebFormUnit.Form.Transactions.EnterBill
 {
 
 
-    public partial class FormCompanyExpense
+    public partial class FormCompanyAddBill
     {
 
         /// <summary>
-        /// hdfBillNumber control.
+        /// hdfNumberNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdfBillNumber;
+        protected global::System.Web.UI.WebControls.HiddenField hdfNumberNo;
 
         /// <summary>
-        /// btnOpenItem control.
+        /// hdfSupplierCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnOpenItem;
+        protected global::System.Web.UI.WebControls.HiddenField hdfSupplierCode;
 
         /// <summary>
-        /// UpdatePanel1 control.
+        /// hdfStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.HiddenField hdfStartDate;
 
         /// <summary>
-        /// btnNewItem control.
+        /// hdfExpireDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnNewItem;
+        protected global::System.Web.UI.WebControls.HiddenField hdfExpireDate;
 
         /// <summary>
-        /// btnDeleteItem control.
+        /// hdfReference control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnDeleteItem;
+        protected global::System.Web.UI.WebControls.HiddenField hdfReference;
 
         /// <summary>
-        /// btnSaveItem control.
+        /// hdfMemo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnSaveItem;
+        protected global::System.Web.UI.WebControls.HiddenField hdfMemo;
 
         /// <summary>
-        /// UpdatePanel2 control.
+        /// hdfVatPercent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        protected global::System.Web.UI.WebControls.HiddenField hdfVatPercent;
 
         /// <summary>
-        /// txtExpenseNo control.
+        /// hdfVatAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExpenseNo;
+        protected global::System.Web.UI.WebControls.HiddenField hdfVatAmount;
 
         /// <summary>
-        /// ddlSupplier control.
+        /// hdfDiscountPercent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSupplier;
+        protected global::System.Web.UI.WebControls.HiddenField hdfDiscountPercent;
 
         /// <summary>
-        /// txtDate control.
+        /// hdfDiscountAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDate;
+        protected global::System.Web.UI.WebControls.HiddenField hdfDiscountAmount;
+
+        /// <summary>
+        /// hdfTotalDiscountPercent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfTotalDiscountPercent;
+
+        /// <summary>
+        /// hdfTotalDiscount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfTotalDiscount;
+
+        /// <summary>
+        /// hdfTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfTotal;
+
+        /// <summary>
+        /// hdfGrandTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfGrandTotal;
+
+        /// <summary>
+        /// hdfDisplayTotalAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfDisplayTotalAmount;
+
+        /// <summary>
+        /// btnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBack;
+
+        /// <summary>
+        /// ddlCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
+
+        /// <summary>
+        /// ddlItemCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlItemCode;
+
+        /// <summary>
+        /// txtCost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCost;
+
+        /// <summary>
+        /// txtQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
 
         /// <summary>
         /// rqfDate control.
@@ -114,76 +204,22 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfDate;
 
         /// <summary>
-        /// txtReference control.
+        /// txtUnitStock control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReference;
+        protected global::System.Web.UI.WebControls.TextBox txtUnitStock;
 
         /// <summary>
-        /// txtMemo control.
+        /// txtTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMemo;
-
-        /// <summary>
-        /// lbDisplayGrandTotal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbDisplayGrandTotal;
-
-        /// <summary>
-        /// lbIncreaseItem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbIncreaseItem;
-
-        /// <summary>
-        /// btnAddItem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddItem;
-
-        /// <summary>
-        /// gvAddExpense control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAddExpense;
-
-        /// <summary>
-        /// txtVATPercent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtVATPercent;
-
-        /// <summary>
-        /// txtVatAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtVatAmount;
+        protected global::System.Web.UI.WebControls.TextBox txtTotal;
 
         /// <summary>
         /// txtDiscountPercent control.
@@ -204,15 +240,6 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         protected global::System.Web.UI.WebControls.TextBox txtDiscountAmount;
 
         /// <summary>
-        /// txtTotalDiscountPercent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTotalDiscountPercent;
-
-        /// <summary>
         /// txtTotalDiscount control.
         /// </summary>
         /// <remarks>
@@ -222,57 +249,48 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         protected global::System.Web.UI.WebControls.TextBox txtTotalDiscount;
 
         /// <summary>
-        /// lbDiscount control.
+        /// txtSubTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbDiscount;
+        protected global::System.Web.UI.WebControls.TextBox txtSubTotal;
 
         /// <summary>
-        /// lbAmount control.
+        /// btnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbAmount;
+        protected global::System.Web.UI.WebControls.Button btnAdd;
 
         /// <summary>
-        /// lbTotalDicount control.
+        /// lbExpenseNoDisplay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTotalDicount;
+        protected global::System.Web.UI.WebControls.Label lbExpenseNoDisplay;
 
         /// <summary>
-        /// lbGrandTotalHeader control.
+        /// lbTotalAmountDisplay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbGrandTotalHeader;
+        protected global::System.Web.UI.WebControls.Label lbTotalAmountDisplay;
 
         /// <summary>
-        /// lbTotalVat control.
+        /// gvAddEnterBill control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTotalVat;
-
-        /// <summary>
-        /// lbGrandTotalVat control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbGrandTotalVat;
+        protected global::System.Web.UI.WebControls.GridView gvAddEnterBill;
     }
 }

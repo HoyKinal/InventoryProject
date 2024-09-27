@@ -1,7 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormCompanyExpense.aspx.cs" Inherits="WebFormUnit.Form.Transactions.CompanyExpenses.FormCompanyExpense" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormCompanyEnterBill.aspx.cs" Inherits="WebFormUnit.Form.Transactions.EnterBill.FormCompanyEnterBill" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
@@ -9,7 +8,7 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-regular-straight/css/uicons-regular-straight.css'>
-
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <style>
         /* General datepicker styling */
         /* General datepicker styling */
@@ -92,20 +91,23 @@
     <div class="container-fluid">
         <div class="d-flex flex-wrap justify-content-start align-items-center bg-light p-3 rounded shadow-sm mb-4">
             <asp:LinkButton ID="btnOpenItem" runat="server" CssClass="btn btn-outline-primary me-2 mb-2 mb-md-0" OnClick="btnOpenItem_Click">
-            <i class="fi fi-ss-folder-open"></i> Open
+                 <i class="fi fi-ss-folder-open"></i> Open
             </asp:LinkButton>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:LinkButton ID="btnNewItem" runat="server" CssClass="btn btn-outline-success me-2 mb-2 mb-md-0" OnClick="btnNewItem_Click">
-                        <i class="fi fi-ss-add-document"></i> New
+                    <asp:LinkButton ID="btnNewItem" runat="server" CssClass="btn btn-outline-success me-2 mb-2 mb-md-0" OnClick="btnNewItem_Click" OnClientClick="showSpinner();return false">
+                    <i class="fi fi-ss-add-document"></i> New
                     </asp:LinkButton>
                 </ContentTemplate>
             </asp:UpdatePanel>
             <asp:LinkButton ID="btnDeleteItem" runat="server" CssClass="btn btn-outline-danger me-2 mb-2 mb-md-0" OnClick="btnDeleteItem_Click">
-            <i class="fi fi-ss-trash"></i> Delete
+                 <i class="fi fi-ss-trash"></i> Delete
             </asp:LinkButton>
             <asp:LinkButton ID="btnSaveItem" runat="server" CssClass="btn btn-outline-primary me-2 mb-2 mb-md-0" OnClick="btnSaveItem_Click">
-            <i class="fi fi-ss-disk"></i> Save
+                 <i class="fi fi-ss-disk"></i> Save
+            </asp:LinkButton>
+             <asp:LinkButton ID="btnPayment" runat="server" CssClass="btn btn-outline-primary me-2 mb-2 mb-md-0" OnClick="btnPayment_Click">
+                 <i class="fi fi-br-payroll-calendar"></i> Payment
             </asp:LinkButton>
         </div>
         <!-- MainRow -->
@@ -113,15 +115,15 @@
             <div class="col-lg-2">
                 <div class="card shadow-sm">
                     <div class="card-header bg-primary text-white">
-                        <h5 class="card-title mb-0">Company Expense</h5>
-                        <small>Enter expense details for accounts and items purchased</small>
+                        <h5 class="card-title mb-0">Enter Bill</h5>
+                        <small>Enter bill for accounts and items that you purchase</small>
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                 <ContentTemplate>
                                     <label class="form-label fw-bold">Expense No</label>
-                                    <asp:TextBox ID="txtExpenseNo" runat="server" CssClass="form-control" Enabled="false" ReadOnly="true"></asp:TextBox>
+                                    <asp:TextBox ID="txtBillNumberNo" runat="server" CssClass="form-control" Enabled="false" ReadOnly="true"></asp:TextBox>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                         </div>
@@ -130,14 +132,26 @@
                             <asp:DropDownList ID="ddlSupplier" runat="server" CssClass="form-select"></asp:DropDownList>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label fw-bold">Date</label>
-                            <asp:TextBox ID="txtDate" runat="server" CssClass="form-control datepicker"></asp:TextBox>
+                            <label class="form-label fw-bold">Start Date</label>
+                            <asp:TextBox ID="txtStartDate" runat="server" CssClass="form-control datepicker"></asp:TextBox>
                             <asp:RequiredFieldValidator
                                 ID="rqfDate"
                                 runat="server"
                                 ErrorMessage="*requier"
                                 CssClass="text-danger"
-                                ControlToValidate="txtDate"
+                                ControlToValidate="txtStartDate"
+                                Display="Dynamic"
+                                ValidationGroup="AddNew"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Expire Date</label>
+                            <asp:TextBox ID="txtExpireDate" runat="server" CssClass="form-control datepicker"></asp:TextBox>
+                            <asp:RequiredFieldValidator
+                                ID="RequiredFieldValidator1"
+                                runat="server"
+                                ErrorMessage="*requier"
+                                CssClass="text-danger"
+                                ControlToValidate="txtExpireDate"
                                 Display="Dynamic"
                                 ValidationGroup="AddNew"></asp:RequiredFieldValidator>
                         </div>
@@ -157,8 +171,8 @@
                     <div class="card-header bg-success text-white py-3">
                         <div class="row">
                             <div class="col-6">
-                                <h5 class="card-title mb-0">Accounts & Items</h5>
-                                <small>Track how much you spend on accounts and items</small>
+                                <h5 class="card-title mb-0">Items</h5>
+                                <small>Enables you to track how much money you spend on Accounts and Items .</small>
                             </div>
                             <div class="col-6 text-end">
                                 <h5 class="card-title mb-0 text-light">Grand Total</h5>
@@ -171,8 +185,8 @@
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                 <button class="nav-link fw-bold" id="nav-item-tab" data-bs-toggle="tab" data-bs-target="#nav-item" type="button" role="tab" aria-controls="nav-item" aria-selected="false">
                                     Item
-                                <span class="badge bg-success ms-2">
-                                    <asp:Label ID="lbIncreaseItem" runat="server" Text="0"></asp:Label></span>
+                            <span class="badge bg-success ms-2">
+                                <asp:Label ID="lbIncreaseItem" runat="server" Text="0"></asp:Label></span>
                                 </button>
                             </div>
                             <div class="tab-content p-3" id="nav-tabContent">
@@ -184,15 +198,10 @@
                             </div>
                         </nav>
                         <div class="mt-3">
-                            <asp:GridView ID="gvAddExpense" runat="server" CssClass="table table-striped table-hover" AutoGenerateColumns="false"
+                            <asp:GridView ID="gvEnterBill" runat="server" CssClass="table table-striped table-hover" AutoGenerateColumns="false"
                                 EmptyDataText="Empty Information Item."
                                 DataKeyNames="BillItemCode"
-                                OnRowDataBound="gvAddExpense_RowDataBound"
-                                OnRowCommand="gvAddExpense_RowCommand"
-                                AllowPaging="true"
-                                PageSize="3"
-                                OnPageIndexChanging="gvAddExpense_PageIndexChanging"
-                                >
+                                OnRowCommand="gvEnterBill_RowCommand">
                                 <Columns>
                                     <asp:BoundField DataField="RowNo" HeaderText="#" />
                                     <asp:BoundField DataField="ItemCode" HeaderText="Item Code" />
@@ -281,9 +290,14 @@
             </div>
         </div>
     </div>
-    <%-- <script src="../../Scripts/jquery-3.4.1.min.js"></script>
-    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
-    --%>
+ 
+    <%--<div class="d-flex justify-content-end">
+        <div id="loadingSpinner" class="spinner-border text-success" style="width: 3rem; height: 3rem; display: none;" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </div>--%>
+
+
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Include jQuery and Bootstrap JavaScript -->
@@ -331,12 +345,13 @@
                 console.log('Selected time: ' + time);
             });
         });
-        // JavaScript to prevent text selection
-        function disableTextSelection(element) {
-            element.style.userSelect = 'none';
-            element.style.webkitUserSelect = 'none';
-            element.style.msUserSelect = 'none';
-            element.style.mozUserSelect = 'none';
+        //Spinner
+        function showSpinner() {
+            document.getElementById("loadingSpinner").style.display = "block";
+
+            setTimeout(function () {
+                document.getElementById("loadingSpinner").style.display = "none";
+            }, 2000);
         }
     </script>
 </asp:Content>

@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Threading;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using UnitLabrary.Transaction;
 using UnitLabrary.Transaction.Purchases.CompanyExpense;
 using UnitLabrary.Transaction.Purchases.CompanyExpenses;
 using UnitLabrary.Transaction.Suppliers;
@@ -19,21 +19,27 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
                 LoadSupplier();
                 txtExpenseNo.Text = GenerateRandomBarcode();
 
-                if (Session["BillExpenseCode"] != null)
+                //if (Session["BillExpenseCode"] != null)
+                //{
+                //    hdfBillNumber.Value = Session["BillExpenseCode"].ToString();
+                //}
+                if (Session["BillNumberFormEdit"] != null)
                 {
-                    hdfBillNumber.Value = Session["BillExpenseCode"].ToString();
+                    hdfBillNumber.Value = Request.QueryString["billNumberFromEdit"];
+                }
+                else
+                {
+                    if (Request.QueryString["BillNumber"] != null)
+                    {
+                        hdfBillNumber.Value = Request.QueryString["BillNumber"];
+                    }
                 }
 
-                if (Request.QueryString["BillNumber"] != null)
-                {
-                    hdfBillNumber.Value = Request.QueryString["BillNumber"];
-                }
                 LoadBillHeader();
 
-                //lbDisplayGrandTotal.Text = totalAmount.ToString("C");
-                // lbIncreaseItem.Text = totalAmount.ToString("C");
-
                 GridBind(hdfBillNumber.Value);
+
+                LoadItemInfo();
             }
         }
 
@@ -58,8 +64,8 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
                 txtDiscountAmount.Text = load.DiscountAmount.Value.ToString("F2");
                 txtTotalDiscountPercent.Text = load.TotalDiscount.Value.ToString("F2");
                 txtTotalDiscount.Text = load.TotalDiscount.Value.ToString("F2");
-                lbDisplayGrandTotal.Text = load.Total.Value.ToString("F2");
-                lbIncreaseItem.Text = load.Total.Value.ToString("F2");
+                lbDisplayGrandTotal.Text = load.TotalHeadWithVat.Value.ToString("F2");
+                lbIncreaseItem.Text = load.TotalItem.Value.ToString("F2");
             }
         }
         private void LoadSupplier()
@@ -93,9 +99,11 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         protected void btnNewItem_Click(object sender, EventArgs e)
         {
             string randomBarcode = GenerateRandomBarcode();
-            txtExpenseNo.Text = randomBarcode;  
+            txtExpenseNo.Text = randomBarcode;
+            Session["BillNumberFormEdit"] = null;
+            Response.Redirect("~/Form/Transactions/CompanyExpenses/FormCompanyExpense");
         }
-
+       
         protected void btnAddItem_Click(object sender, EventArgs e)
         {
             // Store values in session
@@ -108,8 +116,6 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
             Session["VatAmount"] = txtVatAmount.Text;
             Session["DiscountPercent"] = txtDiscountPercent.Text;
             Session["DiscountAmount"] = txtDiscountAmount.Text;
-            
-
 
             Response.Redirect("~/Form/Transactions/CompanyExpenses/FormAddExpense");
         }
@@ -121,8 +127,6 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
             {
                 gvAddExpense.DataSource = load;
                 gvAddExpense.DataBind();
-                //lbDisplayGrandTotal.Text = totalAmount.ToString("C");
-                //lbIncreaseItem.Text = totalAmount.ToString("C");
             }
         }
         private decimal totalAmount = 0;
@@ -159,6 +163,24 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
 
             ClientScript.RegisterStartupScript(this.GetType(), "showAlert", script, true);
         }
+        private void ShowAlertAndRedirect(string message, string type, string redirectUrl, int delay)
+        {
+            string script = $@"
+            var alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-{type}';
+            alertDiv.role = 'alert';
+            alertDiv.innerHTML = '{message}';
+            document.body.insertBefore(alertDiv, document.body.firstChild);
+
+            setTimeout(function() {{
+                alertDiv.style.display = 'none';
+                alertDiv.remove();
+                window.location.href = '{redirectUrl}';
+            }}, {delay});"; // Delay in milliseconds
+
+            ClientScript.RegisterStartupScript(this.GetType(), "showAlertAndRedirect", script, true);
+        }
+
         protected void gvAddExpense_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "EditItem" || e.CommandName == "DeleteItem")
@@ -173,9 +195,11 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
 
                     var load = billItem.BillItemSelectEdits(billItemCode);
 
+                    bool option = true;
+
                     if (load != null)
                     {
-                        bool isDelete = billItem.BillItemDeletes(billItemCode);
+                        bool isDelete = billItem.BillItemDeletes(billItemCode, option);
 
                         if (isDelete)
                         {
@@ -190,6 +214,7 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
                 }
                 else if(e.CommandName == "EditItem")
                 {
+                    
                     Session["billItemCode"] = billItemCode;
 
                     Response.Redirect($"~/Form/Transactions/CompanyExpenses/FormAddExpense.aspx?billItemCode={Server.UrlEncode(billItemCode)}");
@@ -202,6 +227,101 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
         {
             gvAddExpense.PageIndex = e.NewPageIndex;
             GridBind(hdfBillNumber.Value);
+        }
+
+        private void SaveItem()
+        {
+            BillHeaderModel h = new BillHeaderModel()
+            {
+                BillNumber = hdfBillNumber.Value,
+                DateBill = DateTime.UtcNow.AddHours(7),
+                DueDateBill = DateTime.UtcNow.AddHours(7),  
+                VenderCode = ddlSupplier.SelectedValue,
+                RefereceNo = txtReference.Text,
+                Memo = txtMemo.Text,
+                VatPercent = txtVATPercent.Text.KinalDecimal(),
+                DiscountPercent = txtDiscountPercent.Text.KinalDecimal(),
+                DiscountAmount = txtDiscountAmount.Text.KinalDecimal(),
+            };
+
+            BillHeader billHeader = new BillHeader();
+
+            var check = billHeader.BillHeaderSelectEdits(h);
+
+            bool isUpdate = billHeader.BillHeaderUpdate(h);
+
+            if (isUpdate)
+            {
+                ShowAlert("Update BillHeader is successfully.", "success");
+                LoadBillHeader();
+                LoadItemInfo();
+            }
+            else
+            {
+                ShowAlert("Update BillHeader is failed.", "danger");
+            }
+        }
+        protected void btnSaveItem_Click(object sender, EventArgs e)
+        {
+            SaveItem();
+        }
+        private void DeletePurchase()
+        {
+            string billNumber = hdfBillNumber.Value;
+
+            bool option = false;
+
+            BillTransactionPurchase purchase = new BillTransactionPurchase();
+
+            BillHeaderModel bh = new BillHeaderModel { BillNumber =  billNumber };
+
+            bool isDelete =  purchase.PurchaseItemDelete(billNumber, option, bh);
+
+            if (isDelete)
+            {
+                
+                string message = "Delete bill number is successful.";
+               
+                string type = "success";
+               
+                string redirectUrl = ResolveUrl("~/Form/Transactions/CompanyExpenses/FormCompanyExpense");
+
+                int delay = 2000; 
+
+                ShowAlertAndRedirect(message, type, redirectUrl, delay);
+            }
+            else
+            {
+                ShowAlert("Delete billnumber is failed.", "danger");
+            }
+        }
+        protected void btnDeleteItem_Click(object sender, EventArgs e)
+        {
+            DeletePurchase();
+            GridBind(hdfBillNumber.Value);
+        }
+        private void LoadItemInfo()
+        {
+            BillHeaderModel model = new BillHeaderModel() { BillNumber = hdfBillNumber.Value };
+            BillHeader header = new BillHeader();
+
+            var load = header.BillHeaderSelectEdits(model);
+
+            if (load != null)
+            {
+                lbDiscount.Text = load.TotalDiscountItem.Value.ToString("F2");
+                lbGrandTotalHeader.Text = load.GrandTotalHeader.Value.ToString("F2");
+                lbAmount.Text = load.TotalItem.Value.ToString("F2");
+                lbTotalDicount.Text = load.TotalDiscount.Value.ToString("F2");
+                lbTotalVat.Text = load.VATAmount.Value.ToString("F2");
+                lbGrandTotalVat.Text = load.TotalHeadWithVat.Value.ToString("F2");
+            }
+        }
+
+        protected void btnOpenItem_Click(object sender, EventArgs e)
+        {
+           
+            Response.Redirect("~/Form/Transactions/CompanyExpenses/FormOpenExpense");
         }
     }
 }
