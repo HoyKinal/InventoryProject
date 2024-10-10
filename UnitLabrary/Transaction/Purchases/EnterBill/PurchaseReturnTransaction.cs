@@ -1,48 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnitLabrary.Transaction.Purchases.CompanyExpense;
 using UnitLabrary.Transaction.Purchases.CompanyExpenses;
-using UnitLabrary.Transaction.Purchases.EnterBill;
 
-namespace UnitLabrary.Transaction.Purchases.CompanyExpense
+namespace UnitLabrary.Transaction.Purchases.EnterBill
 {
-    public class BillTransactionPurchase
+    public class PurchaseReturnTransaction
     {
         private DataLinqDataContext context;
-        private SqlConnection conn;
 
-        public BillTransactionPurchase()
+        private SqlConnection conn; 
+        public PurchaseReturnTransaction()
         {
-            context = new DataLinqDataContext();
+            context = new DataLinqDataContext();    
             conn = (SqlConnection)context.Connection;
             conn.Open();
         }
-
-        public bool PurchaseItemInsert(BillHeaderModel h, BillItemModel i)
+        public bool PurchaseReturnInsert(PurchaseReturnHeaderModel prm)
         {
-            conn = (SqlConnection)context.Connection;
-           
+            if (conn.State != System.Data.ConnectionState.Open)
+            {
+                conn.Open();
+            }
+
             using (SqlTransaction transaction = conn.BeginTransaction())
             {
                 try
                 {
+
                     context.Transaction = transaction;
 
-                    //Insert BillHeader
-                    BillHeader bill = new BillHeader();
-                    bill.BillHeaderInserts(h);
+                    PurchaseReturnHeader prh = new PurchaseReturnHeader();
 
-                    //Insert BillItem
-                    BillItem billItem = new BillItem();
+                    //Can insert one time refer to BillNo is PK
+                    prh.PurchaseReturnHeaderInsert(prm);    
 
-                    billItem.BillItemInserts(i);
-
-                   //Update BillHeader
-                    bill.BillHeaderUpdate(h);
+                    //Second Time go To Update Header
+                    prh.PurchaseReturnHeaderUpdateDetails(prm);    
 
                     transaction.Commit();
 
@@ -60,40 +59,31 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpense
                 }
             }
         }
-        public bool PurchaseItemUpdate(BillItemModel i,BillHeaderModel h)
+        public bool PurchaseReturnDetailInsert(PurchaseReturnDetailModel prdm, PurchaseReturnHeaderModel prhm)
         {
-            SqlConnection conn = (SqlConnection)context.Connection;
-
-            //Connection State: check whether the connection is already open.
-
-            if (conn.State != ConnectionState.Open)
+            if (conn.State != System.Data.ConnectionState.Open)
             {
                 conn.Open();
             }
-
-            using (SqlTransaction transaction = conn.BeginTransaction()) 
+            using (SqlTransaction transaction = conn.BeginTransaction())
             {
                 try
                 {
                     context.Transaction = transaction;
 
-                    //Update BillItem
-                    BillItem item = new BillItem();
+                    PurchaseReturnDetial prd = new PurchaseReturnDetial();
 
-                    item.BillItemUpdates(i);
+                    prd.PurchaseReturnDetailInserts(prdm);
 
-                    //Update BillHeader
+                    PurchaseReturnHeader prh = new PurchaseReturnHeader();
 
-                    BillHeader bill = new BillHeader();
-
-                    bill.BillHeaderUpdate(h);
-
+                    prh.PurchaseReturnHeaderUpdate(prhm);
 
                     transaction.Commit();
 
                     return true;
-
-                }catch (Exception)
+                }
+                catch (Exception)
                 {
                     transaction.Rollback();
 
@@ -101,17 +91,14 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpense
                 }
                 finally
                 {
-                    conn.Close ();  
+                    conn.Close();
                 }
             }
         }
-        public bool PurchaseItemDelete(string billNumberBillItemCode, bool option,BillHeaderModel h)
+       
+        public bool PurchaseReturnDetailDelete(string billNumberBillItemCode, bool option, BillHeaderModel h)
         {
-            SqlConnection conn = (SqlConnection)context.Connection;
-
-            //Connection State: check whether the connection is already open.
-
-            if (conn.State != ConnectionState.Open)
+            if (conn.State != System.Data.ConnectionState.Open)
             {
                 conn.Open();
             }
@@ -125,21 +112,17 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpense
                     //Delete BillItem
                     BillItem item = new BillItem();
 
-                    item.BillItemDeletes(billNumberBillItemCode,option);
+                    item.BillItemDeletes(billNumberBillItemCode, option);
 
-                    //Delete BillHeader
+                    //Update BillHeader
 
                     BillHeader bill = new BillHeader();
 
-                    bill.BillHeaderDeletes(h);
-
                     bill.BillHeaderUpdate(h);
-                   
 
                     transaction.Commit();
 
                     return true;
-
                 }
                 catch (Exception)
                 {

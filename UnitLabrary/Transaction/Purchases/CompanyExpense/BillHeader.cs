@@ -78,6 +78,7 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpenses
             try
             {
                 context.BillHeaderDelete(c.BillNumber);
+
                 return true;
             }
             catch (Exception)
@@ -86,5 +87,6 @@ namespace UnitLabrary.Transaction.Purchases.CompanyExpenses
                 return false;
             }
         }
+        
     }
 }

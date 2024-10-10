@@ -181,6 +181,7 @@
     <Content Include="Form\Transactions\EnterBill\FormCompanyBillList.aspx" />
     <Content Include="Form\Transactions\EnterBill\FormCompanyEnterBill.aspx" />
     <Content Include="Form\Transactions\EnterBill\FormCompanyPayBill.aspx" />
+    <Content Include="Form\Transactions\EnterBill\FormCompanyPayBillList.aspx" />
     <Content Include="Form\Transactions\Suppliers\FormSupplier.aspx" />
     <Content Include="Form\UnitForm\FormUnitMain.aspx" />
     <Content Include="Form\UnitMeasurementForm\FormUnitMeasurement.aspx" />
@@ -395,6 +396,13 @@
     </Compile>
     <Compile Include="Form\Transactions\EnterBill\FormCompanyPayBill.aspx.designer.cs">
       <DependentUpon>FormCompanyPayBill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transactions\EnterBill\FormCompanyPayBillList.aspx.cs">
+      <DependentUpon>FormCompanyPayBillList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Transactions\EnterBill\FormCompanyPayBillList.aspx.designer.cs">
+      <DependentUpon>FormCompanyPayBillList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form\Transactions\Suppliers\FormSupplier.aspx.cs">
       <DependentUpon>FormSupplier.aspx</DependentUpon>

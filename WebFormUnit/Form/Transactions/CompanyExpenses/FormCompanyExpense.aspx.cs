@@ -217,6 +217,16 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
                     
                     Session["billItemCode"] = billItemCode;
 
+                    Session["ExpenseNo"] = txtExpenseNo.Text;
+                    Session["SupplierCode"] = ddlSupplier.SelectedValue;
+                    Session["Date"] = txtDate.Text;
+                    Session["Reference"] = txtReference.Text;
+                    Session["Memo"] = txtMemo.Text;
+                    Session["VatPercent"] = txtVATPercent.Text;
+                    Session["VatAmount"] = txtVatAmount.Text;
+                    Session["DiscountPercent"] = txtDiscountPercent.Text;
+                    Session["DiscountAmount"] = txtDiscountAmount.Text;
+
                     Response.Redirect($"~/Form/Transactions/CompanyExpenses/FormAddExpense.aspx?billItemCode={Server.UrlEncode(billItemCode)}");
                     
                 }

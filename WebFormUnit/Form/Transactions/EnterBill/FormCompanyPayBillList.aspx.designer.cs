@@ -11,7 +11,7 @@ namespace WebFormUnit.Form.Transactions.EnterBill
 {
 
 
-    public partial class FormCompanyPayBill
+    public partial class FormCompanyPayBillList
     {
 
         /// <summary>
@@ -33,22 +33,40 @@ namespace WebFormUnit.Form.Transactions.EnterBill
         protected global::System.Web.UI.WebControls.LinkButton btnBack;
 
         /// <summary>
-        /// btnOpen control.
+        /// ddlExports control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnOpen;
+        protected global::System.Web.UI.WebControls.DropDownList ddlExports;
 
         /// <summary>
-        /// ddlSupplier control.
+        /// txtFromDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSupplier;
+        protected global::System.Web.UI.WebControls.TextBox txtFromDate;
+
+        /// <summary>
+        /// txtToDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtToDate;
+
+        /// <summary>
+        /// txtSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
 
         /// <summary>
         /// btnSearch control.
@@ -60,13 +78,13 @@ namespace WebFormUnit.Form.Transactions.EnterBill
         protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
-        /// gvPayBillHeader control.
+        /// gvPayBill control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvPayBillHeader;
+        protected global::System.Web.UI.WebControls.GridView gvPayBill;
 
         /// <summary>
         /// txtBillNo control.
@@ -114,15 +132,6 @@ namespace WebFormUnit.Form.Transactions.EnterBill
         protected global::System.Web.UI.WebControls.TextBox txtPayAmount;
 
         /// <summary>
-        /// rqfPayAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfPayAmount;
-
-        /// <summary>
         /// txtMemo control.
         /// </summary>
         /// <remarks>
@@ -130,15 +139,6 @@ namespace WebFormUnit.Form.Transactions.EnterBill
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMemo;
-
-        /// <summary>
-        /// hdfBillNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdfBillNumber;
 
         /// <summary>
         /// btnSave control.

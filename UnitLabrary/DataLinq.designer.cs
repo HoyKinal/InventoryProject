@@ -612,13 +612,6 @@ namespace UnitLabrary
 			return ((ISingleResult<CustomersSelectEditResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SuppliersDelete")]
-		public int SuppliersDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierCode", DbType="NVarChar(30)")] string supplierCode)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), supplierCode);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SuppliersUpdate")]
 		public int SuppliersUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierCode", DbType="NVarChar(30)")] string supplierCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierName", DbType="NVarChar(50)")] string supplierName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierDesc", DbType="NVarChar(50)")] string supplierDesc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierAddress", DbType="NVarChar(200)")] string supplierAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierPhone", DbType="NVarChar(50)")] string supplierPhone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierFax", DbType="NVarChar(50)")] string supplierFax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierEmail", DbType="NVarChar(150)")] string supplierEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierWeb", DbType="NVarChar(150)")] string supplierWeb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierContact", DbType="NVarChar(50)")] string supplierContact, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierStatus", DbType="Char(1)")] System.Nullable<char> supplierStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierType", DbType="Char(1)")] System.Nullable<char> supplierType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreateBy", DbType="NVarChar(30)")] string createBy, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreateDate", DbType="DateTime")] System.Nullable<System.DateTime> createDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UpdateBy", DbType="NVarChar(30)")] string updateBy, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UpdateDate", DbType="DateTime")] System.Nullable<System.DateTime> updateDate)
 		{
@@ -682,13 +675,6 @@ namespace UnitLabrary
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BillItemDelete")]
-		public int BillItemDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillNumberBillItemCode", DbType="NVarChar(30)")] string billNumberBillItemCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Option", DbType="Bit")] System.Nullable<bool> option)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), billNumberBillItemCode, option);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BillHeaderInsert")]
 		public int BillHeaderInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillNumber", DbType="NVarChar(30)")] string billNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateBill", DbType="DateTime")] System.Nullable<System.DateTime> dateBill, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DueDateBill", DbType="DateTime")] System.Nullable<System.DateTime> dueDateBill, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="VenderCode", DbType="NVarChar(30)")] string venderCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RefereceNo", DbType="NVarChar(30)")] string refereceNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Memo", DbType="NVarChar(200)")] string memo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="VatPercent", DbType="Decimal(18,5)")] System.Nullable<decimal> vatPercent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiscountPercent", DbType="Decimal(18,5)")] System.Nullable<decimal> discountPercent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiscountAmount", DbType="Decimal(18,5)")] System.Nullable<decimal> discountAmount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Indebted", DbType="Bit")] System.Nullable<bool> indebted)
 		{
@@ -714,6 +700,97 @@ namespace UnitLabrary
 		public int BillHeaderUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillNumber", DbType="NVarChar(30)")] string billNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateBill", DbType="DateTime")] System.Nullable<System.DateTime> dateBill, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DueDateBill", DbType="DateTime")] System.Nullable<System.DateTime> dueDateBill, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="VenderCode", DbType="NVarChar(30)")] string venderCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RefereceNo", DbType="NVarChar(30)")] string refereceNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Memo", DbType="NVarChar(200)")] string memo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="VatPercent", DbType="Decimal(18,5)")] System.Nullable<decimal> vatPercent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiscountPercent", DbType="Decimal(18,5)")] System.Nullable<decimal> discountPercent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiscountAmount", DbType="Decimal(18,5)")] System.Nullable<decimal> discountAmount)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), billNumber, dateBill, dueDateBill, venderCode, refereceNo, memo, vatPercent, discountPercent, discountAmount);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PurchaseReturnDetailUpdate")]
+		public int PurchaseReturnDetailUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PurchaseReturnNo", DbType="NVarChar(30)")] string purchaseReturnNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillNo", DbType="NVarChar(30)")] string billNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PaidDate", DbType="DateTime")] System.Nullable<System.DateTime> paidDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PaidAmount", DbType="Decimal(18,5)")] System.Nullable<decimal> paidAmount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MemoReturnPaid", DbType="NVarChar(200)")] string memoReturnPaid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), purchaseReturnNo, billNo, paidDate, paidAmount, memoReturnPaid);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PurchaseReturnDetailInsert")]
+		public int PurchaseReturnDetailInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PurchaseReturnNo", DbType="NVarChar(30)")] string purchaseReturnNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillNo", DbType="NVarChar(30)")] string billNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PaidDate", DbType="DateTime")] System.Nullable<System.DateTime> paidDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PaidAmount", DbType="Decimal(18,5)")] System.Nullable<decimal> paidAmount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MemoReturnPaid", DbType="NVarChar(200)")] string memoReturnPaid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), purchaseReturnNo, billNo, paidDate, paidAmount, memoReturnPaid);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PurchaseReturnDetailSelectEdit")]
+		public ISingleResult<PurchaseReturnDetailSelectEditResult> PurchaseReturnDetailSelectEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PurchaseReturnNo", DbType="NVarChar(30)")] string purchaseReturnNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), purchaseReturnNo);
+			return ((ISingleResult<PurchaseReturnDetailSelectEditResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BillItemDelete")]
+		public int BillItemDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillNumberBillItemCode", DbType="NVarChar(30)")] string billNumberBillItemCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Option", DbType="Bit")] System.Nullable<bool> option)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), billNumberBillItemCode, option);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PurchaseReturnHeaderDelete")]
+		public int PurchaseReturnHeaderDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillNo", DbType="NVarChar(30)")] string billNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), billNo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PurchaseReturnHeaderInsert")]
+		public int PurchaseReturnHeaderInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillNo", DbType="NVarChar(30)")] string billNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PurchaseDateBill", DbType="DateTime")] System.Nullable<System.DateTime> purchaseDateBill, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Paid", DbType="Decimal(18,5)")] System.Nullable<decimal> paid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Unpaid", DbType="Decimal(18,5)")] System.Nullable<decimal> unpaid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), billNo, purchaseDateBill, paid, unpaid);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PurchaseReturnHeaderSelect")]
+		public ISingleResult<PurchaseReturnHeaderSelectResult> PurchaseReturnHeaderSelect([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Supplier", DbType="NVarChar(30)")] string supplier)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), supplier);
+			return ((ISingleResult<PurchaseReturnHeaderSelectResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PurchaseReturnHeaderSelectEdit")]
+		public ISingleResult<PurchaseReturnHeaderSelectEditResult> PurchaseReturnHeaderSelectEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillNo", DbType="NVarChar(30)")] string billNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), billNo);
+			return ((ISingleResult<PurchaseReturnHeaderSelectEditResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PurchaseReturnDetailDelete")]
+		public int PurchaseReturnDetailDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PurchaseReturnNo", DbType="NVarChar(30)")] string purchaseReturnNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillNo", DbType="NVarChar(30)")] string billNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), purchaseReturnNo, billNo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PurchaseReturnHeaderUpdate")]
+		public int PurchaseReturnHeaderUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillNo", DbType="NVarChar(30)")] string billNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PurchaseDateBill", DbType="DateTime")] System.Nullable<System.DateTime> purchaseDateBill)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), billNo, purchaseDateBill);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PurchaseReturnHeaderUpdateDetail")]
+		public int PurchaseReturnHeaderUpdateDetail([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillNo", DbType="NVarChar(30)")] string billNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Unpaid", DbType="Decimal(18,5)")] System.Nullable<decimal> unpaid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), billNo, unpaid);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PurchaseReturnDetailSelect")]
+		public ISingleResult<PurchaseReturnDetailSelectResult> PurchaseReturnDetailSelect([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(30)")] string search, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDate", DbType="NVarChar(30)")] string startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndDate", DbType="NVarChar(30)")] string endDate)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), search, startDate, endDate);
+			return ((ISingleResult<PurchaseReturnDetailSelectResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SuppliersDelete")]
+		public int SuppliersDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierCode", DbType="NVarChar(30)")] string supplierCode)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), supplierCode);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -9275,6 +9352,488 @@ namespace UnitLabrary
 				if ((this._GrandTotalWithVAT != value))
 				{
 					this._GrandTotalWithVAT = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PurchaseReturnDetailSelectEditResult
+	{
+		
+		private string _PurchaseReturnNo;
+		
+		private string _BillNo;
+		
+		private System.DateTime _DatePaid;
+		
+		private decimal _PaidAmount;
+		
+		private string _MemoReturnPaid;
+		
+		public PurchaseReturnDetailSelectEditResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PurchaseReturnNo", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string PurchaseReturnNo
+		{
+			get
+			{
+				return this._PurchaseReturnNo;
+			}
+			set
+			{
+				if ((this._PurchaseReturnNo != value))
+				{
+					this._PurchaseReturnNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BillNo", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string BillNo
+		{
+			get
+			{
+				return this._BillNo;
+			}
+			set
+			{
+				if ((this._BillNo != value))
+				{
+					this._BillNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DatePaid", DbType="DateTime NOT NULL")]
+		public System.DateTime DatePaid
+		{
+			get
+			{
+				return this._DatePaid;
+			}
+			set
+			{
+				if ((this._DatePaid != value))
+				{
+					this._DatePaid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaidAmount", DbType="Decimal(18,5) NOT NULL")]
+		public decimal PaidAmount
+		{
+			get
+			{
+				return this._PaidAmount;
+			}
+			set
+			{
+				if ((this._PaidAmount != value))
+				{
+					this._PaidAmount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemoReturnPaid", DbType="NVarChar(200)")]
+		public string MemoReturnPaid
+		{
+			get
+			{
+				return this._MemoReturnPaid;
+			}
+			set
+			{
+				if ((this._MemoReturnPaid != value))
+				{
+					this._MemoReturnPaid = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PurchaseReturnHeaderSelectResult
+	{
+		
+		private System.Nullable<long> _RowNo;
+		
+		private System.DateTime _DateBill;
+		
+		private string _BillNumber;
+		
+		private string _VenderCode;
+		
+		private string _RefereceNo;
+		
+		private System.Nullable<decimal> _GrandTotalWithVat;
+		
+		private System.DateTime _PurchaseDateBill;
+		
+		private System.Nullable<decimal> _Paid;
+		
+		private System.Nullable<decimal> _Unpaid;
+		
+		public PurchaseReturnHeaderSelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowNo", DbType="BigInt")]
+		public System.Nullable<long> RowNo
+		{
+			get
+			{
+				return this._RowNo;
+			}
+			set
+			{
+				if ((this._RowNo != value))
+				{
+					this._RowNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateBill", DbType="DateTime NOT NULL")]
+		public System.DateTime DateBill
+		{
+			get
+			{
+				return this._DateBill;
+			}
+			set
+			{
+				if ((this._DateBill != value))
+				{
+					this._DateBill = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BillNumber", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string BillNumber
+		{
+			get
+			{
+				return this._BillNumber;
+			}
+			set
+			{
+				if ((this._BillNumber != value))
+				{
+					this._BillNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VenderCode", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string VenderCode
+		{
+			get
+			{
+				return this._VenderCode;
+			}
+			set
+			{
+				if ((this._VenderCode != value))
+				{
+					this._VenderCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RefereceNo", DbType="NVarChar(30)")]
+		public string RefereceNo
+		{
+			get
+			{
+				return this._RefereceNo;
+			}
+			set
+			{
+				if ((this._RefereceNo != value))
+				{
+					this._RefereceNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GrandTotalWithVat", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> GrandTotalWithVat
+		{
+			get
+			{
+				return this._GrandTotalWithVat;
+			}
+			set
+			{
+				if ((this._GrandTotalWithVat != value))
+				{
+					this._GrandTotalWithVat = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PurchaseDateBill", DbType="DateTime NOT NULL")]
+		public System.DateTime PurchaseDateBill
+		{
+			get
+			{
+				return this._PurchaseDateBill;
+			}
+			set
+			{
+				if ((this._PurchaseDateBill != value))
+				{
+					this._PurchaseDateBill = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Paid", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> Paid
+		{
+			get
+			{
+				return this._Paid;
+			}
+			set
+			{
+				if ((this._Paid != value))
+				{
+					this._Paid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Unpaid", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> Unpaid
+		{
+			get
+			{
+				return this._Unpaid;
+			}
+			set
+			{
+				if ((this._Unpaid != value))
+				{
+					this._Unpaid = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PurchaseReturnHeaderSelectEditResult
+	{
+		
+		private string _BillNo;
+		
+		private System.DateTime _PurchaseDateBill;
+		
+		private System.Nullable<decimal> _Paid;
+		
+		private System.Nullable<decimal> _Unpaid;
+		
+		public PurchaseReturnHeaderSelectEditResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BillNo", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string BillNo
+		{
+			get
+			{
+				return this._BillNo;
+			}
+			set
+			{
+				if ((this._BillNo != value))
+				{
+					this._BillNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PurchaseDateBill", DbType="DateTime NOT NULL")]
+		public System.DateTime PurchaseDateBill
+		{
+			get
+			{
+				return this._PurchaseDateBill;
+			}
+			set
+			{
+				if ((this._PurchaseDateBill != value))
+				{
+					this._PurchaseDateBill = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Paid", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> Paid
+		{
+			get
+			{
+				return this._Paid;
+			}
+			set
+			{
+				if ((this._Paid != value))
+				{
+					this._Paid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Unpaid", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> Unpaid
+		{
+			get
+			{
+				return this._Unpaid;
+			}
+			set
+			{
+				if ((this._Unpaid != value))
+				{
+					this._Unpaid = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PurchaseReturnDetailSelectResult
+	{
+		
+		private System.Nullable<long> _RowNo;
+		
+		private string _PurchaseReturnNo;
+		
+		private string _BillNo;
+		
+		private string _Supplier;
+		
+		private System.DateTime _DatePaid;
+		
+		private decimal _PaidAmount;
+		
+		private string _MemoReturnPaid;
+		
+		public PurchaseReturnDetailSelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowNo", DbType="BigInt")]
+		public System.Nullable<long> RowNo
+		{
+			get
+			{
+				return this._RowNo;
+			}
+			set
+			{
+				if ((this._RowNo != value))
+				{
+					this._RowNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PurchaseReturnNo", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string PurchaseReturnNo
+		{
+			get
+			{
+				return this._PurchaseReturnNo;
+			}
+			set
+			{
+				if ((this._PurchaseReturnNo != value))
+				{
+					this._PurchaseReturnNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BillNo", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string BillNo
+		{
+			get
+			{
+				return this._BillNo;
+			}
+			set
+			{
+				if ((this._BillNo != value))
+				{
+					this._BillNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Supplier", DbType="NVarChar(30)")]
+		public string Supplier
+		{
+			get
+			{
+				return this._Supplier;
+			}
+			set
+			{
+				if ((this._Supplier != value))
+				{
+					this._Supplier = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DatePaid", DbType="DateTime NOT NULL")]
+		public System.DateTime DatePaid
+		{
+			get
+			{
+				return this._DatePaid;
+			}
+			set
+			{
+				if ((this._DatePaid != value))
+				{
+					this._DatePaid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaidAmount", DbType="Decimal(18,5) NOT NULL")]
+		public decimal PaidAmount
+		{
+			get
+			{
+				return this._PaidAmount;
+			}
+			set
+			{
+				if ((this._PaidAmount != value))
+				{
+					this._PaidAmount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemoReturnPaid", DbType="NVarChar(200)")]
+		public string MemoReturnPaid
+		{
+			get
+			{
+				return this._MemoReturnPaid;
+			}
+			set
+			{
+				if ((this._MemoReturnPaid != value))
+				{
+					this._MemoReturnPaid = value;
 				}
 			}
 		}

@@ -170,18 +170,26 @@ namespace WebFormUnit.Form.Transactions.Suppliers
             Supplier supplier = new Supplier();
 
             supplier.SupplierCode = hdfSupplierCode.Value;
-
-            bool isDelete = supplier.SupplierDeletes(supplier);
-
-            if (isDelete)
+            try
             {
-                ShowAlert("Delete supplier info successfully.", "info");
-                GridBind("");
+                bool isDelete = supplier.SupplierDeletes(supplier);
+
+                if (isDelete)
+                {
+                    ShowAlert("Delete supplier info successfully.", "info");
+                    GridBind("");
+                }
+                else
+                {
+                    ShowAlert("Delete supplier info failed.", "warning");
+                }
             }
-            else
+            catch
             {
-                ShowAlert("Delete supplier info failed.", "warning");
+                ShowAlert("Delete conflite with FK please contact to developer.","danger");
             }
+
+            
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)

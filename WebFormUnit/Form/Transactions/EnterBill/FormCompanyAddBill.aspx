@@ -85,7 +85,7 @@
                                     <asp:TextBox ID="txtSubTotal" runat="server" CssClass="form-control " ReadOnly="true" Enabled="false"></asp:TextBox>
                                 </div>
                                 <div class="col-12 text-end mb-3">
-                                    <asp:Button ID="btnAdd" CssClass="btn btn-primary" runat="server" Text="Add" ValidationGroup="Save" OnClick="btnAdd_Click" />
+                                    <asp:Button ID="btnSave" CssClass="btn btn-primary" runat="server" Text="Save" ValidationGroup="Save" OnClick="btnSave_Click" />
                                 </div>
                             </div>
                         </div>

@@ -131,6 +131,11 @@
     <Compile Include="Transaction\Purchases\CompanyExpense\BillItemModel.cs" />
     <Compile Include="Transaction\Purchases\CompanyExpense\BillTransactionPurchase.cs" />
     <Compile Include="Transaction\Purchases\CompanyExpense\BillHeader.cs" />
+    <Compile Include="Transaction\Purchases\EnterBill\PurchaseReturnDetailModel.cs" />
+    <Compile Include="Transaction\Purchases\EnterBill\PurchaseReturnDetial.cs" />
+    <Compile Include="Transaction\Purchases\EnterBill\PurchaseReturnHeader.cs" />
+    <Compile Include="Transaction\Purchases\EnterBill\PurchaseReturnHeaderModel.cs" />
+    <Compile Include="Transaction\Purchases\EnterBill\PurchaseReturnTransaction.cs" />
     <Compile Include="Transaction\Supplier\Supplier.cs" />
     <Compile Include="UnitMain.cs" />
     <Compile Include="UnitMainTransaction.cs" />
@@ -155,8 +160,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Transaction\Purchases\EnterBill\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

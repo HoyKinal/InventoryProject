@@ -10,6 +10,7 @@ using UnitLabrary.Item;
 using UnitLabrary.Transaction;
 using UnitLabrary.Transaction.Purchases.CompanyExpense;
 using UnitLabrary.Transaction.Purchases.CompanyExpenses;
+using UnitLabrary.Transaction.Purchases.EnterBill;
 
 namespace WebFormUnit.Form.Transactions.CompanyExpenses
 {
@@ -371,14 +372,32 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
                     }
                     else if (e.CommandName == "DeleteItem")
                     {
-
                         var load = billItem.BillItemSelectEdits(billItemCode);
-
-                        bool option = true;
 
                         if (load != null)
                         {
-                            bool isDelete = billItem.BillItemDeletes(billItemCode,option);
+                            BillHeaderModel h = new BillHeaderModel()
+                            {
+                                BillNumber = hdfNumberNo.Value,
+                                DateBill = hdfDate.Value.ConvertDateTime(), //DateTime.UtcNow.AddHours(7),
+                                DueDateBill = null,//DateTime.UtcNow.AddHours(7),
+                                VenderCode = hdfSupplierCode.Value,
+                                RefereceNo = hdfReference.Value,
+                                Memo = hdfMemo.Value,
+                                VatPercent = hdfVatPercent.Value.KinalDecimal(),
+                                VatAmount = hdfVatAmount.Value.KinalDecimal(),
+                                DiscountPercent = hdfDiscountPercent.Value.KinalDecimal(),
+                                DiscountAmount = hdfDiscountAmount.Value.KinalDecimal(),
+                                TotalDiscoutPercent = hdfTotalDiscountPercent.Value.KinalDecimal(),
+                                TotalDiscount = hdfTotalDiscount.Value.KinalDecimal(),
+                                SubTotal = hdfTotal.Value.KinalDecimal(),
+                                Indedted = false
+                            };
+
+                            PurchaseReturnTransaction prt = new PurchaseReturnTransaction();
+
+                            bool isDelete = prt.PurchaseReturnDetailDelete(billItemCode,true,h);
+                           
 
                             if (isDelete)
                             {

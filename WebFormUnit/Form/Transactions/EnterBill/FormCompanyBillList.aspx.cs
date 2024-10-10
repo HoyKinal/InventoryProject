@@ -43,9 +43,9 @@ namespace WebFormUnit.Form.Transactions.EnterBill
 
             if (e.CommandName == "OpenItem")
             {
-                Session["BillNumberFormEdit"] = billNumber;
+                //Session["BillNumberFormBillListEdit"] = billNumber;
 
-                Response.Redirect($"~/Form/Transactions/EnterBill/FormCompanyEnterBill?billNumberFromEdit={Server.UrlEncode(billNumber)}");
+                Response.Redirect($"~/Form/Transactions/EnterBill/FormCompanyEnterBill?BillNumberFromBillListEdit={Server.UrlEncode(billNumber)}");
             }
         }
 

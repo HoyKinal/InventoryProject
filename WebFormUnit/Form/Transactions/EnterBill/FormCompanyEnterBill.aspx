@@ -10,84 +10,89 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-regular-straight/css/uicons-regular-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <style>
-        /* General datepicker styling */
-        /* General datepicker styling */
+        /* General datepicker styling */      
         .datepicker {
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
             border-radius: 0; /* Remove border radius */
         }
 
-            /* Header styling */
-            .datepicker .datepicker-days .table-condensed thead {
-                background-color: #007bff; /* Vibrant blue background */
-                color: white; /* White text for contrast */
-                border-radius: 0; /* Ensure no border radius */
-            }
+        /* Header styling */
+        .datepicker .datepicker-days .table-condensed thead {
+            background-color: #007bff;
+            color: white; 
+            border-radius: 0; 
+        }
 
-            .datepicker .datepicker-months .table-condensed thead,
-            .datepicker .datepicker-years .table-condensed thead,
-            .datepicker .datepicker-decades .table-condensed thead {
-                background-color: #007bff; /* Matching the background color */
-                color: white;
-                border-radius: 0; /* Remove border radius */
-            }
+        .datepicker .datepicker-months .table-condensed thead,
+        .datepicker .datepicker-years .table-condensed thead,
+        .datepicker .datepicker-decades .table-condensed thead {
+            background-color: #007bff; 
+            color: white;
+            border-radius: 0;
+        }
 
-                /* Header hover effect */
-                .datepicker .datepicker-days .table-condensed thead:hover,
-                .datepicker .datepicker-months .table-condensed thead:hover,
-                .datepicker .datepicker-years .table-condensed thead:hover,
-                .datepicker .datepicker-decades .table-condensed thead:hover {
-                    background-color: #0056b3; /* Darker blue on hover */
-                }
+        /* Header hover effect */
+        .datepicker .datepicker-days .table-condensed thead:hover,
+        .datepicker .datepicker-months .table-condensed thead:hover,
+        .datepicker .datepicker-years .table-condensed thead:hover,
+        .datepicker .datepicker-decades .table-condensed thead:hover
+        {
+            background-color: #0056b3; 
+        }
 
-            /* Navigation arrows styling */
-            .datepicker .datepicker-days .prev,
-            .datepicker .datepicker-days .next {
-                background-color: #0056b3; /* Darker blue for arrows */
-                color: white;
-                border-radius: 0; /* Ensure no border radius for arrows */
-            }
-                /* Navigation arrows styling */
-                .datepicker .datepicker-days .prev:hover,
-                .datepicker .datepicker-days .next:hover {
-                    background-color: darkblue; /* Darker blue for arrows */
-                    color: white;
-                    border-radius: 0; /* Ensure no border radius for arrows */
-                }
-            /* Highlighting today's date */
-            .datepicker .datepicker-days .table-condensed td.today {
-                background-color: darkblue; /* Orange highlight for today's date */
-                color: white;
-                border-radius: 0; /* No border radius on today's date */
-            }
+        /* Navigation arrows styling */
+        .datepicker .datepicker-days .prev,
+        .datepicker .datepicker-days .next
+        {
+            background-color: #0056b3; 
+            color: white;
+            border-radius: 0; 
+        }
+      
+        /* Navigation arrows styling */
+        .datepicker .datepicker-days .prev:hover,
+        .datepicker .datepicker-days .next:hover {
+            background-color: darkblue; 
+            color: white;
+            border-radius: 0; 
+        }
+        /* Highlighting today's date */
+        .datepicker .datepicker-days .table-condensed td.today {
+            background-color: darkblue; 
+            color: white;
+            border-radius: 0; 
+        }
 
-            /* Highlighting current date */
-            .datepicker .datepicker-days .table-condensed td.active {
-                background-color: #007bff; /* Blue background for the current date */
-                color: white; /* White text for contrast */
-                border-radius: 0; /* Remove border radius */
-            }
+        /* Highlighting current date */
+        .datepicker .datepicker-days .table-condensed td.active {
+            background-color: #007bff; 
+            color: white;
+            border-radius: 0; 
+        }
 
-            /* Date cell styling */
-            .datepicker .datepicker-days .table-condensed td {
-                text-align: center; /* Centered text */
-                border-radius: 0; /* Remove border radius for individual date cells */
-            }
+        /* Date cell styling */
+        .datepicker .datepicker-days .table-condensed td {
+            text-align: center; 
+            border-radius: 0; 
+        }
 
-            /* Adjusting the overall padding and spacing */
-            .datepicker .datepicker-days .table-condensed td,
-            .datepicker .datepicker-days .table-condensed th {
-                padding: 10px; /* Increased padding for better readability */
-                border-radius: 0; /* Remove border radius for table cells */
-            }
+        /* Adjusting the overall padding and spacing */
+        .datepicker .datepicker-days .table-condensed td,
+        .datepicker .datepicker-days .table-condensed th {
+            padding: 10px; 
+            border-radius: 0; 
+        }
 
-                .datepicker .datepicker-days .table-condensed td.active {
-                    background-color: blue; /* Blue background for current date */
-                    color: white;
-                }
+        .datepicker .datepicker-days .table-condensed td.active {
+            background-color: blue; 
+            color: white;
+        }
     </style>
     <asp:HiddenField ID="hdfBillNumber" runat="server" />
-
+    <asp:HiddenField ID="hdfTotalDiscountPercent" runat="server" />
+    <asp:HiddenField ID="hdfTotalDiscount" runat="server" />
+    <asp:HiddenField ID="hdfTotal" runat="server" />
+    <asp:HiddenField ID="hdfGrandTotal" runat="server" />
     <div class="container-fluid">
         <div class="d-flex flex-wrap justify-content-start align-items-center bg-light p-3 rounded shadow-sm mb-4">
             <asp:LinkButton ID="btnOpenItem" runat="server" CssClass="btn btn-outline-primary me-2 mb-2 mb-md-0" OnClick="btnOpenItem_Click">
@@ -200,7 +205,7 @@
                         <div class="mt-3">
                             <asp:GridView ID="gvEnterBill" runat="server" CssClass="table table-striped table-hover" AutoGenerateColumns="false"
                                 EmptyDataText="Empty Information Item."
-                                DataKeyNames="BillItemCode"
+                                DataKeyNames="BillItemCode,BillNumber"
                                 OnRowCommand="gvEnterBill_RowCommand">
                                 <Columns>
                                     <asp:BoundField DataField="RowNo" HeaderText="#" />

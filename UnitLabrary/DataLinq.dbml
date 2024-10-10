@@ -885,10 +885,6 @@
       <Column Name="Ana10" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SuppliersDelete" Method="SuppliersDelete">
-    <Parameter Name="SupplierCode" Parameter="supplierCode" Type="System.String" DbType="NVarChar(30)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.SuppliersUpdate" Method="SuppliersUpdate">
     <Parameter Name="SupplierCode" Parameter="supplierCode" Type="System.String" DbType="NVarChar(30)" />
     <Parameter Name="SupplierName" Parameter="supplierName" Type="System.String" DbType="NVarChar(50)" />
@@ -1056,11 +1052,6 @@
     <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.BillItemDelete" Method="BillItemDelete">
-    <Parameter Name="BillNumberBillItemCode" Parameter="billNumberBillItemCode" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="Option" Parameter="option" Type="System.Boolean" DbType="Bit" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.BillHeaderInsert" Method="BillHeaderInsert">
     <Parameter Name="BillNumber" Parameter="billNumber" Type="System.String" DbType="NVarChar(30)" />
     <Parameter Name="DateBill" Parameter="dateBill" Type="System.DateTime" DbType="DateTime" />
@@ -1126,6 +1117,104 @@
     <Parameter Name="VatPercent" Parameter="vatPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
     <Parameter Name="DiscountPercent" Parameter="discountPercent" Type="System.Decimal" DbType="Decimal(18,5)" />
     <Parameter Name="DiscountAmount" Parameter="discountAmount" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PurchaseReturnDetailUpdate" Method="PurchaseReturnDetailUpdate">
+    <Parameter Name="PurchaseReturnNo" Parameter="purchaseReturnNo" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="BillNo" Parameter="billNo" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="PaidDate" Parameter="paidDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="PaidAmount" Parameter="paidAmount" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="MemoReturnPaid" Parameter="memoReturnPaid" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PurchaseReturnDetailInsert" Method="PurchaseReturnDetailInsert">
+    <Parameter Name="PurchaseReturnNo" Parameter="purchaseReturnNo" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="BillNo" Parameter="billNo" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="PaidDate" Parameter="paidDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="PaidAmount" Parameter="paidAmount" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="MemoReturnPaid" Parameter="memoReturnPaid" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PurchaseReturnDetailSelectEdit" Method="PurchaseReturnDetailSelectEdit">
+    <Parameter Name="PurchaseReturnNo" Parameter="purchaseReturnNo" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="PurchaseReturnDetailSelectEditResult">
+      <Column Name="PurchaseReturnNo" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="BillNo" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DatePaid" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PaidAmount" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="MemoReturnPaid" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.BillItemDelete" Method="BillItemDelete">
+    <Parameter Name="BillNumberBillItemCode" Parameter="billNumberBillItemCode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Option" Parameter="option" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PurchaseReturnHeaderDelete" Method="PurchaseReturnHeaderDelete">
+    <Parameter Name="BillNo" Parameter="billNo" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PurchaseReturnHeaderInsert" Method="PurchaseReturnHeaderInsert">
+    <Parameter Name="BillNo" Parameter="billNo" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="PurchaseDateBill" Parameter="purchaseDateBill" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Paid" Parameter="paid" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Parameter Name="Unpaid" Parameter="unpaid" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PurchaseReturnHeaderSelect" Method="PurchaseReturnHeaderSelect">
+    <Parameter Name="Supplier" Parameter="supplier" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="PurchaseReturnHeaderSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateBill" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="BillNumber" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="VenderCode" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="RefereceNo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="GrandTotalWithVat" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="PurchaseDateBill" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Paid" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Unpaid" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PurchaseReturnHeaderSelectEdit" Method="PurchaseReturnHeaderSelectEdit">
+    <Parameter Name="BillNo" Parameter="billNo" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="PurchaseReturnHeaderSelectEditResult">
+      <Column Name="BillNo" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PurchaseDateBill" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Paid" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Unpaid" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PurchaseReturnDetailDelete" Method="PurchaseReturnDetailDelete">
+    <Parameter Name="PurchaseReturnNo" Parameter="purchaseReturnNo" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="BillNo" Parameter="billNo" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PurchaseReturnHeaderUpdate" Method="PurchaseReturnHeaderUpdate">
+    <Parameter Name="BillNo" Parameter="billNo" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="PurchaseDateBill" Parameter="purchaseDateBill" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PurchaseReturnHeaderUpdateDetail" Method="PurchaseReturnHeaderUpdateDetail">
+    <Parameter Name="BillNo" Parameter="billNo" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Unpaid" Parameter="unpaid" Type="System.Decimal" DbType="Decimal(18,5)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PurchaseReturnDetailSelect" Method="PurchaseReturnDetailSelect">
+    <Parameter Name="Search" Parameter="search" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="PurchaseReturnDetailSelectResult">
+      <Column Name="RowNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PurchaseReturnNo" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="BillNo" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Supplier" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DatePaid" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PaidAmount" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="MemoReturnPaid" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SuppliersDelete" Method="SuppliersDelete">
+    <Parameter Name="SupplierCode" Parameter="supplierCode" Type="System.String" DbType="NVarChar(30)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

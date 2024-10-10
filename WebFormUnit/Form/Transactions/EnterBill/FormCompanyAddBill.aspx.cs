@@ -12,6 +12,8 @@ using UnitLabrary.Transaction;
 using UnitLabrary.CustomFunction;
 using System.Runtime.Remoting.Messaging;
 using Microsoft.Ajax.Utilities;
+using UnitLabrary.Transaction.Purchases.EnterBill;
+using UnitLabrary.Transaction.Purchases.CompanyExpenses;
 
 namespace WebFormUnit.Form.Transactions.EnterBill
 {
@@ -34,9 +36,9 @@ namespace WebFormUnit.Form.Transactions.EnterBill
 
         private void LoadFieldsFromEnterBill()
         {
-            if (Session["BillNumberNoFrom"] != null)
+            if (Session["BillNumberNoFromEnterBill"] != null)
             {
-                hdfNumberNo.Value = Session["BillNumberNoFrom"].ToString();
+                hdfNumberNo.Value = Session["BillNumberNoFromEnterBill"].ToString();
             }
 
             if (Session["SupplierCode"] != null)
@@ -82,7 +84,7 @@ namespace WebFormUnit.Form.Transactions.EnterBill
         }
         private void LoadBillItem()
         {
-            string billItemCode = Request.QueryString["billItemCodeFrom"]; // from FormCompanyEnterBill
+            string billItemCode = Request.QueryString["BillItemCodeFromEnterBill"]; 
 
             if (string.IsNullOrEmpty(billItemCode))
             {
@@ -195,8 +197,10 @@ namespace WebFormUnit.Form.Transactions.EnterBill
             txtDiscountAmount.Text = string.Empty;
             txtTotal.Text = string.Empty;
         }
-        protected void btnAdd_Click(object sender, EventArgs e)
+        protected void btnSave_Click(object sender, EventArgs e)    
         {
+            Session["IsAddButtonClicked"] = true;
+
             BillHeaderModel h = new BillHeaderModel()
             {
                 BillNumber = hdfNumberNo.Value,
@@ -231,14 +235,26 @@ namespace WebFormUnit.Form.Transactions.EnterBill
                 ItemCode = ddlItemCode.SelectedValue
             };
 
-            
-            BillItem item = new BillItem();
 
             BillTransactionPurchase purchase = new BillTransactionPurchase();
 
-            string billItemCode = (Session["BillItemCodeFromEdit"] != null ? Session["BillItemCodeFromEdit"].ToString() : null)
-                      ?? (ViewState["BillItemCode"] != null ? ViewState["BillItemCode"].ToString() : "")
-                      ?? "";
+            //string billItemCode = string.Empty;
+
+            //if (!string.IsNullOrEmpty(Request.QueryString["BillItemCodeFrom"]))
+            //{
+            //    billItemCode = Request.QueryString["BillItemCodeFrom"];
+            //}
+            //else if (ViewState["BillItemCode"] != null)
+            //{
+            //    billItemCode = ViewState["BillItemCode"].ToString();
+            //}
+
+
+            string billItemCode = Request.QueryString["BillItemCodeFromEnterBill"]
+                      ?? ViewState["BillItemCode"]?.ToString()
+                      ?? string.Empty;
+
+            BillItem item = new BillItem();
 
             var check = item.BillItemSelectEdits(billItemCode);
 
@@ -251,8 +267,26 @@ namespace WebFormUnit.Form.Transactions.EnterBill
                 if (isInsert)
                 {
                     ShowAlert("Insert purchase is successfully.", "success");
+
                     GridBind(hdfNumberNo.Value);
+
                     ClearFields();
+
+                    //In this use when I add more Item to BillNo will update Unpaid and Paid
+
+                    PurchaseReturnHeaderModel prm = new PurchaseReturnHeaderModel
+                    {
+                        BillNo = hdfNumberNo.Value,
+                        PurchaseDateBill = hdfStartDate.Value.ConvertDateTime(),//DateTime.UtcNow.AddHours(7),
+                        Unpaid = new BillHeader().BillHeaderSelectEdits(h)?.TotalHeadWithVat
+
+                    };
+
+                    PurchaseReturnTransaction prt = new PurchaseReturnTransaction();
+
+                    bool isPrmInsert = prt.PurchaseReturnInsert(prm);
+
+                    if (isPrmInsert) { }
                 }
                 else
                 {
@@ -261,24 +295,44 @@ namespace WebFormUnit.Form.Transactions.EnterBill
             }
             else
             {
+
                 i.BillItemCode = billItemCode;
 
                 bool isUpdate = purchase.PurchaseItemUpdate(i, h);
 
                 if (isUpdate)
                 {
+                    //In this use when I add more Item to BillNo will update Unpaid and Paid
+
+                    PurchaseReturnHeaderModel prm = new PurchaseReturnHeaderModel
+                    {
+                        BillNo = hdfNumberNo.Value,
+                        PurchaseDateBill = DateTime.UtcNow.AddHours(7),
+                        Unpaid = new BillHeader().BillHeaderSelectEdits(h)?.TotalHeadWithVat
+
+                    };
+
+                    PurchaseReturnTransaction prt = new PurchaseReturnTransaction();
+
+                    bool isPrmInsert = prt.PurchaseReturnInsert(prm);
+
+                    if (isPrmInsert) { } else return;
+
                     ShowAlert("Update purchase is successfully.", "success");
                     GridBind(hdfNumberNo.Value);
                     ClearFields();
 
                     ViewState["BillItemCode"] = null;
 
-                    Session["BillItemCodeFromEdit"] = null;
+                    Response.Redirect($"~/Form/Transactions/EnterBill/FormCompanyAddBill?BillItemCodeFromEnterBill=");
                 }
                 else
                 {
                     ShowAlert("Update purchase is failed.", "danger");
                 }
+               
+               
+
             }
         }
 
@@ -303,8 +357,7 @@ namespace WebFormUnit.Form.Transactions.EnterBill
         }
 
         protected void gvAddEnterBill_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-
+        {     
             if (e.CommandName == "EditItem" || e.CommandName == "DeleteItem")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
@@ -343,17 +396,46 @@ namespace WebFormUnit.Form.Transactions.EnterBill
 
                         var load = billItem.BillItemSelectEdits(billItemCode);
 
-                        bool option = true;
-
                         if (load != null)
                         {
-                            bool isDelete = billItem.BillItemDeletes(billItemCode, option);
+                            BillHeaderModel h = new BillHeaderModel()
+                            {
+                                BillNumber = hdfNumberNo.Value,
+                                DateBill = hdfStartDate.Value.ConvertDateTime(), //DateTime.UtcNow.AddHours(7),
+                                DueDateBill = hdfExpireDate.Value.ConvertDateTime(), //DateTime.UtcNow.AddHours(7),
+                                VenderCode = hdfSupplierCode.Value,
+                                RefereceNo = hdfReference.Value,
+                                Memo = hdfMemo.Value,
+                                VatPercent = hdfVatPercent.Value.KinalDecimal(),
+                                VatAmount = hdfVatAmount.Value.KinalDecimal(),
+                                DiscountPercent = hdfDiscountPercent.Value.KinalDecimal(),
+                                DiscountAmount = hdfDiscountAmount.Value.KinalDecimal(),
+                                TotalDiscoutPercent = hdfTotalDiscountPercent.Value.KinalDecimal(),
+                                TotalDiscount = hdfTotalDiscount.Value.KinalDecimal(),
+                                SubTotal = hdfTotal.Value.KinalDecimal(),
+                                Indedted = false
+                            };
+
+                            PurchaseReturnTransaction prt = new PurchaseReturnTransaction();
+
+                            bool isDelete = prt.PurchaseReturnDetailDelete(billItemCode, true, h);
 
                             if (isDelete)
                             {
                                 ShowAlert("Delete Inventory is successfully.", "success");
-
                                 GridBind(hdfNumberNo.Value);
+
+                                PurchaseReturnHeaderModel prm = new PurchaseReturnHeaderModel
+                                {
+                                    BillNo = hdfNumberNo.Value,
+                                    PurchaseDateBill = DateTime.UtcNow.AddHours(7),
+                                    Unpaid = new BillHeader().BillHeaderSelectEdits(h)?.TotalHeadWithVat
+
+                                };
+
+                                bool isPrmInsert = prt.PurchaseReturnInsert(prm);
+
+                                if (isPrmInsert) { } else return;
                             }
                             else
                             {
@@ -367,16 +449,21 @@ namespace WebFormUnit.Form.Transactions.EnterBill
 
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            if (Session["BillNumberNoFrom"] != null)
+            if (Session["IsAddButtonClicked"] != null && (bool)Session["IsAddButtonClicked"])
             {
-                string BillNumberNoFrom = Session["BillNumberNoFrom"].ToString();
+                if (Session["BillNumberNoFromEnterBill"] != null)
+                {
+                    string BillNumberNoFrom = Session["BillNumberNoFromEnterBill"].ToString();
 
-                Session["BillNumberFormEdit"] = null; // from FormCompanyBillList
-
-                Response.Redirect($"~/Form/Transactions/EnterBill/FormCompanyEnterBill?BillNumberNoBack={BillNumberNoFrom}");
+                    Response.Redirect($"~/Form/Transactions/EnterBill/FormCompanyEnterBill?BillNumberNoBackFromAddBill={BillNumberNoFrom}");
+                }
+                else
+                {
+                    Response.Redirect("~/Form/Transactions/EnterBill/FormCompanyEnterBill");
+                }
             }
             else
-            {
+            { 
                 Response.Redirect("~/Form/Transactions/EnterBill/FormCompanyEnterBill");
             }
         }

@@ -24,6 +24,42 @@ namespace WebFormUnit.Form.Transactions.EnterBill
         protected global::System.Web.UI.WebControls.HiddenField hdfBillNumber;
 
         /// <summary>
+        /// hdfTotalDiscountPercent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfTotalDiscountPercent;
+
+        /// <summary>
+        /// hdfTotalDiscount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfTotalDiscount;
+
+        /// <summary>
+        /// hdfTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfTotal;
+
+        /// <summary>
+        /// hdfGrandTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfGrandTotal;
+
+        /// <summary>
         /// btnOpenItem control.
         /// </summary>
         /// <remarks>

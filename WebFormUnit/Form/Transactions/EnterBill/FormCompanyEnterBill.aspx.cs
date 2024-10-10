@@ -5,9 +5,11 @@ using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using UnitLabrary.CustomFunction;
 using UnitLabrary.Transaction;
 using UnitLabrary.Transaction.Purchases.CompanyExpense;
 using UnitLabrary.Transaction.Purchases.CompanyExpenses;
+using UnitLabrary.Transaction.Purchases.EnterBill;
 using UnitLabrary.Transaction.Suppliers;
 
 namespace WebFormUnit.Form.Transactions.EnterBill
@@ -23,13 +25,20 @@ namespace WebFormUnit.Form.Transactions.EnterBill
                 LoadSupplier();
 
 
-                string billNumber = Session["BillNumberFormEdit"] != null
-                     ? Request.QueryString["billNumberFromEdit"]
-                     : Request.QueryString["BillNumberNoBack"];
+                //string billNumber = Session["BillNumberFormBillListEdit"] != null
+                //     ? Request.QueryString["BillNumberFormBillListEdit"]
+                //     : Request.QueryString["BillNumberNoBackFromAddBill"] ?? Request.QueryString["BillNumberFromOpen"];
+
+                string billNumber = Request.QueryString["BillNumberFromBillListEdit"]
+                     ?? Request.QueryString["BillNumberNoBackFromAddBill"] 
+                     ?? Request.QueryString["BillNumberFromOpenPayBill"]
+                     ?? Request.QueryString["BillNoFromPayBillList"]
+                     ?? string.Empty; 
+
 
                 if (!string.IsNullOrEmpty(billNumber))
                 {
-                    Session["BillNumberNoBack"] = billNumber;
+                    Session["BillNumberNo"] = billNumber;
                     hdfBillNumber.Value = billNumber;
 
                     GridBind(billNumber);
@@ -55,10 +64,16 @@ namespace WebFormUnit.Form.Transactions.EnterBill
         }
         protected void btnNewItem_Click(object sender, EventArgs e)
         {
+            Session["IsAddButtonClicked"] = null;
+
             string randomBarcode = GenerateRandomBarcode();
+
             txtBillNumberNo.Text = randomBarcode;
-            Thread.Sleep(2000); 
+
+            Thread.Sleep(1000); 
+
             Response.Redirect("~/Form/Transactions/EnterBill/FormCompanyEnterBill");
+            
         }
         private static string GenerateRandomString(int length)
         {
@@ -124,7 +139,9 @@ namespace WebFormUnit.Form.Transactions.EnterBill
       
         protected void btnAddItem_Click(object sender, EventArgs e)
         {
-            Session["BillNumberNoFrom"] = txtBillNumberNo.Text;
+            //Bring All Field to Add from AddBill to Enter Bill
+
+            Session["BillNumberNoFromEnterBill"] = txtBillNumberNo.Text;
             Session["SupplierCode"] = ddlSupplier.SelectedValue;
             Session["StartDate"] = txtStartDate.Text;
             Session["ExpireDate"] = txtExpireDate.Text;
@@ -140,10 +157,6 @@ namespace WebFormUnit.Form.Transactions.EnterBill
 
         private void LoadBillHeader()
         {
-            if (Session["BillNumberNoBack"] == null)
-            {
-                return;
-            }
            
             BillHeaderModel billHeaderModal = new BillHeaderModel() { BillNumber = hdfBillNumber.Value };
 
@@ -156,7 +169,7 @@ namespace WebFormUnit.Form.Transactions.EnterBill
                 txtBillNumberNo.Text = load.BillNumber;
                 ddlSupplier.SelectedValue = load.VenderCode;
                 txtStartDate.Text = load.DateBill.ToString("dd/MM/yyyy");
-                txtExpireDate.Text = load.DueDateBill?.ToString("dd/MM/yyyy");
+                txtExpireDate.Text = load.DueDateBill?.ToString("dd/MM/yyyy"); 
                 txtReference.Text = load.RefereceNo.ToString();
                 txtMemo.Text = load.Memo;
                 txtVATPercent.Text = load.VatPercent.Value.ToString("F2");
@@ -194,7 +207,9 @@ namespace WebFormUnit.Form.Transactions.EnterBill
             {
                 int index = Convert.ToInt32(e.CommandArgument);
 
-                string billItemCode = gvEnterBill.DataKeys[index].Value.ToString();
+                string billItemCode = gvEnterBill.DataKeys[index]["BillItemCode"].ToString();
+
+                string billNumber = gvEnterBill.DataKeys[index]["BillNumber"].ToString();
 
                 if (e.CommandName == "DeleteItem")
                 {
@@ -206,13 +221,59 @@ namespace WebFormUnit.Form.Transactions.EnterBill
 
                     if (load != null)
                     {
-                        bool isDelete = billItem.BillItemDeletes(billItemCode, option);
+                        BillHeaderModel h = new BillHeaderModel()
+                        {
+                            BillNumber = txtBillNumberNo.Text,
+                            DateBill = txtStartDate.Text.ConvertDateTime(), //DateTime.UtcNow.AddHours(7),
+                            DueDateBill = txtExpireDate.Text.ConvertDateTime(),//DateTime.UtcNow.AddHours(7),
+                            VenderCode = ddlSupplier.SelectedValue,
+                            RefereceNo = txtReference.Text,
+                            Memo = txtMemo.Text,
+                            VatPercent = txtReference.Text.KinalDecimal(),
+                            VatAmount = txtVatAmount.Text.KinalDecimal(),
+                            DiscountPercent = txtDiscountPercent.Text.KinalDecimal(),
+                            DiscountAmount = txtDiscountAmount.Text.KinalDecimal(),
+                            TotalDiscoutPercent = hdfTotalDiscountPercent.Value.KinalDecimal(),
+                            TotalDiscount = hdfTotalDiscount.Value.KinalDecimal(),
+                            SubTotal = hdfTotal.Value.KinalDecimal(),
+                            Indedted = true
+                        };
+
+                        PurchaseReturnTransaction prt = new PurchaseReturnTransaction();
+
+                        bool isDelete = prt.PurchaseReturnDetailDelete(billItemCode, option, h);
 
                         if (isDelete)
                         {
+                            
                             ShowAlert("Delete Inventory is successfully.", "success");
 
-                            GridBind(Session["BillNumberNoBack"].ToString());
+                            if (Session["BillNumberNo"] != null)
+                            {
+                                GridBind(Session["BillNumberNo"].ToString());
+                            }
+                            else
+                            {
+                                GridBind(billNumber);
+                            }
+
+                            LoadItemInfo();
+                            LoadBillHeader();
+                            
+                            //Update Paid and Unpaid for PurchaseReturnHeader
+
+                            PurchaseReturnHeaderModel prm = new PurchaseReturnHeaderModel
+                            {
+                                BillNo = hdfBillNumber.Value,
+                                PurchaseDateBill = txtStartDate.Text.ConvertDateTime(),//DateTime.UtcNow.AddHours(7),
+                                Paid = null,
+                                Unpaid = new BillHeader().BillHeaderSelectEdits(h)?.TotalHeadWithVat
+
+                            };
+
+                            bool isUpdateReturn = prt.PurchaseReturnInsert(prm);
+
+                            if (isUpdateReturn) { }
 
                         }
                         else
@@ -223,9 +284,19 @@ namespace WebFormUnit.Form.Transactions.EnterBill
                 }
                 else if (e.CommandName == "EditItem")
                 {
-                    Session["BillItemCodeFromEdit"] = billItemCode;
 
-                    Response.Redirect($"~/Form/Transactions/EnterBill/FormCompanyAddBill?BillItemCodeFrom={Server.UrlEncode(billItemCode)}");
+                    Session["BillNumberNoFromEnterBill"] = txtBillNumberNo.Text;
+                    Session["SupplierCode"] = ddlSupplier.SelectedValue;
+                    Session["StartDate"] = txtStartDate.Text;
+                    Session["ExpireDate"] = txtExpireDate.Text;
+                    Session["Reference"] = txtReference.Text;
+                    Session["Memo"] = txtMemo.Text;
+                    Session["VatPercent"] = txtVATPercent.Text;
+                    Session["VatAmount"] = txtVatAmount.Text;
+                    Session["DiscountPercent"] = txtDiscountPercent.Text;
+                    Session["DiscountAmount"] = txtDiscountAmount.Text;
+
+                    Response.Redirect($"~/Form/Transactions/EnterBill/FormCompanyAddBill?BillItemCodeFromEnterBill={Server.UrlEncode(billItemCode)}");
                 }
             }
         }
@@ -238,21 +309,15 @@ namespace WebFormUnit.Form.Transactions.EnterBill
         {
             string billNumber = hdfBillNumber.Value;
 
-            bool option = false;
+           BillHeaderModel bh = new BillHeaderModel() { BillNumber = billNumber};
 
             BillTransactionPurchase purchase = new BillTransactionPurchase();
 
-            BillHeaderModel bh = new BillHeaderModel { BillNumber = billNumber };
-
-            if (billNumber == "")
-            {
-                return;
-            }
-
-            bool isDelete = purchase.PurchaseItemDelete(billNumber, option, bh);
+            bool isDelete = purchase.PurchaseItemDelete(billNumber, true, bh);
 
             if (isDelete)
             {
+                
                 GridBind(hdfBillNumber.Value);
 
                 string message = "Delete bill number is successful.";
@@ -272,13 +337,14 @@ namespace WebFormUnit.Form.Transactions.EnterBill
             }
         }
 
+        //Delete the hold bill
         protected void btnSaveItem_Click(object sender, EventArgs e)
         {
             BillHeaderModel h = new BillHeaderModel()
             {
                 BillNumber = hdfBillNumber.Value,
-                DateBill = DateTime.UtcNow.AddHours(7),
-                DueDateBill = DateTime.UtcNow.AddHours(7),
+                DateBill = txtStartDate.Text.ConvertDateTime(), //DateTime.UtcNow.AddHours(7),
+                DueDateBill = txtExpireDate.Text.ConvertDateTime(), //DateTime.UtcNow.AddHours(7),
                 VenderCode = ddlSupplier.SelectedValue,
                 RefereceNo = txtReference.Text,
                 Memo = txtMemo.Text,
@@ -301,6 +367,21 @@ namespace WebFormUnit.Form.Transactions.EnterBill
                     ShowAlert("Update BillHeader is successfully.", "success");
                     LoadBillHeader();
                     LoadItemInfo();
+
+                    PurchaseReturnTransaction prt = new PurchaseReturnTransaction();
+
+                    PurchaseReturnHeaderModel prm = new PurchaseReturnHeaderModel
+                    {
+                        BillNo = hdfBillNumber.Value,
+                        PurchaseDateBill = txtStartDate.Text.ConvertDateTime(),//DateTime.UtcNow.AddHours(7),
+                        Paid = null,
+                        Unpaid = new BillHeader().BillHeaderSelectEdits(h)?.TotalHeadWithVat
+
+                    };
+
+                    bool isUpdateReturn = prt.PurchaseReturnInsert(prm);
+
+                    if (isUpdateReturn) { }
                 }
                 else
                 {

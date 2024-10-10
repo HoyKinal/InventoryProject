@@ -12,7 +12,7 @@ namespace UnitLabrary.CustomFunction
         {
             try
             {
-                return DateTime.ParseExact(dateString, "dd/MM/yyyy HH:mm:ss tt", null);
+                return DateTime.ParseExact(dateString, "dd/MM/yyyy", null);
             }
             catch
             {
