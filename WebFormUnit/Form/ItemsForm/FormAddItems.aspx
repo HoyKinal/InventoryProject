@@ -94,8 +94,14 @@
                         <div class="col-6 mb-2">
                             <label for="BarCode" class="form-label h6 text-muted">Bar-Code</label>
                             <div class="input-group">
-                                <asp:TextBox ID="txtBarCode" runat="server" CssClass="form-control"></asp:TextBox>
-                                <asp:Button ID="btnGenerateCode" runat="server" CssClass="btn btn-primary" Text="Generate" OnClick="btnGenerateCode_Click" />
+                                <asp:UpdatePanel ID="updatepanel1" runat="server">
+                                    <ContentTemplate>
+                                        <div class="input-group">
+                                            <asp:TextBox ID="txtBarCode" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:Button ID="btnGenerateCode" runat="server" CssClass="btn btn-primary" Text="Generate" OnClick="btnGenerateCode_Click" />
+                                        </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                             </div>
                             <asp:RequiredFieldValidator
                                 ID="rqfBarCode"

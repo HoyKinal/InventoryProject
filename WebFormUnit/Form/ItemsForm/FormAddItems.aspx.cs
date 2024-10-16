@@ -49,18 +49,17 @@ namespace WebFormUnit.Form.ItemsForm
         {
             UnitMeasurement measurement = new UnitMeasurement();
             var load = measurement.SelectUnitMeasurement("");
-            if (load != null)
-            {
-                ddlUnitStock.DataSource = load;
-                ddlUnitStock.DataTextField = "UnitToName";
-                ddlUnitStock.DataValueField = "UnitTo";
-                ddlUnitStock.DataBind();
+           
+            ddlUnitStock.DataSource = load;
+            ddlUnitStock.DataTextField = "UnitFromName";
+            ddlUnitStock.DataValueField = "UnitTo";
+            ddlUnitStock.DataBind();
 
-                ddlUnitSale.DataSource = load;
-                ddlUnitSale.DataTextField = "UnitFromName";
-                ddlUnitSale.DataValueField = "UnitFrom";
-                ddlUnitSale.DataBind();
-            }
+            ddlUnitSale.DataSource = load;
+            ddlUnitSale.DataTextField = "UnitToName";
+            ddlUnitSale.DataValueField = "UnitFrom";
+            ddlUnitSale.DataBind();
+           
         }
 
         protected void btnGenerateCode_Click(object sender, EventArgs e)

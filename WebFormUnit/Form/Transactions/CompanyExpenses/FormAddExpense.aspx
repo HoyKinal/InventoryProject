@@ -24,11 +24,7 @@
 
     <div class="container-fluid">
         <div class="bg-light pt-2 rounded shadow-sm mb-4">
-            <asp:UpdatePanel ID="UpdatePanel" runat="server">
-                <ContentTemplate>
-                    <asp:Button ID="btnBack" runat="server" CssClass="btn btn-primary mb-3" Text="Back" OnClick="btnBack_Click" />
-                </ContentTemplate>
-            </asp:UpdatePanel>
+            <asp:Button ID="btnBack" runat="server" CssClass="btn btn-primary mb-3" Text="Back" OnClick="btnBack_Click" />
             <!-- Main Content Row -->
             <div class="row g-3">
                 <div class="col-lg-3">

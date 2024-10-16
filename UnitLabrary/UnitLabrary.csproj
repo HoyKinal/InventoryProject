@@ -102,8 +102,7 @@
     <Compile Include="Customers\CustomerType\CustomerTypeDecorator.cs" />
     <Compile Include="Customers\CustomerType\ICustomerTypeComponent.cs" />
     <Compile Include="Customers\Customer\Customer.cs" />
-    <Compile Include="Customers\Customer\CustomerRepo.cs" />
-    <Compile Include="Customers\Customer\ICustomerRepo.cs" />
+    <Compile Include="Customers\Customer\CustomerModel.cs" />
     <Compile Include="CustomFunction\CustomDateTime.cs" />
     <Compile Include="DataLinq.designer.cs">
       <AutoGen>True</AutoGen>
@@ -125,6 +124,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SaleReceipts\SaleReceiptInvoice.cs" />
+    <Compile Include="SaleReceipts\SaleReceiptInvoiceDetail.cs" />
+    <Compile Include="SaleReceipts\SaleReceiptInvoiceDetailModel.cs" />
+    <Compile Include="SaleReceipts\SaleReceiptInvoiceModel.cs" />
     <Compile Include="Transaction\Kinal.cs" />
     <Compile Include="Transaction\Purchases\CompanyExpense\BillHeaderModel.cs" />
     <Compile Include="Transaction\Purchases\CompanyExpense\BillItem.cs" />

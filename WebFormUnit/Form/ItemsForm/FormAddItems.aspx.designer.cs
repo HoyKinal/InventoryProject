@@ -69,6 +69,15 @@ namespace WebFormUnit.Form.ItemsForm
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfItemCode;
 
         /// <summary>
+        /// updatepanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatepanel1;
+
+        /// <summary>
         /// txtBarCode control.
         /// </summary>
         /// <remarks>

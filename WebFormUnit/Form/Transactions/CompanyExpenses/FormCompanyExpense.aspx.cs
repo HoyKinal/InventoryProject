@@ -81,6 +81,23 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
                 ddlSupplier.DataBind();
             }
         }
+        private void LoadItemInfo()
+        {
+            BillHeaderModel model = new BillHeaderModel() { BillNumber = hdfBillNumber.Value };
+            BillHeader header = new BillHeader();
+
+            var load = header.BillHeaderSelectEdits(model);
+
+            if (load != null)
+            {
+                lbDiscount.Text = load.TotalDiscountItem.Value.ToString("F2");
+                lbGrandTotalHeader.Text = load.GrandTotalHeader.Value.ToString("F2");
+                lbAmount.Text = load.TotalItem.Value.ToString("F2");
+                lbTotalDicount.Text = load.TotalDiscount.Value.ToString("F2");
+                lbTotalVat.Text = load.VATAmount.Value.ToString("F2");
+                lbGrandTotalVat.Text = load.TotalHeadWithVat.Value.ToString("F2");
+            }
+        }
 
         private static string GenerateRandomString(int length)
         {
@@ -310,23 +327,7 @@ namespace WebFormUnit.Form.Transactions.CompanyExpenses
             DeletePurchase();
             GridBind(hdfBillNumber.Value);
         }
-        private void LoadItemInfo()
-        {
-            BillHeaderModel model = new BillHeaderModel() { BillNumber = hdfBillNumber.Value };
-            BillHeader header = new BillHeader();
-
-            var load = header.BillHeaderSelectEdits(model);
-
-            if (load != null)
-            {
-                lbDiscount.Text = load.TotalDiscountItem.Value.ToString("F2");
-                lbGrandTotalHeader.Text = load.GrandTotalHeader.Value.ToString("F2");
-                lbAmount.Text = load.TotalItem.Value.ToString("F2");
-                lbTotalDicount.Text = load.TotalDiscount.Value.ToString("F2");
-                lbTotalVat.Text = load.VATAmount.Value.ToString("F2");
-                lbGrandTotalVat.Text = load.TotalHeadWithVat.Value.ToString("F2");
-            }
-        }
+       
 
         protected void btnOpenItem_Click(object sender, EventArgs e)
         {

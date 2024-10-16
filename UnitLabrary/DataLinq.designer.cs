@@ -111,13 +111,6 @@ namespace UnitLabrary
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UnitMeasurementSelect")]
-		public ISingleResult<UnitMeasurementSelectResult> UnitMeasurementSelect([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string search)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), search);
-			return ((ISingleResult<UnitMeasurementSelectResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UnitMeasurementSelectEdit")]
 		public ISingleResult<UnitMeasurementSelectEditResult> UnitMeasurementSelectEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UnitFrom", DbType="NVarChar(30)")] string unitFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UnitTo", DbType="NVarChar(30)")] string unitTo)
 		{
@@ -560,58 +553,6 @@ namespace UnitLabrary
 			return ((ISingleResult<MemberTypeSelectEditResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CustomersDelete")]
-		public int CustomersDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerCode", DbType="NVarChar(30)")] string customerCode)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), customerCode);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CustomersUpdate")]
-		public int CustomersUpdate(
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerCode", DbType="NVarChar(30)")] string customerCode, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerNumber", DbType="NVarChar(30)")] string customerNumber, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerName", DbType="NVarChar(50)")] string customerName, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerDesc", DbType="NVarChar(50)")] string customerDesc, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerAddress", DbType="NVarChar(1000)")] string customerAddress, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerPhone", DbType="NVarChar(50)")] string customerPhone, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerFax", DbType="NVarChar(50)")] string customerFax, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerEmail", DbType="NVarChar(150)")] string customerEmail, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerWeb", DbType="NVarChar(150)")] string customerWeb, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerContact", DbType="NVarChar(50)")] string customerContact, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerStatus", DbType="Char(1)")] System.Nullable<char> customerStatus, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerType", DbType="Char(1)")] System.Nullable<char> customerType, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreateBy", DbType="NVarChar(30)")] string createBy, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreateDate", DbType="DateTime")] System.Nullable<System.DateTime> createDate, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="UpdateBy", DbType="NVarChar(30)")] string updateBy, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="UpdateDate", DbType="DateTime")] System.Nullable<System.DateTime> updateDate, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ana4", DbType="NVarChar(30)")] string ana4)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), customerCode, customerNumber, customerName, customerDesc, customerAddress, customerPhone, customerFax, customerEmail, customerWeb, customerContact, customerStatus, customerType, createBy, createDate, updateBy, updateDate, ana4);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CustomersInsert")]
-		public int CustomersInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerCode", DbType="NVarChar(30)")] string customerCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerNumber", DbType="NVarChar(30)")] string customerNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerName", DbType="NVarChar(50)")] string customerName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerDesc", DbType="NVarChar(50)")] string customerDesc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerAddress", DbType="NVarChar(1000)")] string customerAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerPhone", DbType="NVarChar(50)")] string customerPhone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerFax", DbType="NVarChar(50)")] string customerFax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerEmail", DbType="NVarChar(150)")] string customerEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerWeb", DbType="NVarChar(150)")] string customerWeb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerContact", DbType="NVarChar(50)")] string customerContact, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerStatus", DbType="Char(1)")] System.Nullable<char> customerStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerType", DbType="Char(1)")] System.Nullable<char> customerType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreateBy", DbType="NVarChar(30)")] string createBy, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreateDate", DbType="DateTime")] System.Nullable<System.DateTime> createDate)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), customerCode, customerNumber, customerName, customerDesc, customerAddress, customerPhone, customerFax, customerEmail, customerWeb, customerContact, customerStatus, customerType, createBy, createDate);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CustomersSelect")]
-		public ISingleResult<CustomersSelectResult> CustomersSelect([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(30)")] string search)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), search);
-			return ((ISingleResult<CustomersSelectResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CustomersSelectEdit")]
-		public ISingleResult<CustomersSelectEditResult> CustomersSelectEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerCode", DbType="NVarChar(30)")] string customerCode)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), customerCode);
-			return ((ISingleResult<CustomersSelectEditResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SuppliersUpdate")]
 		public int SuppliersUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierCode", DbType="NVarChar(30)")] string supplierCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierName", DbType="NVarChar(50)")] string supplierName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierDesc", DbType="NVarChar(50)")] string supplierDesc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierAddress", DbType="NVarChar(200)")] string supplierAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierPhone", DbType="NVarChar(50)")] string supplierPhone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierFax", DbType="NVarChar(50)")] string supplierFax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierEmail", DbType="NVarChar(150)")] string supplierEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierWeb", DbType="NVarChar(150)")] string supplierWeb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierContact", DbType="NVarChar(50)")] string supplierContact, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierStatus", DbType="Char(1)")] System.Nullable<char> supplierStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierType", DbType="Char(1)")] System.Nullable<char> supplierType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreateBy", DbType="NVarChar(30)")] string createBy, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreateDate", DbType="DateTime")] System.Nullable<System.DateTime> createDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UpdateBy", DbType="NVarChar(30)")] string updateBy, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UpdateDate", DbType="DateTime")] System.Nullable<System.DateTime> updateDate)
 		{
@@ -793,6 +734,118 @@ namespace UnitLabrary
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), supplierCode);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CustomersSelect")]
+		public ISingleResult<CustomersSelectResult> CustomersSelect([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(30)")] string search)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), search);
+			return ((ISingleResult<CustomersSelectResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CustomersSelectEdit")]
+		public ISingleResult<CustomersSelectEditResult> CustomersSelectEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerCode", DbType="NVarChar(30)")] string customerCode)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), customerCode);
+			return ((ISingleResult<CustomersSelectEditResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CustomersDelete")]
+		public int CustomersDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerCode", DbType="NVarChar(30)")] string customerCode)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), customerCode);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CustomersUpdate")]
+		public int CustomersUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerCode", DbType="NVarChar(30)")] string customerCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerNumberCard", DbType="NVarChar(30)")] string customerNumberCard, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerName", DbType="NVarChar(50)")] string customerName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerDesc", DbType="NVarChar(50)")] string customerDesc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerAddress", DbType="NVarChar(1000)")] string customerAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerPhone", DbType="NVarChar(50)")] string customerPhone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerEmail", DbType="NVarChar(150)")] string customerEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerWeb", DbType="NVarChar(150)")] string customerWeb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerContact", DbType="NVarChar(50)")] string customerContact, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerStatus", DbType="Char(1)")] System.Nullable<char> customerStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerType", DbType="Char(1)")] System.Nullable<char> customerType)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), customerCode, customerNumberCard, customerName, customerDesc, customerAddress, customerPhone, customerEmail, customerWeb, customerContact, customerStatus, customerType);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CustomersInsert")]
+		public int CustomersInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerCode", DbType="NVarChar(30)")] string customerCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerNumberCard", DbType="NVarChar(30)")] string customerNumberCard, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerName", DbType="NVarChar(50)")] string customerName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerDesc", DbType="NVarChar(50)")] string customerDesc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerAddress", DbType="NVarChar(1000)")] string customerAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerPhone", DbType="NVarChar(50)")] string customerPhone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerEmail", DbType="NVarChar(150)")] string customerEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerWeb", DbType="NVarChar(150)")] string customerWeb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerContact", DbType="NVarChar(50)")] string customerContact, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerStatus", DbType="Char(1)")] System.Nullable<char> customerStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerType", DbType="Char(1)")] System.Nullable<char> customerType)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), customerCode, customerNumberCard, customerName, customerDesc, customerAddress, customerPhone, customerEmail, customerWeb, customerContact, customerStatus, customerType);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UnitMeasurementSelect")]
+		public ISingleResult<UnitMeasurementSelectResult> UnitMeasurementSelect([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string search)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), search);
+			return ((ISingleResult<UnitMeasurementSelectResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InvoiceHeaderDelete")]
+		public int InvoiceHeaderDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceNo", DbType="NVarChar(30)")] string invoiceNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceNo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InvoiceHeaderUpdate")]
+		public int InvoiceHeaderUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceNo", DbType="NVarChar(30)")] string invoiceNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerCode", DbType="NVarChar(30)")] string customerCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceDate", DbType="DateTime")] System.Nullable<System.DateTime> invoiceDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Memo", DbType="NVarChar(100)")] string memo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceStatus", DbType="Bit")] System.Nullable<bool> invoiceStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="VatPercent", DbType="Decimal(18,5)")] System.Nullable<decimal> vatPercent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiscountPercent", DbType="Decimal(18,5)")] System.Nullable<decimal> discountPercent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiscountAmount", DbType="Decimal(18,5)")] System.Nullable<decimal> discountAmount)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceNo, customerCode, invoiceDate, memo, invoiceStatus, vatPercent, discountPercent, discountAmount);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InvoiceHeaderInsert")]
+		public int InvoiceHeaderInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceNo", DbType="NVarChar(30)")] string invoiceNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CustomerCode", DbType="NVarChar(30)")] string customerCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceDate", DbType="DateTime")] System.Nullable<System.DateTime> invoiceDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Memo", DbType="NVarChar(100)")] string memo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceStatus", DbType="Bit")] System.Nullable<bool> invoiceStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="VatPercent", DbType="Decimal(18,5)")] System.Nullable<decimal> vatPercent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiscountPercent", DbType="Decimal(18,5)")] System.Nullable<decimal> discountPercent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiscountAmount", DbType="Decimal(18,5)")] System.Nullable<decimal> discountAmount)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceNo, customerCode, invoiceDate, memo, invoiceStatus, vatPercent, discountPercent, discountAmount);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InvoiceHeaderDetailDelete")]
+		public int InvoiceHeaderDetailDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceCode", DbType="NVarChar(30)")] string invoiceCode)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceCode);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InvoiceHeaderDetailUpdate")]
+		public int InvoiceHeaderDetailUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceCode", DbType="NVarChar(30)")] string invoiceCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceNo", DbType="NVarChar(30)")] string invoiceNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ItemCode", DbType="NVarChar(30)")] string itemCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Decimal(18,5)")] System.Nullable<decimal> quantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SaleUnit", DbType="NVarChar(30)")] string saleUnit, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SalePrice", DbType="Decimal(18,5)")] System.Nullable<decimal> salePrice, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiscountAmount", DbType="Decimal(18,5)")] System.Nullable<decimal> discountAmount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiscountPercent", DbType="Decimal(18,5)")] System.Nullable<decimal> discountPercent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalDiscount", DbType="Decimal(18,5)")] System.Nullable<decimal> totalDiscount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Total", DbType="Decimal(18,5)")] System.Nullable<decimal> total, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationCode", DbType="NVarChar(30)")] string locationCode)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceCode, invoiceNo, itemCode, quantity, saleUnit, salePrice, discountAmount, discountPercent, totalDiscount, total, locationCode);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InvoiceHeaderDetailInsert")]
+		public int InvoiceHeaderDetailInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceCode", DbType="NVarChar(30)")] string invoiceCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceNo", DbType="NVarChar(30)")] string invoiceNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ItemCode", DbType="NVarChar(30)")] string itemCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Decimal(18,5)")] System.Nullable<decimal> quantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SaleUnit", DbType="NVarChar(30)")] string saleUnit, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SalePrice", DbType="Decimal(18,5)")] System.Nullable<decimal> salePrice, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiscountAmount", DbType="Decimal(18,5)")] System.Nullable<decimal> discountAmount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiscountPercent", DbType="Decimal(18,5)")] System.Nullable<decimal> discountPercent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalDiscount", DbType="Decimal(18,5)")] System.Nullable<decimal> totalDiscount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Total", DbType="Decimal(18,5)")] System.Nullable<decimal> total, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationCode", DbType="NVarChar(30)")] string locationCode)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceCode, invoiceNo, itemCode, quantity, saleUnit, salePrice, discountAmount, discountPercent, totalDiscount, total, locationCode);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InvoiceHeaderDetailSelectEdit")]
+		public ISingleResult<InvoiceHeaderDetailSelectEditResult> InvoiceHeaderDetailSelectEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceCode", DbType="NVarChar(30)")] string invoiceCode)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceCode);
+			return ((ISingleResult<InvoiceHeaderDetailSelectEditResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InvoiceHeaderDetailSelect")]
+		public ISingleResult<InvoiceHeaderDetailSelectResult> InvoiceHeaderDetailSelect([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceNo", DbType="NVarChar(30)")] string invoiceNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceNo);
+			return ((ISingleResult<InvoiceHeaderDetailSelectResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InvoiceHeaderSelectEdit")]
+		public ISingleResult<InvoiceHeaderSelectEditResult> InvoiceHeaderSelectEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceNo", DbType="NVarChar(30)")] string invoiceNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceNo);
+			return ((ISingleResult<InvoiceHeaderSelectEditResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InvoiceHeaderSelect")]
+		public ISingleResult<InvoiceHeaderSelectResult> InvoiceHeaderSelect([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(30)")] string search, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDate", DbType="NVarChar(30)")] string startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ToDate", DbType="NVarChar(30)")] string toDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceStatus", DbType="Bit")] System.Nullable<bool> invoiceStatus)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), search, startDate, toDate, invoiceStatus);
+			return ((ISingleResult<InvoiceHeaderSelectResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class UnitMainSelectEditResult
@@ -942,410 +995,6 @@ namespace UnitLabrary
 				if ((this._UpdateDate != value))
 				{
 					this._UpdateDate = value;
-				}
-			}
-		}
-	}
-	
-	public partial class UnitMeasurementSelectResult
-	{
-		
-		private System.Nullable<long> _RowNo;
-		
-		private string _UnitFrom;
-		
-		private string _UnitFromName;
-		
-		private string _UnitTo;
-		
-		private string _UnitToName;
-		
-		private string _UnitFromDesc;
-		
-		private char _UnitOperator;
-		
-		private decimal _UnitFactor;
-		
-		private string _CreateBy;
-		
-		private System.DateTime _CreateDate;
-		
-		private string _UpdateBy;
-		
-		private System.DateTime _UpdateDate;
-		
-		private string _Ana1;
-		
-		private string _Ana2;
-		
-		private string _Ana3;
-		
-		private string _Ana4;
-		
-		private System.Nullable<decimal> _Ana5;
-		
-		private System.Nullable<decimal> _Ana6;
-		
-		private System.Nullable<decimal> _Ana7;
-		
-		private System.Nullable<System.DateTime> _Ana8;
-		
-		private System.Nullable<System.DateTime> _Ana9;
-		
-		private System.Nullable<System.DateTime> _Ana10;
-		
-		public UnitMeasurementSelectResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowNo", DbType="BigInt")]
-		public System.Nullable<long> RowNo
-		{
-			get
-			{
-				return this._RowNo;
-			}
-			set
-			{
-				if ((this._RowNo != value))
-				{
-					this._RowNo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitFrom", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string UnitFrom
-		{
-			get
-			{
-				return this._UnitFrom;
-			}
-			set
-			{
-				if ((this._UnitFrom != value))
-				{
-					this._UnitFrom = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitFromName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string UnitFromName
-		{
-			get
-			{
-				return this._UnitFromName;
-			}
-			set
-			{
-				if ((this._UnitFromName != value))
-				{
-					this._UnitFromName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitTo", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string UnitTo
-		{
-			get
-			{
-				return this._UnitTo;
-			}
-			set
-			{
-				if ((this._UnitTo != value))
-				{
-					this._UnitTo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitToName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string UnitToName
-		{
-			get
-			{
-				return this._UnitToName;
-			}
-			set
-			{
-				if ((this._UnitToName != value))
-				{
-					this._UnitToName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitFromDesc", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string UnitFromDesc
-		{
-			get
-			{
-				return this._UnitFromDesc;
-			}
-			set
-			{
-				if ((this._UnitFromDesc != value))
-				{
-					this._UnitFromDesc = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitOperator", DbType="Char(1) NOT NULL")]
-		public char UnitOperator
-		{
-			get
-			{
-				return this._UnitOperator;
-			}
-			set
-			{
-				if ((this._UnitOperator != value))
-				{
-					this._UnitOperator = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitFactor", DbType="Decimal(18,2) NOT NULL")]
-		public decimal UnitFactor
-		{
-			get
-			{
-				return this._UnitFactor;
-			}
-			set
-			{
-				if ((this._UnitFactor != value))
-				{
-					this._UnitFactor = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateBy", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
-		public string CreateBy
-		{
-			get
-			{
-				return this._CreateBy;
-			}
-			set
-			{
-				if ((this._CreateBy != value))
-				{
-					this._CreateBy = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime NOT NULL")]
-		public System.DateTime CreateDate
-		{
-			get
-			{
-				return this._CreateDate;
-			}
-			set
-			{
-				if ((this._CreateDate != value))
-				{
-					this._CreateDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateBy", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
-		public string UpdateBy
-		{
-			get
-			{
-				return this._UpdateBy;
-			}
-			set
-			{
-				if ((this._UpdateBy != value))
-				{
-					this._UpdateBy = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime NOT NULL")]
-		public System.DateTime UpdateDate
-		{
-			get
-			{
-				return this._UpdateDate;
-			}
-			set
-			{
-				if ((this._UpdateDate != value))
-				{
-					this._UpdateDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana1", DbType="NVarChar(50)")]
-		public string Ana1
-		{
-			get
-			{
-				return this._Ana1;
-			}
-			set
-			{
-				if ((this._Ana1 != value))
-				{
-					this._Ana1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana2", DbType="NVarChar(50)")]
-		public string Ana2
-		{
-			get
-			{
-				return this._Ana2;
-			}
-			set
-			{
-				if ((this._Ana2 != value))
-				{
-					this._Ana2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana3", DbType="NVarChar(50)")]
-		public string Ana3
-		{
-			get
-			{
-				return this._Ana3;
-			}
-			set
-			{
-				if ((this._Ana3 != value))
-				{
-					this._Ana3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana4", DbType="NVarChar(50)")]
-		public string Ana4
-		{
-			get
-			{
-				return this._Ana4;
-			}
-			set
-			{
-				if ((this._Ana4 != value))
-				{
-					this._Ana4 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana5", DbType="Decimal(18,5)")]
-		public System.Nullable<decimal> Ana5
-		{
-			get
-			{
-				return this._Ana5;
-			}
-			set
-			{
-				if ((this._Ana5 != value))
-				{
-					this._Ana5 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana6", DbType="Decimal(18,5)")]
-		public System.Nullable<decimal> Ana6
-		{
-			get
-			{
-				return this._Ana6;
-			}
-			set
-			{
-				if ((this._Ana6 != value))
-				{
-					this._Ana6 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana7", DbType="Decimal(18,5)")]
-		public System.Nullable<decimal> Ana7
-		{
-			get
-			{
-				return this._Ana7;
-			}
-			set
-			{
-				if ((this._Ana7 != value))
-				{
-					this._Ana7 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana8", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Ana8
-		{
-			get
-			{
-				return this._Ana8;
-			}
-			set
-			{
-				if ((this._Ana8 != value))
-				{
-					this._Ana8 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana9", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Ana9
-		{
-			get
-			{
-				return this._Ana9;
-			}
-			set
-			{
-				if ((this._Ana9 != value))
-				{
-					this._Ana9 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana10", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Ana10
-		{
-			get
-			{
-				return this._Ana10;
-			}
-			set
-			{
-				if ((this._Ana10 != value))
-				{
-					this._Ana10 = value;
 				}
 			}
 		}
@@ -6413,976 +6062,6 @@ namespace UnitLabrary
 		}
 	}
 	
-	public partial class CustomersSelectResult
-	{
-		
-		private System.Nullable<long> _RowNo;
-		
-		private string _CustomerCode;
-		
-		private string _CustomerNumber;
-		
-		private string _CustomerName;
-		
-		private string _CustomerDesc;
-		
-		private string _CustomerAddress;
-		
-		private string _CustomerPhone;
-		
-		private string _CustomerFax;
-		
-		private string _CustomerEmail;
-		
-		private string _CustomerWeb;
-		
-		private string _CustomerContact;
-		
-		private string _CustomerStatus;
-		
-		private char _CustomerType;
-		
-		private string _CreateBy;
-		
-		private System.DateTime _CreateDate;
-		
-		private string _UpdateBy;
-		
-		private System.Nullable<System.DateTime> _UpdateDate;
-		
-		private string _Ana1;
-		
-		private string _Ana2;
-		
-		private string _Ana3;
-		
-		private string _Ana4;
-		
-		private System.Nullable<decimal> _Ana5;
-		
-		private System.Nullable<decimal> _Ana6;
-		
-		private System.Nullable<decimal> _Ana7;
-		
-		private System.Nullable<System.DateTime> _Ana8;
-		
-		private System.Nullable<System.DateTime> _Ana9;
-		
-		private System.Nullable<System.DateTime> _Ana10;
-		
-		public CustomersSelectResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowNo", DbType="BigInt")]
-		public System.Nullable<long> RowNo
-		{
-			get
-			{
-				return this._RowNo;
-			}
-			set
-			{
-				if ((this._RowNo != value))
-				{
-					this._RowNo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerCode", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
-		public string CustomerCode
-		{
-			get
-			{
-				return this._CustomerCode;
-			}
-			set
-			{
-				if ((this._CustomerCode != value))
-				{
-					this._CustomerCode = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerNumber", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
-		public string CustomerNumber
-		{
-			get
-			{
-				return this._CustomerNumber;
-			}
-			set
-			{
-				if ((this._CustomerNumber != value))
-				{
-					this._CustomerNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CustomerName
-		{
-			get
-			{
-				return this._CustomerName;
-			}
-			set
-			{
-				if ((this._CustomerName != value))
-				{
-					this._CustomerName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerDesc", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CustomerDesc
-		{
-			get
-			{
-				return this._CustomerDesc;
-			}
-			set
-			{
-				if ((this._CustomerDesc != value))
-				{
-					this._CustomerDesc = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerAddress", DbType="NVarChar(1000) NOT NULL", CanBeNull=false)]
-		public string CustomerAddress
-		{
-			get
-			{
-				return this._CustomerAddress;
-			}
-			set
-			{
-				if ((this._CustomerAddress != value))
-				{
-					this._CustomerAddress = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerPhone", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CustomerPhone
-		{
-			get
-			{
-				return this._CustomerPhone;
-			}
-			set
-			{
-				if ((this._CustomerPhone != value))
-				{
-					this._CustomerPhone = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerFax", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CustomerFax
-		{
-			get
-			{
-				return this._CustomerFax;
-			}
-			set
-			{
-				if ((this._CustomerFax != value))
-				{
-					this._CustomerFax = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerEmail", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
-		public string CustomerEmail
-		{
-			get
-			{
-				return this._CustomerEmail;
-			}
-			set
-			{
-				if ((this._CustomerEmail != value))
-				{
-					this._CustomerEmail = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerWeb", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
-		public string CustomerWeb
-		{
-			get
-			{
-				return this._CustomerWeb;
-			}
-			set
-			{
-				if ((this._CustomerWeb != value))
-				{
-					this._CustomerWeb = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerContact", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CustomerContact
-		{
-			get
-			{
-				return this._CustomerContact;
-			}
-			set
-			{
-				if ((this._CustomerContact != value))
-				{
-					this._CustomerContact = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerStatus", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
-		public string CustomerStatus
-		{
-			get
-			{
-				return this._CustomerStatus;
-			}
-			set
-			{
-				if ((this._CustomerStatus != value))
-				{
-					this._CustomerStatus = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerType", DbType="Char(1) NOT NULL")]
-		public char CustomerType
-		{
-			get
-			{
-				return this._CustomerType;
-			}
-			set
-			{
-				if ((this._CustomerType != value))
-				{
-					this._CustomerType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateBy", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
-		public string CreateBy
-		{
-			get
-			{
-				return this._CreateBy;
-			}
-			set
-			{
-				if ((this._CreateBy != value))
-				{
-					this._CreateBy = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime NOT NULL")]
-		public System.DateTime CreateDate
-		{
-			get
-			{
-				return this._CreateDate;
-			}
-			set
-			{
-				if ((this._CreateDate != value))
-				{
-					this._CreateDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateBy", DbType="NVarChar(30)")]
-		public string UpdateBy
-		{
-			get
-			{
-				return this._UpdateBy;
-			}
-			set
-			{
-				if ((this._UpdateBy != value))
-				{
-					this._UpdateBy = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UpdateDate
-		{
-			get
-			{
-				return this._UpdateDate;
-			}
-			set
-			{
-				if ((this._UpdateDate != value))
-				{
-					this._UpdateDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana1", DbType="NVarChar(50)")]
-		public string Ana1
-		{
-			get
-			{
-				return this._Ana1;
-			}
-			set
-			{
-				if ((this._Ana1 != value))
-				{
-					this._Ana1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana2", DbType="NVarChar(50)")]
-		public string Ana2
-		{
-			get
-			{
-				return this._Ana2;
-			}
-			set
-			{
-				if ((this._Ana2 != value))
-				{
-					this._Ana2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana3", DbType="NVarChar(50)")]
-		public string Ana3
-		{
-			get
-			{
-				return this._Ana3;
-			}
-			set
-			{
-				if ((this._Ana3 != value))
-				{
-					this._Ana3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana4", DbType="NVarChar(30)")]
-		public string Ana4
-		{
-			get
-			{
-				return this._Ana4;
-			}
-			set
-			{
-				if ((this._Ana4 != value))
-				{
-					this._Ana4 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana5", DbType="Decimal(18,5)")]
-		public System.Nullable<decimal> Ana5
-		{
-			get
-			{
-				return this._Ana5;
-			}
-			set
-			{
-				if ((this._Ana5 != value))
-				{
-					this._Ana5 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana6", DbType="Decimal(18,5)")]
-		public System.Nullable<decimal> Ana6
-		{
-			get
-			{
-				return this._Ana6;
-			}
-			set
-			{
-				if ((this._Ana6 != value))
-				{
-					this._Ana6 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana7", DbType="Decimal(18,5)")]
-		public System.Nullable<decimal> Ana7
-		{
-			get
-			{
-				return this._Ana7;
-			}
-			set
-			{
-				if ((this._Ana7 != value))
-				{
-					this._Ana7 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana8", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Ana8
-		{
-			get
-			{
-				return this._Ana8;
-			}
-			set
-			{
-				if ((this._Ana8 != value))
-				{
-					this._Ana8 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana9", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Ana9
-		{
-			get
-			{
-				return this._Ana9;
-			}
-			set
-			{
-				if ((this._Ana9 != value))
-				{
-					this._Ana9 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana10", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Ana10
-		{
-			get
-			{
-				return this._Ana10;
-			}
-			set
-			{
-				if ((this._Ana10 != value))
-				{
-					this._Ana10 = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CustomersSelectEditResult
-	{
-		
-		private string _CustomerCode;
-		
-		private string _CustomerNumber;
-		
-		private string _CustomerName;
-		
-		private string _CustomerDesc;
-		
-		private string _CustomerAddress;
-		
-		private string _CustomerPhone;
-		
-		private string _CustomerFax;
-		
-		private string _CustomerEmail;
-		
-		private string _CustomerWeb;
-		
-		private string _CustomerContact;
-		
-		private char _CustomerStatus;
-		
-		private char _CustomerType;
-		
-		private string _CreateBy;
-		
-		private System.DateTime _CreateDate;
-		
-		private string _UpdateBy;
-		
-		private System.Nullable<System.DateTime> _UpdateDate;
-		
-		private string _Ana1;
-		
-		private string _Ana2;
-		
-		private string _Ana3;
-		
-		private string _Ana4;
-		
-		private System.Nullable<decimal> _Ana5;
-		
-		private System.Nullable<decimal> _Ana6;
-		
-		private System.Nullable<decimal> _Ana7;
-		
-		private System.Nullable<System.DateTime> _Ana8;
-		
-		private System.Nullable<System.DateTime> _Ana9;
-		
-		private System.Nullable<System.DateTime> _Ana10;
-		
-		public CustomersSelectEditResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerCode", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
-		public string CustomerCode
-		{
-			get
-			{
-				return this._CustomerCode;
-			}
-			set
-			{
-				if ((this._CustomerCode != value))
-				{
-					this._CustomerCode = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerNumber", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
-		public string CustomerNumber
-		{
-			get
-			{
-				return this._CustomerNumber;
-			}
-			set
-			{
-				if ((this._CustomerNumber != value))
-				{
-					this._CustomerNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CustomerName
-		{
-			get
-			{
-				return this._CustomerName;
-			}
-			set
-			{
-				if ((this._CustomerName != value))
-				{
-					this._CustomerName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerDesc", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CustomerDesc
-		{
-			get
-			{
-				return this._CustomerDesc;
-			}
-			set
-			{
-				if ((this._CustomerDesc != value))
-				{
-					this._CustomerDesc = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerAddress", DbType="NVarChar(1000) NOT NULL", CanBeNull=false)]
-		public string CustomerAddress
-		{
-			get
-			{
-				return this._CustomerAddress;
-			}
-			set
-			{
-				if ((this._CustomerAddress != value))
-				{
-					this._CustomerAddress = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerPhone", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CustomerPhone
-		{
-			get
-			{
-				return this._CustomerPhone;
-			}
-			set
-			{
-				if ((this._CustomerPhone != value))
-				{
-					this._CustomerPhone = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerFax", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CustomerFax
-		{
-			get
-			{
-				return this._CustomerFax;
-			}
-			set
-			{
-				if ((this._CustomerFax != value))
-				{
-					this._CustomerFax = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerEmail", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
-		public string CustomerEmail
-		{
-			get
-			{
-				return this._CustomerEmail;
-			}
-			set
-			{
-				if ((this._CustomerEmail != value))
-				{
-					this._CustomerEmail = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerWeb", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
-		public string CustomerWeb
-		{
-			get
-			{
-				return this._CustomerWeb;
-			}
-			set
-			{
-				if ((this._CustomerWeb != value))
-				{
-					this._CustomerWeb = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerContact", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CustomerContact
-		{
-			get
-			{
-				return this._CustomerContact;
-			}
-			set
-			{
-				if ((this._CustomerContact != value))
-				{
-					this._CustomerContact = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerStatus", DbType="Char(1) NOT NULL")]
-		public char CustomerStatus
-		{
-			get
-			{
-				return this._CustomerStatus;
-			}
-			set
-			{
-				if ((this._CustomerStatus != value))
-				{
-					this._CustomerStatus = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerType", DbType="Char(1) NOT NULL")]
-		public char CustomerType
-		{
-			get
-			{
-				return this._CustomerType;
-			}
-			set
-			{
-				if ((this._CustomerType != value))
-				{
-					this._CustomerType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateBy", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
-		public string CreateBy
-		{
-			get
-			{
-				return this._CreateBy;
-			}
-			set
-			{
-				if ((this._CreateBy != value))
-				{
-					this._CreateBy = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime NOT NULL")]
-		public System.DateTime CreateDate
-		{
-			get
-			{
-				return this._CreateDate;
-			}
-			set
-			{
-				if ((this._CreateDate != value))
-				{
-					this._CreateDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateBy", DbType="NVarChar(30)")]
-		public string UpdateBy
-		{
-			get
-			{
-				return this._UpdateBy;
-			}
-			set
-			{
-				if ((this._UpdateBy != value))
-				{
-					this._UpdateBy = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UpdateDate
-		{
-			get
-			{
-				return this._UpdateDate;
-			}
-			set
-			{
-				if ((this._UpdateDate != value))
-				{
-					this._UpdateDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana1", DbType="NVarChar(50)")]
-		public string Ana1
-		{
-			get
-			{
-				return this._Ana1;
-			}
-			set
-			{
-				if ((this._Ana1 != value))
-				{
-					this._Ana1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana2", DbType="NVarChar(50)")]
-		public string Ana2
-		{
-			get
-			{
-				return this._Ana2;
-			}
-			set
-			{
-				if ((this._Ana2 != value))
-				{
-					this._Ana2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana3", DbType="NVarChar(50)")]
-		public string Ana3
-		{
-			get
-			{
-				return this._Ana3;
-			}
-			set
-			{
-				if ((this._Ana3 != value))
-				{
-					this._Ana3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana4", DbType="NVarChar(30)")]
-		public string Ana4
-		{
-			get
-			{
-				return this._Ana4;
-			}
-			set
-			{
-				if ((this._Ana4 != value))
-				{
-					this._Ana4 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana5", DbType="Decimal(18,5)")]
-		public System.Nullable<decimal> Ana5
-		{
-			get
-			{
-				return this._Ana5;
-			}
-			set
-			{
-				if ((this._Ana5 != value))
-				{
-					this._Ana5 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana6", DbType="Decimal(18,5)")]
-		public System.Nullable<decimal> Ana6
-		{
-			get
-			{
-				return this._Ana6;
-			}
-			set
-			{
-				if ((this._Ana6 != value))
-				{
-					this._Ana6 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana7", DbType="Decimal(18,5)")]
-		public System.Nullable<decimal> Ana7
-		{
-			get
-			{
-				return this._Ana7;
-			}
-			set
-			{
-				if ((this._Ana7 != value))
-				{
-					this._Ana7 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana8", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Ana8
-		{
-			get
-			{
-				return this._Ana8;
-			}
-			set
-			{
-				if ((this._Ana8 != value))
-				{
-					this._Ana8 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana9", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Ana9
-		{
-			get
-			{
-				return this._Ana9;
-			}
-			set
-			{
-				if ((this._Ana9 != value))
-				{
-					this._Ana9 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana10", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Ana10
-		{
-			get
-			{
-				return this._Ana10;
-			}
-			set
-			{
-				if ((this._Ana10 != value))
-				{
-					this._Ana10 = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SuppliersSelectResult
 	{
 		
@@ -9834,6 +8513,1844 @@ namespace UnitLabrary
 				if ((this._MemoReturnPaid != value))
 				{
 					this._MemoReturnPaid = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CustomersSelectResult
+	{
+		
+		private System.Nullable<long> _RowNo;
+		
+		private string _CustomerCode;
+		
+		private string _CustomerNumberCard;
+		
+		private string _CustomerName;
+		
+		private string _CustomerDesc;
+		
+		private string _CustomerAddress;
+		
+		private string _CustomerPhone;
+		
+		private string _CustomerEmail;
+		
+		private string _CustomerWeb;
+		
+		private string _CustomerContact;
+		
+		private string _CustomerStatus;
+		
+		private System.Nullable<char> _CustomerType;
+		
+		public CustomersSelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowNo", DbType="BigInt")]
+		public System.Nullable<long> RowNo
+		{
+			get
+			{
+				return this._RowNo;
+			}
+			set
+			{
+				if ((this._RowNo != value))
+				{
+					this._RowNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerCode", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string CustomerCode
+		{
+			get
+			{
+				return this._CustomerCode;
+			}
+			set
+			{
+				if ((this._CustomerCode != value))
+				{
+					this._CustomerCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerNumberCard", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string CustomerNumberCard
+		{
+			get
+			{
+				return this._CustomerNumberCard;
+			}
+			set
+			{
+				if ((this._CustomerNumberCard != value))
+				{
+					this._CustomerNumberCard = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CustomerName
+		{
+			get
+			{
+				return this._CustomerName;
+			}
+			set
+			{
+				if ((this._CustomerName != value))
+				{
+					this._CustomerName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerDesc", DbType="NVarChar(50)")]
+		public string CustomerDesc
+		{
+			get
+			{
+				return this._CustomerDesc;
+			}
+			set
+			{
+				if ((this._CustomerDesc != value))
+				{
+					this._CustomerDesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerAddress", DbType="NVarChar(1000)")]
+		public string CustomerAddress
+		{
+			get
+			{
+				return this._CustomerAddress;
+			}
+			set
+			{
+				if ((this._CustomerAddress != value))
+				{
+					this._CustomerAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerPhone", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CustomerPhone
+		{
+			get
+			{
+				return this._CustomerPhone;
+			}
+			set
+			{
+				if ((this._CustomerPhone != value))
+				{
+					this._CustomerPhone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerEmail", DbType="NVarChar(150)")]
+		public string CustomerEmail
+		{
+			get
+			{
+				return this._CustomerEmail;
+			}
+			set
+			{
+				if ((this._CustomerEmail != value))
+				{
+					this._CustomerEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerWeb", DbType="NVarChar(150)")]
+		public string CustomerWeb
+		{
+			get
+			{
+				return this._CustomerWeb;
+			}
+			set
+			{
+				if ((this._CustomerWeb != value))
+				{
+					this._CustomerWeb = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerContact", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CustomerContact
+		{
+			get
+			{
+				return this._CustomerContact;
+			}
+			set
+			{
+				if ((this._CustomerContact != value))
+				{
+					this._CustomerContact = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerStatus", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string CustomerStatus
+		{
+			get
+			{
+				return this._CustomerStatus;
+			}
+			set
+			{
+				if ((this._CustomerStatus != value))
+				{
+					this._CustomerStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerType", DbType="Char(1)")]
+		public System.Nullable<char> CustomerType
+		{
+			get
+			{
+				return this._CustomerType;
+			}
+			set
+			{
+				if ((this._CustomerType != value))
+				{
+					this._CustomerType = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CustomersSelectEditResult
+	{
+		
+		private string _CustomerCode;
+		
+		private string _CustomerNumberCard;
+		
+		private string _CustomerName;
+		
+		private string _CustomerDesc;
+		
+		private string _CustomerAddress;
+		
+		private string _CustomerPhone;
+		
+		private string _CustomerEmail;
+		
+		private string _CustomerWeb;
+		
+		private string _CustomerContact;
+		
+		private System.Nullable<char> _CustomerStatus;
+		
+		private System.Nullable<char> _CustomerType;
+		
+		public CustomersSelectEditResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerCode", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string CustomerCode
+		{
+			get
+			{
+				return this._CustomerCode;
+			}
+			set
+			{
+				if ((this._CustomerCode != value))
+				{
+					this._CustomerCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerNumberCard", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string CustomerNumberCard
+		{
+			get
+			{
+				return this._CustomerNumberCard;
+			}
+			set
+			{
+				if ((this._CustomerNumberCard != value))
+				{
+					this._CustomerNumberCard = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CustomerName
+		{
+			get
+			{
+				return this._CustomerName;
+			}
+			set
+			{
+				if ((this._CustomerName != value))
+				{
+					this._CustomerName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerDesc", DbType="NVarChar(50)")]
+		public string CustomerDesc
+		{
+			get
+			{
+				return this._CustomerDesc;
+			}
+			set
+			{
+				if ((this._CustomerDesc != value))
+				{
+					this._CustomerDesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerAddress", DbType="NVarChar(1000)")]
+		public string CustomerAddress
+		{
+			get
+			{
+				return this._CustomerAddress;
+			}
+			set
+			{
+				if ((this._CustomerAddress != value))
+				{
+					this._CustomerAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerPhone", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CustomerPhone
+		{
+			get
+			{
+				return this._CustomerPhone;
+			}
+			set
+			{
+				if ((this._CustomerPhone != value))
+				{
+					this._CustomerPhone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerEmail", DbType="NVarChar(150)")]
+		public string CustomerEmail
+		{
+			get
+			{
+				return this._CustomerEmail;
+			}
+			set
+			{
+				if ((this._CustomerEmail != value))
+				{
+					this._CustomerEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerWeb", DbType="NVarChar(150)")]
+		public string CustomerWeb
+		{
+			get
+			{
+				return this._CustomerWeb;
+			}
+			set
+			{
+				if ((this._CustomerWeb != value))
+				{
+					this._CustomerWeb = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerContact", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CustomerContact
+		{
+			get
+			{
+				return this._CustomerContact;
+			}
+			set
+			{
+				if ((this._CustomerContact != value))
+				{
+					this._CustomerContact = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerStatus", DbType="Char(1)")]
+		public System.Nullable<char> CustomerStatus
+		{
+			get
+			{
+				return this._CustomerStatus;
+			}
+			set
+			{
+				if ((this._CustomerStatus != value))
+				{
+					this._CustomerStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerType", DbType="Char(1)")]
+		public System.Nullable<char> CustomerType
+		{
+			get
+			{
+				return this._CustomerType;
+			}
+			set
+			{
+				if ((this._CustomerType != value))
+				{
+					this._CustomerType = value;
+				}
+			}
+		}
+	}
+	
+	public partial class UnitMeasurementSelectResult
+	{
+		
+		private System.Nullable<long> _RowNo;
+		
+		private string _UnitFrom;
+		
+		private string _UnitFromName;
+		
+		private string _UnitTo;
+		
+		private string _UnitToName;
+		
+		private string _UnitFromDesc;
+		
+		private char _UnitOperator;
+		
+		private decimal _UnitFactor;
+		
+		private string _CreateBy;
+		
+		private System.DateTime _CreateDate;
+		
+		private string _UpdateBy;
+		
+		private System.DateTime _UpdateDate;
+		
+		private string _Ana1;
+		
+		private string _Ana2;
+		
+		private string _Ana3;
+		
+		private string _Ana4;
+		
+		private System.Nullable<decimal> _Ana5;
+		
+		private System.Nullable<decimal> _Ana6;
+		
+		private System.Nullable<decimal> _Ana7;
+		
+		private System.Nullable<System.DateTime> _Ana8;
+		
+		private System.Nullable<System.DateTime> _Ana9;
+		
+		private System.Nullable<System.DateTime> _Ana10;
+		
+		public UnitMeasurementSelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowNo", DbType="BigInt")]
+		public System.Nullable<long> RowNo
+		{
+			get
+			{
+				return this._RowNo;
+			}
+			set
+			{
+				if ((this._RowNo != value))
+				{
+					this._RowNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitFrom", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string UnitFrom
+		{
+			get
+			{
+				return this._UnitFrom;
+			}
+			set
+			{
+				if ((this._UnitFrom != value))
+				{
+					this._UnitFrom = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitFromName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string UnitFromName
+		{
+			get
+			{
+				return this._UnitFromName;
+			}
+			set
+			{
+				if ((this._UnitFromName != value))
+				{
+					this._UnitFromName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitTo", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string UnitTo
+		{
+			get
+			{
+				return this._UnitTo;
+			}
+			set
+			{
+				if ((this._UnitTo != value))
+				{
+					this._UnitTo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitToName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string UnitToName
+		{
+			get
+			{
+				return this._UnitToName;
+			}
+			set
+			{
+				if ((this._UnitToName != value))
+				{
+					this._UnitToName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitFromDesc", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string UnitFromDesc
+		{
+			get
+			{
+				return this._UnitFromDesc;
+			}
+			set
+			{
+				if ((this._UnitFromDesc != value))
+				{
+					this._UnitFromDesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitOperator", DbType="Char(1) NOT NULL")]
+		public char UnitOperator
+		{
+			get
+			{
+				return this._UnitOperator;
+			}
+			set
+			{
+				if ((this._UnitOperator != value))
+				{
+					this._UnitOperator = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitFactor", DbType="Decimal(18,2) NOT NULL")]
+		public decimal UnitFactor
+		{
+			get
+			{
+				return this._UnitFactor;
+			}
+			set
+			{
+				if ((this._UnitFactor != value))
+				{
+					this._UnitFactor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateBy", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string CreateBy
+		{
+			get
+			{
+				return this._CreateBy;
+			}
+			set
+			{
+				if ((this._CreateBy != value))
+				{
+					this._CreateBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime NOT NULL")]
+		public System.DateTime CreateDate
+		{
+			get
+			{
+				return this._CreateDate;
+			}
+			set
+			{
+				if ((this._CreateDate != value))
+				{
+					this._CreateDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateBy", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string UpdateBy
+		{
+			get
+			{
+				return this._UpdateBy;
+			}
+			set
+			{
+				if ((this._UpdateBy != value))
+				{
+					this._UpdateBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime NOT NULL")]
+		public System.DateTime UpdateDate
+		{
+			get
+			{
+				return this._UpdateDate;
+			}
+			set
+			{
+				if ((this._UpdateDate != value))
+				{
+					this._UpdateDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana1", DbType="NVarChar(50)")]
+		public string Ana1
+		{
+			get
+			{
+				return this._Ana1;
+			}
+			set
+			{
+				if ((this._Ana1 != value))
+				{
+					this._Ana1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana2", DbType="NVarChar(50)")]
+		public string Ana2
+		{
+			get
+			{
+				return this._Ana2;
+			}
+			set
+			{
+				if ((this._Ana2 != value))
+				{
+					this._Ana2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana3", DbType="NVarChar(50)")]
+		public string Ana3
+		{
+			get
+			{
+				return this._Ana3;
+			}
+			set
+			{
+				if ((this._Ana3 != value))
+				{
+					this._Ana3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana4", DbType="NVarChar(50)")]
+		public string Ana4
+		{
+			get
+			{
+				return this._Ana4;
+			}
+			set
+			{
+				if ((this._Ana4 != value))
+				{
+					this._Ana4 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana5", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> Ana5
+		{
+			get
+			{
+				return this._Ana5;
+			}
+			set
+			{
+				if ((this._Ana5 != value))
+				{
+					this._Ana5 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana6", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> Ana6
+		{
+			get
+			{
+				return this._Ana6;
+			}
+			set
+			{
+				if ((this._Ana6 != value))
+				{
+					this._Ana6 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana7", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> Ana7
+		{
+			get
+			{
+				return this._Ana7;
+			}
+			set
+			{
+				if ((this._Ana7 != value))
+				{
+					this._Ana7 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana8", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Ana8
+		{
+			get
+			{
+				return this._Ana8;
+			}
+			set
+			{
+				if ((this._Ana8 != value))
+				{
+					this._Ana8 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana9", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Ana9
+		{
+			get
+			{
+				return this._Ana9;
+			}
+			set
+			{
+				if ((this._Ana9 != value))
+				{
+					this._Ana9 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ana10", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Ana10
+		{
+			get
+			{
+				return this._Ana10;
+			}
+			set
+			{
+				if ((this._Ana10 != value))
+				{
+					this._Ana10 = value;
+				}
+			}
+		}
+	}
+	
+	public partial class InvoiceHeaderDetailSelectEditResult
+	{
+		
+		private string _InvoiceCode;
+		
+		private string _InvoiceNo;
+		
+		private string _CategoryCode;
+		
+		private string _ItemCode;
+		
+		private decimal _Quantity;
+		
+		private string _SaleUnit;
+		
+		private decimal _SalePrice;
+		
+		private System.Nullable<decimal> _DiscountAmount;
+		
+		private System.Nullable<decimal> _DiscountPercent;
+		
+		private System.Nullable<decimal> _TotalDiscount;
+		
+		private System.Nullable<decimal> _Total;
+		
+		private string _LocationCode;
+		
+		public InvoiceHeaderDetailSelectEditResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceCode", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string InvoiceCode
+		{
+			get
+			{
+				return this._InvoiceCode;
+			}
+			set
+			{
+				if ((this._InvoiceCode != value))
+				{
+					this._InvoiceCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceNo", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string InvoiceNo
+		{
+			get
+			{
+				return this._InvoiceNo;
+			}
+			set
+			{
+				if ((this._InvoiceNo != value))
+				{
+					this._InvoiceNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryCode", DbType="NVarChar(30)")]
+		public string CategoryCode
+		{
+			get
+			{
+				return this._CategoryCode;
+			}
+			set
+			{
+				if ((this._CategoryCode != value))
+				{
+					this._CategoryCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemCode", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string ItemCode
+		{
+			get
+			{
+				return this._ItemCode;
+			}
+			set
+			{
+				if ((this._ItemCode != value))
+				{
+					this._ItemCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SaleUnit", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string SaleUnit
+		{
+			get
+			{
+				return this._SaleUnit;
+			}
+			set
+			{
+				if ((this._SaleUnit != value))
+				{
+					this._SaleUnit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalePrice", DbType="Decimal(18,5) NOT NULL")]
+		public decimal SalePrice
+		{
+			get
+			{
+				return this._SalePrice;
+			}
+			set
+			{
+				if ((this._SalePrice != value))
+				{
+					this._SalePrice = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiscountAmount", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> DiscountAmount
+		{
+			get
+			{
+				return this._DiscountAmount;
+			}
+			set
+			{
+				if ((this._DiscountAmount != value))
+				{
+					this._DiscountAmount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiscountPercent", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> DiscountPercent
+		{
+			get
+			{
+				return this._DiscountPercent;
+			}
+			set
+			{
+				if ((this._DiscountPercent != value))
+				{
+					this._DiscountPercent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalDiscount", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> TotalDiscount
+		{
+			get
+			{
+				return this._TotalDiscount;
+			}
+			set
+			{
+				if ((this._TotalDiscount != value))
+				{
+					this._TotalDiscount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> Total
+		{
+			get
+			{
+				return this._Total;
+			}
+			set
+			{
+				if ((this._Total != value))
+				{
+					this._Total = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationCode", DbType="NVarChar(30)")]
+		public string LocationCode
+		{
+			get
+			{
+				return this._LocationCode;
+			}
+			set
+			{
+				if ((this._LocationCode != value))
+				{
+					this._LocationCode = value;
+				}
+			}
+		}
+	}
+	
+	public partial class InvoiceHeaderDetailSelectResult
+	{
+		
+		private System.Nullable<long> _RowNo;
+		
+		private string _InvoiceCode;
+		
+		private string _InvoiceNo;
+		
+		private string _ItemCode;
+		
+		private decimal _Quantity;
+		
+		private string _SaleDescription;
+		
+		private string _SaleUnit;
+		
+		private decimal _SalePrice;
+		
+		private System.Nullable<decimal> _DiscountAmount;
+		
+		private System.Nullable<decimal> _DiscountPercent;
+		
+		private System.Nullable<decimal> _TotalDiscount;
+		
+		private System.Nullable<decimal> _Total;
+		
+		private string _LocationCode;
+		
+		public InvoiceHeaderDetailSelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowNo", DbType="BigInt")]
+		public System.Nullable<long> RowNo
+		{
+			get
+			{
+				return this._RowNo;
+			}
+			set
+			{
+				if ((this._RowNo != value))
+				{
+					this._RowNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceCode", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string InvoiceCode
+		{
+			get
+			{
+				return this._InvoiceCode;
+			}
+			set
+			{
+				if ((this._InvoiceCode != value))
+				{
+					this._InvoiceCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceNo", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string InvoiceNo
+		{
+			get
+			{
+				return this._InvoiceNo;
+			}
+			set
+			{
+				if ((this._InvoiceNo != value))
+				{
+					this._InvoiceNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemCode", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string ItemCode
+		{
+			get
+			{
+				return this._ItemCode;
+			}
+			set
+			{
+				if ((this._ItemCode != value))
+				{
+					this._ItemCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SaleDescription", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string SaleDescription
+		{
+			get
+			{
+				return this._SaleDescription;
+			}
+			set
+			{
+				if ((this._SaleDescription != value))
+				{
+					this._SaleDescription = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SaleUnit", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SaleUnit
+		{
+			get
+			{
+				return this._SaleUnit;
+			}
+			set
+			{
+				if ((this._SaleUnit != value))
+				{
+					this._SaleUnit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalePrice", DbType="Decimal(18,5) NOT NULL")]
+		public decimal SalePrice
+		{
+			get
+			{
+				return this._SalePrice;
+			}
+			set
+			{
+				if ((this._SalePrice != value))
+				{
+					this._SalePrice = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiscountAmount", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> DiscountAmount
+		{
+			get
+			{
+				return this._DiscountAmount;
+			}
+			set
+			{
+				if ((this._DiscountAmount != value))
+				{
+					this._DiscountAmount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiscountPercent", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> DiscountPercent
+		{
+			get
+			{
+				return this._DiscountPercent;
+			}
+			set
+			{
+				if ((this._DiscountPercent != value))
+				{
+					this._DiscountPercent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalDiscount", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> TotalDiscount
+		{
+			get
+			{
+				return this._TotalDiscount;
+			}
+			set
+			{
+				if ((this._TotalDiscount != value))
+				{
+					this._TotalDiscount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> Total
+		{
+			get
+			{
+				return this._Total;
+			}
+			set
+			{
+				if ((this._Total != value))
+				{
+					this._Total = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationCode", DbType="NVarChar(30)")]
+		public string LocationCode
+		{
+			get
+			{
+				return this._LocationCode;
+			}
+			set
+			{
+				if ((this._LocationCode != value))
+				{
+					this._LocationCode = value;
+				}
+			}
+		}
+	}
+	
+	public partial class InvoiceHeaderSelectEditResult
+	{
+		
+		private string _InvoiceNo;
+		
+		private string _CustomerCode;
+		
+		private System.DateTime _InvoiceDate;
+		
+		private string _Memo;
+		
+		private System.Nullable<bool> _InvoiceStatus;
+		
+		private System.Nullable<decimal> _VatPercent;
+		
+		private System.Nullable<decimal> _DiscountPercent;
+		
+		private System.Nullable<decimal> _DiscountAmount;
+		
+		private System.Nullable<decimal> _Total;
+		
+		private System.Nullable<decimal> _VatAmount;
+		
+		private System.Nullable<decimal> _TotalDiscount;
+		
+		private System.Nullable<decimal> _TotalDiscountPercent;
+		
+		private System.Nullable<decimal> _GrandTotal;
+		
+		public InvoiceHeaderSelectEditResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceNo", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string InvoiceNo
+		{
+			get
+			{
+				return this._InvoiceNo;
+			}
+			set
+			{
+				if ((this._InvoiceNo != value))
+				{
+					this._InvoiceNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerCode", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string CustomerCode
+		{
+			get
+			{
+				return this._CustomerCode;
+			}
+			set
+			{
+				if ((this._CustomerCode != value))
+				{
+					this._CustomerCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceDate", DbType="DateTime NOT NULL")]
+		public System.DateTime InvoiceDate
+		{
+			get
+			{
+				return this._InvoiceDate;
+			}
+			set
+			{
+				if ((this._InvoiceDate != value))
+				{
+					this._InvoiceDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Memo", DbType="NVarChar(100)")]
+		public string Memo
+		{
+			get
+			{
+				return this._Memo;
+			}
+			set
+			{
+				if ((this._Memo != value))
+				{
+					this._Memo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceStatus", DbType="Bit")]
+		public System.Nullable<bool> InvoiceStatus
+		{
+			get
+			{
+				return this._InvoiceStatus;
+			}
+			set
+			{
+				if ((this._InvoiceStatus != value))
+				{
+					this._InvoiceStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VatPercent", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> VatPercent
+		{
+			get
+			{
+				return this._VatPercent;
+			}
+			set
+			{
+				if ((this._VatPercent != value))
+				{
+					this._VatPercent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiscountPercent", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> DiscountPercent
+		{
+			get
+			{
+				return this._DiscountPercent;
+			}
+			set
+			{
+				if ((this._DiscountPercent != value))
+				{
+					this._DiscountPercent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiscountAmount", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> DiscountAmount
+		{
+			get
+			{
+				return this._DiscountAmount;
+			}
+			set
+			{
+				if ((this._DiscountAmount != value))
+				{
+					this._DiscountAmount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> Total
+		{
+			get
+			{
+				return this._Total;
+			}
+			set
+			{
+				if ((this._Total != value))
+				{
+					this._Total = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VatAmount", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> VatAmount
+		{
+			get
+			{
+				return this._VatAmount;
+			}
+			set
+			{
+				if ((this._VatAmount != value))
+				{
+					this._VatAmount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalDiscount", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> TotalDiscount
+		{
+			get
+			{
+				return this._TotalDiscount;
+			}
+			set
+			{
+				if ((this._TotalDiscount != value))
+				{
+					this._TotalDiscount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalDiscountPercent", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> TotalDiscountPercent
+		{
+			get
+			{
+				return this._TotalDiscountPercent;
+			}
+			set
+			{
+				if ((this._TotalDiscountPercent != value))
+				{
+					this._TotalDiscountPercent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GrandTotal", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> GrandTotal
+		{
+			get
+			{
+				return this._GrandTotal;
+			}
+			set
+			{
+				if ((this._GrandTotal != value))
+				{
+					this._GrandTotal = value;
+				}
+			}
+		}
+	}
+	
+	public partial class InvoiceHeaderSelectResult
+	{
+		
+		private System.Nullable<long> _RowNo;
+		
+		private string _InvoiceNo;
+		
+		private string _CustomerCode;
+		
+		private System.DateTime _InvoiceDate;
+		
+		private string _Memo;
+		
+		private System.Nullable<bool> _InvoiceStatus;
+		
+		private System.Nullable<decimal> _VatPercent;
+		
+		private System.Nullable<decimal> _DiscountPercent;
+		
+		private System.Nullable<decimal> _DiscountAmount;
+		
+		private System.Nullable<decimal> _Total;
+		
+		private System.Nullable<decimal> _TotalDiscountItem;
+		
+		private System.Nullable<decimal> _GrandTotal;
+		
+		private System.Nullable<decimal> _TotalDiscountHeader;
+		
+		private System.Nullable<decimal> _TotalDiscount;
+		
+		private System.Nullable<decimal> _TotalVatAmount;
+		
+		private System.Nullable<decimal> _GrandTotalWithVat;
+		
+		public InvoiceHeaderSelectResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowNo", DbType="BigInt")]
+		public System.Nullable<long> RowNo
+		{
+			get
+			{
+				return this._RowNo;
+			}
+			set
+			{
+				if ((this._RowNo != value))
+				{
+					this._RowNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceNo", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string InvoiceNo
+		{
+			get
+			{
+				return this._InvoiceNo;
+			}
+			set
+			{
+				if ((this._InvoiceNo != value))
+				{
+					this._InvoiceNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerCode", DbType="NVarChar(50)")]
+		public string CustomerCode
+		{
+			get
+			{
+				return this._CustomerCode;
+			}
+			set
+			{
+				if ((this._CustomerCode != value))
+				{
+					this._CustomerCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceDate", DbType="DateTime NOT NULL")]
+		public System.DateTime InvoiceDate
+		{
+			get
+			{
+				return this._InvoiceDate;
+			}
+			set
+			{
+				if ((this._InvoiceDate != value))
+				{
+					this._InvoiceDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Memo", DbType="NVarChar(100)")]
+		public string Memo
+		{
+			get
+			{
+				return this._Memo;
+			}
+			set
+			{
+				if ((this._Memo != value))
+				{
+					this._Memo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceStatus", DbType="Bit")]
+		public System.Nullable<bool> InvoiceStatus
+		{
+			get
+			{
+				return this._InvoiceStatus;
+			}
+			set
+			{
+				if ((this._InvoiceStatus != value))
+				{
+					this._InvoiceStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VatPercent", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> VatPercent
+		{
+			get
+			{
+				return this._VatPercent;
+			}
+			set
+			{
+				if ((this._VatPercent != value))
+				{
+					this._VatPercent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiscountPercent", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> DiscountPercent
+		{
+			get
+			{
+				return this._DiscountPercent;
+			}
+			set
+			{
+				if ((this._DiscountPercent != value))
+				{
+					this._DiscountPercent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiscountAmount", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> DiscountAmount
+		{
+			get
+			{
+				return this._DiscountAmount;
+			}
+			set
+			{
+				if ((this._DiscountAmount != value))
+				{
+					this._DiscountAmount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> Total
+		{
+			get
+			{
+				return this._Total;
+			}
+			set
+			{
+				if ((this._Total != value))
+				{
+					this._Total = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalDiscountItem", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> TotalDiscountItem
+		{
+			get
+			{
+				return this._TotalDiscountItem;
+			}
+			set
+			{
+				if ((this._TotalDiscountItem != value))
+				{
+					this._TotalDiscountItem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GrandTotal", DbType="Decimal(19,5)")]
+		public System.Nullable<decimal> GrandTotal
+		{
+			get
+			{
+				return this._GrandTotal;
+			}
+			set
+			{
+				if ((this._GrandTotal != value))
+				{
+					this._GrandTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalDiscountHeader", DbType="Decimal(38,10)")]
+		public System.Nullable<decimal> TotalDiscountHeader
+		{
+			get
+			{
+				return this._TotalDiscountHeader;
+			}
+			set
+			{
+				if ((this._TotalDiscountHeader != value))
+				{
+					this._TotalDiscountHeader = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalDiscount", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> TotalDiscount
+		{
+			get
+			{
+				return this._TotalDiscount;
+			}
+			set
+			{
+				if ((this._TotalDiscount != value))
+				{
+					this._TotalDiscount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalVatAmount", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> TotalVatAmount
+		{
+			get
+			{
+				return this._TotalVatAmount;
+			}
+			set
+			{
+				if ((this._TotalVatAmount != value))
+				{
+					this._TotalVatAmount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GrandTotalWithVat", DbType="Decimal(38,5)")]
+		public System.Nullable<decimal> GrandTotalWithVat
+		{
+			get
+			{
+				return this._GrandTotalWithVat;
+			}
+			set
+			{
+				if ((this._GrandTotalWithVat != value))
+				{
+					this._GrandTotalWithVat = value;
 				}
 			}
 		}

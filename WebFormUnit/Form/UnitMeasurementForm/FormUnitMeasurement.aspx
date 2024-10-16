@@ -91,38 +91,7 @@
                         </div>
                         <div class="col">
                             <asp:Label ID="label5" runat="server" CssClass="text-black" Text="Conversion Factor"></asp:Label>
-                            <asp:TextBox ID="txtUnitFactor" runat="server" CssClass="form-control mb-3"></asp:TextBox>
-                            <!-- Required Field Validator -->
-                            <asp:RequiredFieldValidator
-                                ID="rqfvUnitFactor"
-                                runat="server"
-                                ControlToValidate="txtUnitFactor"
-                                Display="Dynamic"
-                                CssClass="text-danger"
-                                ErrorMessage="*Factor require"
-                                ></asp:RequiredFieldValidator>
-                            <!-- Regular Expression Validator for float numbers -->
-                            <asp:RegularExpressionValidator
-                                 ID="revUnitFactor"
-                                 runat="server"
-                                 ControlToValidate="txtUnitFactor"
-                                 Display="Dynamic"
-                                 CssClass="text-danger"
-                                 ErrorMessage="(e.g. 123.45)."
-                                 ValidationExpression="^\d+(\.\d+)?$"
-                                ></asp:RegularExpressionValidator>
-                            <!-- Custom Validator to enforce specific length (e.g. max 5 characters) -->
-                            <asp:CustomValidator
-                                 ID="cvUnitFactor"
-                                 runat="server"
-                                 ControlToValidate="txtUnitFactor"
-                                 Display="Dynamic"
-                                 CssClass="text-danger"
-                                 ErrorMessage="can support 9 digit"
-                                 OnServerValidate="cvUnitFactor_ServerValidate"
-                                 ClientValidationFunction="validateLength"
-                                ></asp:CustomValidator>
-
+                            <asp:TextBox ID="txtUnitFactor" runat="server" CssClass="form-control mb-3" onkeyup="removeNonNumeric(this)"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -271,6 +240,12 @@
 
 
     <script>
+        function removeNonNumeric(input) {
+            input.value = input.value.replace(/[^0-9.]/g, '');
+            if (input.value.split('.').length > 2) {
+                input.value = input.value.replace(/\.+$/, "");
+            }
+        }
         function showAddModal() {
             var AddModal = new bootstrap.Modal(document.getElementById('addModal'));
             AddModal.show();

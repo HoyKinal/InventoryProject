@@ -141,33 +141,6 @@ namespace WebFormUnit.Form.UnitMeasurementForm
         protected global::System.Web.UI.WebControls.TextBox txtUnitFactor;
 
         /// <summary>
-        /// rqfvUnitFactor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfvUnitFactor;
-
-        /// <summary>
-        /// revUnitFactor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revUnitFactor;
-
-        /// <summary>
-        /// cvUnitFactor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvUnitFactor;
-
-        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>

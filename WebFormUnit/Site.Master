@@ -103,6 +103,12 @@
                                 <li><a class="dropdown-item" runat="server" href="Form/Transactions/EnterBill/FormCompanyBillList">Bill List</a></li>
                                 <li><a class="dropdown-item" runat="server" href="Form/Transactions/EnterBill/FormCompanyPayBill">Pay Bill</a></li>
                                 <li><a class="dropdown-item" runat="server" href="Form/Transactions/EnterBill/FormCompanyPayBillList">Paid BillList</a></li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li><a class="dropdown-item" runat="server" href="~/Form/Transactions/SaleReceipts/FormSaleReceipt">Sale Receipt</a></li>
+                                <li><a class="dropdown-item" runat="server" href="~/Form/Transactions/SaleReceipts/FormSaleReceiptList">Sale Receipt List</a></li>
+                                <li><a class="dropdown-item" runat="server" href="~/Form/Transactions/SaleInvoices/FormSaleInvoice">Sale Invoice</a></li>
                             </ul>
                         </li>
                     </ul>

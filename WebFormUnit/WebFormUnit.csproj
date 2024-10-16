@@ -182,6 +182,11 @@
     <Content Include="Form\Transactions\EnterBill\FormCompanyEnterBill.aspx" />
     <Content Include="Form\Transactions\EnterBill\FormCompanyPayBill.aspx" />
     <Content Include="Form\Transactions\EnterBill\FormCompanyPayBillList.aspx" />
+    <Content Include="Form\Transactions\SaleInvoices\FormSaleInvoice.aspx" />
+    <Content Include="Form\Transactions\SaleInvoices\FormSaleInvoiceAddItem.aspx" />
+    <Content Include="Form\Transactions\SaleReceipts\FormSaleReceipt.aspx" />
+    <Content Include="Form\Transactions\SaleReceipts\FormSaleReceiptAddItem.aspx" />
+    <Content Include="Form\Transactions\SaleReceipts\FormSaleReceiptList.aspx" />
     <Content Include="Form\Transactions\Suppliers\FormSupplier.aspx" />
     <Content Include="Form\UnitForm\FormUnitMain.aspx" />
     <Content Include="Form\UnitMeasurementForm\FormUnitMeasurement.aspx" />
@@ -403,6 +408,41 @@
     </Compile>
     <Compile Include="Form\Transactions\EnterBill\FormCompanyPayBillList.aspx.designer.cs">
       <DependentUpon>FormCompanyPayBillList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transactions\SaleInvoices\FormSaleInvoice.aspx.cs">
+      <DependentUpon>FormSaleInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Transactions\SaleInvoices\FormSaleInvoice.aspx.designer.cs">
+      <DependentUpon>FormSaleInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transactions\SaleInvoices\FormSaleInvoiceAddItem.aspx.cs">
+      <DependentUpon>FormSaleInvoiceAddItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Transactions\SaleInvoices\FormSaleInvoiceAddItem.aspx.designer.cs">
+      <DependentUpon>FormSaleInvoiceAddItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transactions\SaleReceipts\FormSaleReceipt.aspx.cs">
+      <DependentUpon>FormSaleReceipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Transactions\SaleReceipts\FormSaleReceipt.aspx.designer.cs">
+      <DependentUpon>FormSaleReceipt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transactions\SaleReceipts\FormSaleReceiptAddItem.aspx.cs">
+      <DependentUpon>FormSaleReceiptAddItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Transactions\SaleReceipts\FormSaleReceiptAddItem.aspx.designer.cs">
+      <DependentUpon>FormSaleReceiptAddItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transactions\SaleReceipts\FormSaleReceiptList.aspx.cs">
+      <DependentUpon>FormSaleReceiptList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Transactions\SaleReceipts\FormSaleReceiptList.aspx.designer.cs">
+      <DependentUpon>FormSaleReceiptList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form\Transactions\Suppliers\FormSupplier.aspx.cs">
       <DependentUpon>FormSupplier.aspx</DependentUpon>
