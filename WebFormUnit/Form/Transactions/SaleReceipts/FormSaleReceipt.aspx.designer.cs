@@ -51,6 +51,15 @@ namespace WebFormUnit.Form.Transactions.SaleReceipts
         protected global::System.Web.UI.WebControls.LinkButton btnOpen;
 
         /// <summary>
+        /// btnDeleteHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnDeleteHeader;
+
+        /// <summary>
         /// txtReciptNo control.
         /// </summary>
         /// <remarks>

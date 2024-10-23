@@ -74,7 +74,7 @@ namespace WebFormUnit.Form.Transactions.EnterBill
                 {
                     txtBillNo.Text = load.BillNo;
                     txtDateBill.Text = load.PurchaseDateBill.ToString("dd/MM/yyyy");
-                    txtUnpaidAmount.Text = load.Unpaid.Value.ToString("F2"); ;
+                    txtUnpaidAmount.Text = load.Unpaid.Value.ToString("F2"); 
                     txtDatePaid.Text = DateTime.UtcNow.AddHours(7).ToString("dd/MM/yyyy");
 
                     ScriptManager.RegisterStartupScript(this, GetType(), "showAddModal", "showAddModal();", true);
@@ -134,21 +134,26 @@ namespace WebFormUnit.Form.Transactions.EnterBill
 
             if (hdfBillNumber.Value !=null)
             {
-                //Use for Insert PaidAmount to ReturnDetail and Update Return Header Purchase
 
-                bool isInsert = prt.PurchaseReturnDetailInsert(prdm, prhm);
-
-                if (isInsert)
+                if (!(txtPayAmount.Text.KinalDecimal()> txtUnpaidAmount.Text.KinalDecimal()))
                 {
-                    ShowAlert("Insert Amount is successfully.", "success");
-                    GridBind(ddlSupplier.SelectedValue);
+                    //Use for Insert PaidAmount to ReturnDetail and Update Return Header Purchase
+
+                    bool isInsert = prt.PurchaseReturnDetailInsert(prdm, prhm);
+
+                    if (isInsert)
+                    {
+                        ShowAlert("Insert Amount is successfully.", "success");
+                        GridBind(ddlSupplier.SelectedValue);
+                        ClearFields();
+                    }
+                }
+                else
+                {
+                    ShowAlert("Insert Amount is woring please try again.","danger");
                     ClearFields();
                 }
-            }
-            else
-            {
-                return;
-            }          
+            }       
         }
         protected void btnOpen_Click(object sender, EventArgs e)
         {

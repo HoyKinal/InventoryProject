@@ -13,10 +13,9 @@ namespace UnitLabrary.SaleReceipts
         public string ItemCode { get; set; }
         public decimal Quantity {  get; set; }  
         public string SaleUnit {  get; set; }
-        public decimal SalePrice { get; set; }  
+        public decimal SalePrice { get; set; }        
         public decimal DiscountAmount { get; set;}
         public decimal DiscountPercent { get; set;}
-
         public decimal TotalItem => Quantity * SalePrice;
         public decimal TotalDiscount => DiscountAmount +  (DiscountPercent * TotalItem / 100);
         public decimal Total => TotalItem - TotalDiscount;

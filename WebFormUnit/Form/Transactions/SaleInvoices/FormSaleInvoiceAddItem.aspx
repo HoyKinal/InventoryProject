@@ -130,9 +130,10 @@
                     </div>
                     <div class="modal-body">
                         <p class="text-muted">Are you sure want to delete this item.</p>
+                        <p class="text-muted">Description: <asp:Label ID="lbDiscription" runat="server" Text="Unknown"></asp:Label></p>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button ID="btnDelete" runat="server" CssClass="btn btn-danger" Text="Delete" />
+                        <asp:Button ID="btnDelete" runat="server" CssClass="btn btn-danger" Text="Delete" OnClick="btnDelete_Click" />
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -144,6 +145,19 @@
     <script src="../../../Scripts/bootstrap.bundle.min.js"></script>
 
     <script>
+        //Reset modal 
+        document.addEventListener('DOMContentLoaded', function () {
+            var deleteModal = document.getElementById('deleteModal');
+            deleteModal.addEventListener('hidden.bs.modal', function () {
+                document.getElementById('<%=lbDiscription.ClientID%>').innerText = "0";
+                document.getElementById('<%=hdfInvoiceCode.ClientID%>').value='';
+            });
+
+        });
+        function deleteModal() {
+            var alert = new bootstrap.Modal(document.getElementById('deleteModal'));
+            alert.show();
+        }
         function removeNonNumeric(input) {
             input.value = input.value.replace(/[^0-9.]/g, '');
             if (input.value.split('.').length > 2) {

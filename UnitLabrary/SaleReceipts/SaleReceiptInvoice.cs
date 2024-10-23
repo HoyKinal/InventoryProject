@@ -18,7 +18,7 @@ namespace UnitLabrary.SaleReceipts
         {
             try
             {
-                context.InvoiceHeaderInsert(m.InvoiceNo, m.CustomerCode, m.InvoiceDate, m.Memo,m.InvoiceStatus, m.VatPercent, m.DiscountPercent, m.DiscountAmount);
+                context.InvoiceHeaderInsert(m.InvoiceNo, m.CustomerCode, m.InvoiceDate,m.InvoiceDueDate, m.Memo,m.InvoiceStatus, m.VatPercent, m.DiscountPercent, m.DiscountAmount);
                 return true;
             }
             catch (Exception)
@@ -31,7 +31,7 @@ namespace UnitLabrary.SaleReceipts
         {
             try
             {
-                context.InvoiceHeaderUpdate(m.InvoiceNo, m.CustomerCode, m.InvoiceDate, m.Memo, m.InvoiceStatus, m.VatPercent, m.DiscountPercent, m.DiscountAmount);
+                context.InvoiceHeaderUpdate(m.InvoiceNo, m.CustomerCode, m.InvoiceDate,m.InvoiceDueDate, m.Memo, m.InvoiceStatus, m.VatPercent, m.DiscountPercent, m.DiscountAmount);
 
                 return true;
             }

@@ -60,14 +60,14 @@ namespace WebFormUnit.Form.Transactions.SaleReceipts
                     ddlCustomerCode.SelectedValue = load.CustomerCode;
                     txtReceiptDate.Text = load.InvoiceDate.ToString("dd/MM/yyyy");
                     txtMemoReceipt.Text = load.Memo;
-                    txtVatePercent.Text = load.VatPercent.Value.ToString("F2");
-                    txtDiscountPercent.Text = load.DiscountPercent.Value.ToString("F2");
-                    txtDiscountAmount.Text = load.DiscountAmount.Value.ToString("F2");
-                    txtVatAmount.Text = load.VatAmount.Value.ToString("F2");
-                    txtTotalDiscountPercent.Text = load.TotalDiscountPercent.Value.ToString("F2");
-                    txtTotalDiscount.Text = load.TotalDiscount.Value.ToString("F2");
-                    lbDisplayGrandTotal.Text = load.GrandTotal.Value.ToString("F2") + "$";
-                    lbDisplayTotalInvoiceDetail.Text = load.Total.Value.ToString("F2");
+                    txtVatePercent.Text = (load.VatPercent ?? 0.00m).ToString("F2");
+                    txtDiscountPercent.Text = (load.DiscountPercent ?? 0.00m).ToString("F2");
+                    txtDiscountAmount.Text = (load.DiscountAmount ?? 0.00m).ToString("F2");
+                    txtVatAmount.Text = (load.VatAmount ?? 0.00m)   .ToString("F2");
+                    txtTotalDiscountPercent.Text = (load.TotalDiscountPercent ?? 0.00m).ToString("F2");
+                    txtTotalDiscount.Text = (load.TotalDiscount ?? 0.00m)   .ToString("F2");
+                    lbDisplayGrandTotal.Text = (load.GrandTotal ?? 0.00m).ToString("F2") + "$";
+                    lbDisplayTotalInvoiceDetail.Text = (load.Total ?? 0.00m).ToString("F2");
                 }
             }
         }
@@ -166,7 +166,7 @@ namespace WebFormUnit.Form.Transactions.SaleReceipts
         {
             //Check InvoiceNo exist or not
 
-            if (ViewState["InvoiceNo"] != null)
+            if (ViewState["InvoiceNo"]?.ToString() != "")
             {
                 SaleReceiptInvoice sr = new SaleReceiptInvoice();
 
@@ -175,6 +175,7 @@ namespace WebFormUnit.Form.Transactions.SaleReceipts
                     InvoiceNo = txtReciptNo.Text,
                     CustomerCode = ddlCustomerCode.SelectedValue,
                     InvoiceDate = txtReceiptDate.Text.ConvertDateTime(),
+                    InvoiceDueDate = null,
                     Memo = txtMemoReceipt.Text,
                     InvoiceStatus = false,
                     VatPercent = txtVatePercent.Text.KinalDecimal(),
@@ -197,10 +198,49 @@ namespace WebFormUnit.Form.Transactions.SaleReceipts
             }
             else
             {
-                ShowAlert("Not found Item for update.","danger");
+                ShowAlert("Not found InvoiceNo for update.","danger");
             }
         }
+        private void ShowAlertAndRedirect(string message, string type, string redirectUrl, int delay)
+        {
+            string script = $@"
+            var alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-{type}';
+            alertDiv.role = 'alert';
+            alertDiv.innerHTML = '{message}';
+            document.body.insertBefore(alertDiv, document.body.firstChild);
 
+            setTimeout(function() {{
+                alertDiv.style.display = 'none';
+                alertDiv.remove();
+                window.location.href = '{redirectUrl}';
+            }}, {delay});";
+
+            ClientScript.RegisterStartupScript(this.GetType(), "showAlertAndRedirect", script, true);
+        }
+        protected void btnDeleteHeader_Click(object sender, EventArgs e)
+        {
+            if (ViewState["InvoiceNo"]?.ToString() != "")
+            {
+                SaleReceiptInvoice sr = new SaleReceiptInvoice();
+
+               
+                bool isDelete = sr.SaleReceiptInvoiceDeletes(ViewState["InvoiceNo"].ToString());
+
+                if (isDelete)
+                {
+                    ShowAlertAndRedirect("Delete Invoice is successfully.","success", ResolveUrl("~/Form/Transactions/SaleReceipts/FormSaleReceipt"),1000);
+                }
+                else
+                {
+                    ShowAlert("Update Invoice Header is failed.", "danger");
+                }
+            }
+            else
+            {
+                ShowAlert("Not found InvoiceNo for Delete.", "danger");
+            }
+        }
         protected void gvSaleReceipt_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "EditItem" | e.CommandName == "DeleteItem")

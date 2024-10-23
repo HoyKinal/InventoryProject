@@ -177,6 +177,15 @@ namespace WebFormUnit.Form.Transactions.SaleInvoices
         protected global::System.Web.UI.WebControls.GridView gvSaleInvoiceDetail;
 
         /// <summary>
+        /// lbDiscription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbDiscription;
+
+        /// <summary>
         /// btnDelete control.
         /// </summary>
         /// <remarks>

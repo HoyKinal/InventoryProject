@@ -7,6 +7,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using UnitLabrary.CustomFunction;
 using UnitLabrary.Transaction;
+using UnitLabrary.Transaction.Purchases.CompanyExpense;
+using UnitLabrary.Transaction.Purchases.CompanyExpenses;
 using UnitLabrary.Transaction.Purchases.EnterBill;
 
 namespace WebFormUnit.Form.Transactions.EnterBill
@@ -148,20 +150,34 @@ namespace WebFormUnit.Form.Transactions.EnterBill
                     DatePaid = txtDatePaid.Text.ConvertDateTime(),
                     MemoReturnPaid = txtMemo.Text,   
                 };
-               
-                bool isUpdate =  prd.PurchaseReturnDetailUpdate(m);
 
-                if (isUpdate)
+                BillHeaderModel bm = new BillHeaderModel() { BillNumber = load.BillNo};
+
+                BillHeader bh = new BillHeader();
+
+                var check = bh.BillHeaderSelectEdits(bm);
+
+                if (txtPayAmount.Text.KinalDecimal()< check.TotalItem)
                 {
-                    ShowAlert("Update payment is successfully.","success");
+                    bool isUpdate = prd.PurchaseReturnDetailUpdate(m);
 
-                    GridBind("", txtFromDate.Text, txtToDate.Text);
+                    if (isUpdate)
+                    {
+                        ShowAlert("Update payment is successfully.", "success");
 
-                    ViewState["PurchaseReturnNo"] = null;
+                        GridBind("", txtFromDate.Text, txtToDate.Text);
+
+                        ViewState["PurchaseReturnNo"] = null;
+                    }
+                    else
+                    {
+                        ShowAlert("Failed for update payment.", "danger");
+                    }
                 }
+                else
                 {
-                    ShowAlert("Failed for update payment.","danger");
-                }             
+                    ShowAlert("Insert Amount is wrong please try again.","danger");
+                }  
             }
         }
 

@@ -124,10 +124,14 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SaleReceipts\SaleInvoiceReturn.cs" />
+    <Compile Include="SaleReceipts\SaleInvoiceReturnModel.cs" />
     <Compile Include="SaleReceipts\SaleReceiptInvoice.cs" />
     <Compile Include="SaleReceipts\SaleReceiptInvoiceDetail.cs" />
     <Compile Include="SaleReceipts\SaleReceiptInvoiceDetailModel.cs" />
     <Compile Include="SaleReceipts\SaleReceiptInvoiceModel.cs" />
+    <Compile Include="Stocks\AdjustmentHeader.cs" />
+    <Compile Include="Stocks\AdjustomerHeaderModel.cs" />
     <Compile Include="Transaction\Kinal.cs" />
     <Compile Include="Transaction\Purchases\CompanyExpense\BillHeaderModel.cs" />
     <Compile Include="Transaction\Purchases\CompanyExpense\BillItem.cs" />

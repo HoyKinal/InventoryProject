@@ -10,7 +10,8 @@ namespace UnitLabrary.SaleReceipts
     {
         public string InvoiceNo { get; set; }
         public string CustomerCode { get; set;}
-        public DateTime InvoiceDate { get; set; }   
+        public DateTime InvoiceDate { get; set; }
+        public DateTime? InvoiceDueDate { get; set; }    
         public string Memo { get; set;}
         public bool InvoiceStatus { get; set; } 
         public decimal VatPercent { get; set; } 

@@ -18,9 +18,21 @@ namespace WebFormUnit.Form.Transactions.SaleInvoices
         {
             if (!IsPostBack)
             {
-                string invoiceNo = Request.QueryString["InvoiceNoSaleInvoice"];
+                string invoiceCode = Request.QueryString["InvoiceCodeFromEditSaleInvoice"];
 
-                ViewState["InvoiceNo"] = invoiceNo;
+                string invoiceNo = Request.QueryString["InvoiceNoSaleInvoice"] ?? Request.QueryString["InvoiceNoFromEditSaleInvoice"] ?? "";
+
+                if (!string.IsNullOrEmpty(invoiceNo))
+                {
+                    ViewState["InvoiceNo"] = invoiceNo;
+                }
+
+                if (!string.IsNullOrEmpty(invoiceCode))
+                {
+                    ViewState["InvoiceCode"] = invoiceCode;
+
+                    LoadItemInventory(invoiceCode);
+                }
 
                 lbDisplayInvoiceNo.Text = invoiceNo;
 
@@ -185,55 +197,65 @@ namespace WebFormUnit.Form.Transactions.SaleInvoices
                 SalePrice = txtSalePrice.Text.KinalDecimal(),
                 DiscountAmount = txtDiscountAmount.Text.KinalDecimal(),
                 DiscountPercent = txtDiscountPercent.Text.KinalDecimal(),
-                locationCode = new ItemList().ItemListSelectEdits(ddlItemCode.SelectedValue).LocationCode.ToString()
+                locationCode = new ItemList().ItemListSelectEdits(ddlItemCode.SelectedValue)?.LocationCode.ToString()
             };
             
             SaleReceiptInvoiceDetail srvd = new SaleReceiptInvoiceDetail();
 
-            if (string.IsNullOrEmpty(hdfInvoiceCode.Value))
+            if (!string.IsNullOrEmpty(ddlItemCode.SelectedValue))
             {
-                bool isInsert = srvd.SaleReceiptInvoiceDetailInsert(m);
-
-                if (isInsert)
+                string invoiceCode = ViewState["InvoiceCode"]?.ToString() ?? hdfInvoiceCode.Value;
+                
+                if (string.IsNullOrEmpty(invoiceCode))
                 {
-                    ShowAlert("Insert Item is successfully.", "success");
+                    bool isInsert = srvd.SaleReceiptInvoiceDetailInsert(m);
 
-                    GridBind(ViewState["InvoiceNo"].ToString());
+                    if (isInsert)
+                    {
+                        ShowAlert("Insert Item is successfully.", "success");
 
-                    ClearField();
+                        GridBind(ViewState["InvoiceNo"].ToString());
+
+                        ClearField();
+                    }
+                    else
+                    {
+                        ShowAlert("Insert Item is failed.", "danger");
+                    }
                 }
                 else
                 {
-                    ShowAlert("Insert Item is failed.", "danger");
+                    m.InvoiceCode = ViewState["InvoiceCode"]?.ToString() ?? hdfInvoiceCode.Value;
+
+                    bool isUpdate = srvd.SaleReceiptInvoiceDetailUpate(m);
+
+                    if (isUpdate)
+                    {
+                        ShowAlert("Update Item is successfully.", "success");
+
+                        hdfInvoiceCode.Value = null;
+
+                        ViewState["InvoiceCode"] = null;
+
+                        GridBind(ViewState["InvoiceNo"].ToString());
+
+                        ClearField();
+                    }
+                    else
+                    {
+                        ShowAlert("Update Item is failed.", "danger");
+                    }
                 }
             }
             else
             {
-                m.InvoiceCode = hdfInvoiceCode.Value;   
-
-                bool isUpdate = srvd.SaleReceiptInvoiceDetailUpate(m);
-
-                if (isUpdate)
-                {
-                    ShowAlert("Update Item is successfully.", "success");
-
-                    hdfInvoiceCode.Value = null;
-
-                    GridBind(ViewState["InvoiceNo"].ToString());
-
-                    ClearField();
-                }
-                else
-                {
-                    ShowAlert("Update Item is failed.", "danger");
-                }
+                ShowAlert("Item Code is invalid please try choose another", "danger");
             }
-           
         }
 
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Form/Transactions/SaleInvoices/FormSaleInvoice");
+            Response.Redirect($"~/Form/Transactions/SaleInvoices/FormSaleInvoice?InvoiceNoFromSaleInvoiceAddItem={Server.UrlEncode(ViewState["InvoiceNo"].ToString())}");
         }
 
         private decimal GrandTotalAmount;
@@ -260,6 +282,54 @@ namespace WebFormUnit.Form.Transactions.SaleInvoices
                 if (e.CommandName == "EditItem")
                 {
                     LoadItemInventory(invoiceCode);
+                }
+                else if (e.CommandName == "DeleteItem")
+                {
+                    SaleReceiptInvoiceDetail srid = new SaleReceiptInvoiceDetail();
+
+                    var check = srid.SaleReceiptInvoiceDetailSelectEdit(hdfInvoiceCode.Value);
+
+                    if (check != null)
+                    {
+                        lbDiscription.Text = check.SaleDescription;
+                        
+                        ScriptManager.RegisterStartupScript(this, GetType(), "deleteModal", "deleteModal();", true);
+                    }
+                    
+                }
+            }
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(hdfInvoiceCode.Value))
+            {
+                SaleReceiptInvoiceDetail ri = new SaleReceiptInvoiceDetail();
+
+                int countRow = gvSaleInvoiceDetail.Rows.Count;
+
+                if (countRow>1)
+                {
+                    bool isDelete = ri.SaleReceiptInvoiceDetailDelete(hdfInvoiceCode.Value);
+
+                    if (isDelete)
+                    {
+                        ShowAlert("Delete item is successfully.", "success");
+
+                        GridBind(ViewState["InvoiceNo"].ToString());
+
+                        hdfInvoiceCode.Value = null;
+                    }
+                    else
+                    {
+                        ShowAlert("Delete item is failed.", "danger");
+                    }
+                }
+                else
+                {
+                    ShowAlert("Can not delete this item becuase it has only one.", "danger");
+
+                    hdfInvoiceCode.Value = null;
                 }
             }
         }

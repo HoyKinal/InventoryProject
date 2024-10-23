@@ -44,5 +44,16 @@ namespace UnitLabrary.Properties {
                 return ((string)(this["UnitbaseDbConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\MSSQLSERVER22;Initial Catalog=UnitbaseDb;Integrated Security=True;T" +
+            "rustServerCertificate=True")]
+        public string UnitbaseDbConnectionString2 {
+            get {
+                return ((string)(this["UnitbaseDbConnectionString2"]));
+            }
+        }
     }
 }

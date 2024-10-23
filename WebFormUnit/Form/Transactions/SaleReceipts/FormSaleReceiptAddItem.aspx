@@ -142,14 +142,22 @@
     <script src="../../../Scripts/bootstrap.min.js"></script>
     <script src="../../../Scripts/bootstrap.bundle.min.js"></script>
     <script>
+        //Reset modal 
+        document.addEventListener('DOMContentLoaded', function () {
+            var deleteModal = document.getElementById('deleteModal');
+            deleteModal.addEventListener('hidden.bs.modal', function () {
+                document.getElementById('<%=hdfInvoiceCode.ClientID%>').value = '';
+            });
+
+        });
         function DeleteModal() {
             var isDelete = new bootstrap.Modal(document.getElementById('deleteModal'));
             isDelete.show();
         }
-        function removeNonNumeric(input) {        
-            input.value = input.value.replace(/[^0-9.]/g, ''); 
+        function removeNonNumeric(input) {
+            input.value = input.value.replace(/[^0-9.]/g, '');
             if (input.value.split('.').length > 2) {
-                input.value = input.value.replace(/\.+$/, ""); 
+                input.value = input.value.replace(/\.+$/, "");
             }
         }
         $(document).ready(function () {
@@ -158,8 +166,8 @@
             var total = $('#' + '<%=txtTotal.ClientID%>');
             var discountPercent = $('#' + '<%=txtDiscountPercent.ClientID%>');
             var discountAmount = $('#' + '<%=txtDiscountAmount.ClientID%>');
-            var totalDiscount = $('#'+'<%=txtTotalDiscount.ClientID%>');
-            var subTotal = $('#'+'<%=txtSubTotal.ClientID%>');
+            var totalDiscount = $('#' +'<%=txtTotalDiscount.ClientID%>');
+            var subTotal = $('#' + '<%=txtSubTotal.ClientID%>');
 
             function GetTotal() {
                 var SalePriceVal = parseFloat(salePrice.val()) || 0;
@@ -173,7 +181,7 @@
                 var discountPercentVal = parseFloat(discountPercent.val()) || 0;
                 var discountAmountVal = parseFloat(discountAmount.val()) || 0;
                 var totalDiscountVal = (totalVal * (discountPercentVal / 100)) + discountAmountVal
-                totalDiscount.val(totalDiscountVal.toFixed("F2"));nt
+                totalDiscount.val(totalDiscountVal.toFixed("F2")); nt
             }
             function GetSubTotal() {
                 var totalVal = parseFloat(total.val()) || 0;

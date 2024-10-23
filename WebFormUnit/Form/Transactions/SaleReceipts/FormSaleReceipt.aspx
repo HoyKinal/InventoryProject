@@ -93,7 +93,7 @@
             </asp:UpdatePanel>
              <asp:LinkButton ID="btnSave" runat="server" CssClass="text-decoration-none text-primary" OnClick="btnSave_Click"><i class="fi fi-ss-disk"></i> Save</asp:LinkButton>  
              <asp:LinkButton ID="btnOpen" runat="server" CssClass="text-decoration-none text-primary" OnClick="btnOpen_Click"><i class="fi fi-ss-folder-open"></i> Open</asp:LinkButton>  
-
+             <asp:LinkButton ID="btnDeleteHeader" runat="server" CssClass="text-decoration-none text-danger" OnClick="btnDeleteHeader_Click"><i class="fi fi-ss-delete-document"></i> Delete</asp:LinkButton>
         </div>
         <div class="row">
             <div class="col-3">

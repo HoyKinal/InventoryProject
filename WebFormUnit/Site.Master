@@ -109,6 +109,14 @@
                                 <li><a class="dropdown-item" runat="server" href="~/Form/Transactions/SaleReceipts/FormSaleReceipt">Sale Receipt</a></li>
                                 <li><a class="dropdown-item" runat="server" href="~/Form/Transactions/SaleReceipts/FormSaleReceiptList">Sale Receipt List</a></li>
                                 <li><a class="dropdown-item" runat="server" href="~/Form/Transactions/SaleInvoices/FormSaleInvoice">Sale Invoice</a></li>
+                                <li><a class="dropdown-item" runat="server" href="~/Form/Transactions/SaleInvoices/FormSaleInvoiceList">Sale Invoice List</a></li>
+                                <li><a class="dropdown-item" runat="server" href="~/Form/Transactions/SaleInvoices/FormSaleInvoicePayment">Receive Payment</a></li>
+                                <li><a class="dropdown-item" runat="server" href="~/Form/Transactions/SaleInvoices/FormSaleInvoicePaymentList">Received Payment List</a></li>
+                                <li>
+                                    <hr class="dropdown-divider"/>
+                                </li>
+                                <li><a class="dropdown-item" runat="server" href="~/Form/Transactions/Stock/FormAdjustmentHeader"> AdjustmentStock</a></li>
+                                <li><a class="dropdown-item" runat="server"> AdjustmentStock List</a></li>
                             </ul>
                         </li>
                     </ul>

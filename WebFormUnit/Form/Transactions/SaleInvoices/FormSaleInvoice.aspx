@@ -87,8 +87,10 @@
                     <asp:LinkButton ID="btnNewInvoice" runat="server" CssClass="text-decoration-none text-success " OnClick="btnNewInvoice_Click"><i class="fi fi-ss-add-document"></i> New</asp:LinkButton>
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <asp:LinkButton ID="btnSave" runat="server" CssClass="text-decoration-none text-primary"><i class="fi fi-ss-disk"></i> Save</asp:LinkButton>
-            <asp:LinkButton ID="btnOpen" runat="server" CssClass="text-decoration-none text-primary"><i class="fi fi-ss-folder-open"></i> Open</asp:LinkButton>
+            <asp:LinkButton ID="btnSave" runat="server" CssClass="text-decoration-none text-primary" OnClick="btnSave_Click"><i class="fi fi-ss-disk"></i> Save</asp:LinkButton>
+            <asp:LinkButton ID="btnOpen" runat="server" CssClass="text-decoration-none text-primary" OnClick="btnOpen_Click"><i class="fi fi-ss-folder-open"></i> Open</asp:LinkButton>
+            <asp:LinkButton ID="btnDeleteHeader" runat="server" CssClass="text-decoration-none text-danger" OnClick="btnDeleteHeader_Click"><i class="fi fi-ss-delete-document"></i> Delete</asp:LinkButton>
+            <asp:LinkButton ID="btnPayment" runat="server" CssClass="text-decoration-none text-success" OnClick="btnPayment_Click"><i class="fi fi-ss-payroll-calendar"></i> Payment</asp:LinkButton>
         </div>
         <div class="row mt-3">
             <div class="col-3">
@@ -111,6 +113,10 @@
                             <asp:TextBox ID="txtInvoiceDate" runat="server" CssClass="form-control datepicker"></asp:TextBox>
                         </div>
                         <div class="mt-3">
+                            <label class="form-label">Due Date</label>
+                            <asp:TextBox ID="txtInvoiceDueDate" runat="server" CssClass="form-control datepicker"></asp:TextBox>
+                        </div>
+                        <div class="mt-3">
                             <label class="form-label">Memo</label>
                             <asp:TextBox ID="txtMemoInvoice" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
@@ -120,8 +126,16 @@
             <div class="col-9">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title text-primary">Item</h5>
-                        <p class="text-muted">Enables you to track how much money you made from sale items.</p>
+                        <div class="row">
+                            <div class="col-6">
+                                <h5 class="card-title text-primary">Item</h5>
+                                <p class="text-muted">Enables you to track how much money you made from sale items.</p>
+                            </div>
+                            <div class="col-6 text-end">
+                                <h4 class="text-success">Grand Total</h4>
+                                <asp:Label ID="lbDisplayGrandTotal" runat="server" CssClass="text-danger h4" Text="0"></asp:Label>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="card-body">
@@ -141,15 +155,15 @@
                                         OnRowCommand="gvSaleInvoice_RowCommand">
                                         <Columns>
                                             <asp:BoundField DataField="RowNo" HeaderText="#" />
-                                            <asp:BoundField DataField="" HeaderText="ItemCode" />
-                                            <asp:BoundField DataField="" HeaderText="Description" />
-                                            <asp:BoundField DataField="" HeaderText="Quantity" DataFormatString="{0:F0}" />
-                                            <asp:BoundField DataField="" HeaderText="Unit" />
-                                            <asp:BoundField DataField="" HeaderText="Sale Price" DataFormatString="{0:F2}" />
-                                            <asp:BoundField DataField="" HeaderText="Discount Amount" DataFormatString="{0:F2}" />
-                                            <asp:BoundField DataField="" HeaderText="Discount %" DataFormatString="{0:F2}" />
-                                            <asp:BoundField DataField="" HeaderText="Total Discount" DataFormatString="{0:F2}" />
-                                            <asp:BoundField DataField="" HeaderText="Total" DataFormatString="{0:F2}" />
+                                            <asp:BoundField DataField="ItemCode" HeaderText="ItemCode" />
+                                            <asp:BoundField DataField="SaleDescription" HeaderText="Description" />
+                                            <asp:BoundField DataField="Quantity" HeaderText="Quantity" DataFormatString="{0:F0}" />
+                                            <asp:BoundField DataField="SaleUnit" HeaderText="Unit" />
+                                            <asp:BoundField DataField="SalePrice" HeaderText="Sale Price" DataFormatString="{0:F2}" />
+                                            <asp:BoundField DataField="DiscountAmount" HeaderText="Discount Amount" DataFormatString="{0:F2}" />
+                                            <asp:BoundField DataField="DiscountPercent" HeaderText="Discount %" DataFormatString="{0:F2}" />
+                                            <asp:BoundField DataField="TotalDiscount" HeaderText="Total Discount" DataFormatString="{0:F2}" />
+                                            <asp:BoundField DataField="Total" HeaderText="Total" DataFormatString="{0:F2}" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:LinkButton ID="btnEdit" runat="server" CssClass="text-decoration-none text-primary" CommandName="EditItem" CommandArgument='<%# ((GridViewRow)Container).RowIndex %>'><i class="fi fi-rr-edit"></i></asp:LinkButton>
@@ -192,6 +206,25 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%-- Delete Modal --%>
+    <div class="modal fade" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-muted">Confirm Delete Item</h5>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted">Are you sure want to delete this item.</p>
+                    <p class="text-muted">Description:
+                        <asp:Label ID="lbDiscription" runat="server" Text="Unknown"></asp:Label></p>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="btnDelete" runat="server" CssClass="btn btn-danger" Text="Delete" OnClick="btnDelete_Click" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

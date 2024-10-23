@@ -51,6 +51,24 @@ namespace WebFormUnit.Form.Transactions.SaleInvoices
         protected global::System.Web.UI.WebControls.LinkButton btnOpen;
 
         /// <summary>
+        /// btnDeleteHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnDeleteHeader;
+
+        /// <summary>
+        /// btnPayment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnPayment;
+
+        /// <summary>
         /// txtInvoiceNo control.
         /// </summary>
         /// <remarks>
@@ -78,6 +96,15 @@ namespace WebFormUnit.Form.Transactions.SaleInvoices
         protected global::System.Web.UI.WebControls.TextBox txtInvoiceDate;
 
         /// <summary>
+        /// txtInvoiceDueDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtInvoiceDueDate;
+
+        /// <summary>
         /// txtMemoInvoice control.
         /// </summary>
         /// <remarks>
@@ -85,6 +112,15 @@ namespace WebFormUnit.Form.Transactions.SaleInvoices
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMemoInvoice;
+
+        /// <summary>
+        /// lbDisplayGrandTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbDisplayGrandTotal;
 
         /// <summary>
         /// lbDisplayTotalInvoiceDetail control.
@@ -166,5 +202,23 @@ namespace WebFormUnit.Form.Transactions.SaleInvoices
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTotalDiscount;
+
+        /// <summary>
+        /// lbDiscription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbDiscription;
+
+        /// <summary>
+        /// btnDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDelete;
     }
 }

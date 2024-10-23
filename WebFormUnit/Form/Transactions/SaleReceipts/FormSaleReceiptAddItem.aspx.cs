@@ -169,61 +169,67 @@ namespace WebFormUnit.Form.Transactions.SaleReceipts
             {
                 InvoiceCode = DateTime.Now.Ticks.ToString(),
                 InvoiceNo = ViewState["InvoiceNo"].ToString(),    
-                ItemCode = ddlItemCode.SelectedValue?? "drink-001",
+                ItemCode = ddlItemCode.SelectedValue,
                 Quantity = txtQuantity.Text.KinalDecimal(),
                 SaleUnit = ddlUnitSale.SelectedValue,  
                 SalePrice = txtSalePrice.Text.KinalDecimal(),
                 DiscountAmount = txtDiscountAmount.Text.KinalDecimal(),
                 DiscountPercent = txtDiscountPercent.Text.KinalDecimal(),   
-                locationCode = new ItemList().ItemListSelectEdits(ddlItemCode.SelectedValue?? "drink-001").LocationCode.ToString()
+                locationCode = new ItemList().ItemListSelectEdits(ddlItemCode.SelectedValue)?.LocationCode.ToString()
             };
            
             SaleReceiptInvoiceDetail srd = new SaleReceiptInvoiceDetail();
 
             //Take code from row command InvoiceCode
-            string invoiceCode = ViewState["InvoiceCode"]?.ToString()??hdfInvoiceCode.Value??"";
+            string invoiceCode = ViewState["InvoiceCode"]?.ToString()??hdfInvoiceCode.Value;
 
-            if (string.IsNullOrEmpty(invoiceCode))
+            if (!string.IsNullOrEmpty(ddlItemCode.SelectedValue))
             {
-                bool isInsert = srd.SaleReceiptInvoiceDetailInsert(m);
-
-                if (isInsert)
+                if (string.IsNullOrEmpty(invoiceCode))
                 {
-                    ShowAlert("Insert Item is successfully.", "success");
+                    bool isInsert = srd.SaleReceiptInvoiceDetailInsert(m);
 
-                    GridBind(ViewState["InvoiceNo"].ToString());
+                    if (isInsert)
+                    {
+                        ShowAlert("Insert Item is successfully.", "success");
 
-                    ClearField();
+                        GridBind(ViewState["InvoiceNo"].ToString());
+
+                        ClearField();
+                    }
+                    else
+                    {
+                        ShowAlert("Insert item is failed.", "danger");
+                    }
                 }
                 else
                 {
-                    ShowAlert("Insert item is failed.", "danger");
+                    m.InvoiceCode = ViewState["InvoiceCode"]?.ToString() ?? hdfInvoiceCode.Value ?? "";
+
+                    bool isUpdate = srd.SaleReceiptInvoiceDetailUpate(m);
+
+                    if (isUpdate)
+                    {
+                        ShowAlert("Update Item is successfully.", "success");
+
+                        GridBind(ViewState["InvoiceNo"].ToString());
+
+                        hdfInvoiceCode.Value = null;
+
+                        ViewState["InvoiceCode"] = null;
+
+                        ClearField();
+                    }
+                    else
+                    {
+                        ShowAlert("Update item is failed.", "danger");
+                    }
                 }
             }
             else
             {
-                m.InvoiceCode = ViewState["InvoiceCode"]?.ToString() ?? hdfInvoiceCode.Value??"";
-
-                bool isUpdate = srd.SaleReceiptInvoiceDetailUpate(m);
-
-                if (isUpdate)
-                {
-                    ShowAlert("Update Item is successfully.", "success");
-
-                    GridBind(ViewState["InvoiceNo"].ToString());
-
-                    hdfInvoiceCode.Value = null;
-
-                    ViewState["InvoiceCode"] = null;    
-
-                    ClearField();
-                }
-                else
-                {
-                    ShowAlert("Update item is failed.", "danger");
-                }
+                ShowAlert("Insert itemCode is Invalid please try choose another.", "danger");
             }
-
         }
 
         private void LoadItemInventory(string invoiceCode)
